@@ -12,7 +12,6 @@ const Navbar = () => {
 
         <input
           className="nav-search"
-          id="items-disabled"
           type="text"
           placeholder="Search for product, brands and more"
         />

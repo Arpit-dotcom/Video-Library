@@ -1,7 +1,7 @@
 export const VideoCard = ({ id, image, title, views, days, time, creator }) => {
   return (
     <section className="card badge-card" key={id}>
-      <button className="wishlist-button">{time}</button>
+      <button className="timing">{time}</button>
       <img className="img" src={image} alt="card-image" />
       <div className="card-text">
         <section class="avatar flex">
