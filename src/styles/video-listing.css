@@ -1,3 +1,6 @@
+:root{
+  --bg-color: #e2e8f0;
+}
 .videoContainer {
   font-size: 1rem;
   display: grid;
@@ -6,13 +9,13 @@
 
 .videoContainer .drawer {
   width: 15rem;
-  background-color: var(--badge-offline);
+  background-color: var(--bg-color);
   border: 1px solid var(--white-section);
 }
 
 .videoContainer .stacked-list {
   width: 100%;
-  background-color: var(--badge-offline);
+  background-color: var(--bg-color);
   text-decoration: none;
   border: none;
   font-size: 1.3rem;
@@ -82,7 +85,7 @@
   border: 1px solid var(--default);
   padding: 0.5rem 1rem;
   margin: 0.5rem;
-  background-color: var(--badge-offline);
+  background-color: var(--bg-color);
   border-radius: 5rem;
 }
 

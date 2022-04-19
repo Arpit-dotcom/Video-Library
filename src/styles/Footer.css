@@ -1,7 +1,10 @@
+:root{
+  --bg-color: #e2e8f0;
+}
 .main-footer{
     width: 100%;
     padding: .5rem;
-    background-color: var(--badge-offline);
+    background-color: var(--bg-color);
 }
 
 .footer-header{

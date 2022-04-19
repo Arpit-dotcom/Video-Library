@@ -1,5 +1,8 @@
+:root{
+  --bg-color: #e2e8f0;
+}
 .simple-navigation {
-  background-color: var(--badge-offline);
+  background-color: var(--bg-color);
   padding: 1rem;
   align-items: center;
 }
