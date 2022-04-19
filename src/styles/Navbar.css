@@ -1,0 +1,93 @@
+.simple-navigation {
+  background-color: var(--badge-offline);
+  padding: 1rem;
+  align-items: center;
+}
+
+.simple-navigation .list-item{
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+}
+
+.fa-bars{
+    font-size: 1.5rem;
+    margin-top: 0.7rem;
+    margin-right: 1rem;
+}
+
+.nav-list {
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  font-size: 1rem;
+  width: auto;
+}
+
+.logo {
+  width: 3rem;
+  height: 3rem;
+  margin: 0 1rem;
+}
+
+.nav-list .text{
+  color: var(--secondary-color);
+}
+
+.nav-search{
+  padding: 0.5rem;
+  width: 30%;
+}
+
+.icons{
+  position: relative;
+  color: var(--secondary-color);
+}
+
+.icons > a{
+  color: var(--secondary-color);
+  margin: 0 1rem;
+}
+
+.material-icons{
+  margin: 0 1.5rem;
+}
+.badge, .header-text, .num-items{
+  position: absolute;
+}
+.profile .header-text{
+  top: 1.5rem;
+  left: 1rem;
+}
+.wishlist .header-text{
+  top: 1.5rem;
+  left: 5.3rem;
+}
+.cart .header-text{
+  top: 1.5rem;
+   right: 1.3rem;
+}
+
+.wishlist .badge{
+  top: -1rem;
+  right: 3.5rem;
+}
+.cart .badge, .cart .num-items{
+  top: -1rem;
+  right: -1.3rem;
+}
+.wishlist .num-items{
+  color: var(--primary-color);
+  top: -1rem;
+  right: 5.5rem;
+}
+.cart .num-items{
+  color: var(--primary-color);
+  top: -1rem;
+  right: 0.7rem;
+}
+
+.sub-container {
+  display: flex;
+}

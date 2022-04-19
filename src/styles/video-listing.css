@@ -1,0 +1,110 @@
+.videoContainer {
+  font-size: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+
+.videoContainer .drawer {
+  width: 15rem;
+  background-color: var(--badge-offline);
+  border: 1px solid var(--white-section);
+}
+
+.videoContainer .stacked-list {
+  width: 100%;
+  background-color: var(--badge-offline);
+  text-decoration: none;
+  border: none;
+  font-size: 1.3rem;
+  text-align: left;
+}
+
+.videoContainer .list-item .fas,
+.videoContainer .list-item .far {
+  margin: 0 0.5rem;
+}
+
+.videoContainer .list-item {
+  margin: 0;
+  display: block;
+  border: none;
+}
+
+.videoContainer .main-content {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.videoContainer .card {
+  background-color: var(--white-section);
+  padding: 0;
+  border: none;
+  width: 18rem;
+  height: 16rem;
+  position: relative;
+  max-width: none;
+}
+.videoContainer .card-text {
+  padding: 0;
+  text-align: left;
+}
+
+.videoContainer .sm {
+  width: 2rem;
+  height: 2rem;
+}
+
+.videoContainer .card-view {
+  margin-right: 1rem;
+}
+
+.videoContainer .img {
+  object-fit: cover;
+  height: 60%;
+}
+
+.videoContainer .fa-eye,
+.videoContainer .fa-dot-circle {
+  margin-right: 0.2rem;
+}
+
+.videoContainer .filter-list {
+  list-style: none;
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin: 1rem;
+}
+
+.videoContainer .filter-list-item {
+  display: inline;
+  border: 1px solid var(--default);
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  background-color: var(--badge-offline);
+  border-radius: 5rem;
+}
+
+.videoContainer .wishlist-button {
+  position: absolute;
+  right: 0.5rem;
+  top: 7.5rem;
+  color: var(--white-section);
+  background-color: var(--default);
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.list-item {
+  color: var(--default);
+}
+
+.videoContainer .product-empty {
+  font-size: 5rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 8rem;
+}

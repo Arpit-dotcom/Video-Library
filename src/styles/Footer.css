@@ -1,0 +1,25 @@
+.main-footer{
+    width: 100%;
+    padding: .5rem;
+    background-color: var(--badge-offline);
+}
+
+.footer-header{
+    text-align: center;
+    color: var(--default);
+    font-size: 1.5rem;
+}
+
+.footer-link{
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+.footer-link .link{
+    margin: 0 2rem;
+}
+
+.footer-link .fa-github, .footer-link .fa-twitter, .footer-link .fa-linkedin-in{
+    color: var(--default);
+}
