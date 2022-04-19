@@ -1,6 +1,5 @@
-:root{
-  --bg-color: #e2e8f0;
-}
+@import "./common.css";
+
 .main-footer{
     width: 100%;
     padding: .5rem;

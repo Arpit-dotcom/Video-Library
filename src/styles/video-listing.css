@@ -1,6 +1,5 @@
-:root{
-  --bg-color: #e2e8f0;
-}
+@import "./common.css";
+
 .videoContainer {
   font-size: 1rem;
   display: grid;

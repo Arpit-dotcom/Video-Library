@@ -1,4 +1,4 @@
-import { videos } from "../../../backend/db/videos";
+import { videos } from "backend/db/videos";
 import { Sidebar } from "./sidebar";
 import { VideoCard } from "./video-card";
 
