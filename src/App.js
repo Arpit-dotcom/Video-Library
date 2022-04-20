@@ -1,12 +1,12 @@
 import { Footer, Navbar } from "components";
 import "./App.css";
-import { WatchLater } from "pages";
+import { LikedVideos } from "pages";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <WatchLater />
+      <LikedVideos />
       <Footer />
     </div>
   );
