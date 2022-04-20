@@ -1,5 +1,5 @@
 import React from "react";
-import "styles/Footer.css";
+import "styles/footer.css";
 
 const contactLinks = [
   { link: "https://github.com/Arpit-dotcom/", icon: "fab fa-github" },
@@ -15,11 +15,12 @@ const Footer = () => {
     <h2 className="footer-header">CONTACT US</h2>
 
     <div className="footer-link">
-      {contactLinks.map((contactLink) => (
+      {contactLinks.map((contactLink,index) => (
         <a
           className="link"
           href={contactLink.link}
           target="_blank"
+          key={index}
         >
           <i className={contactLink.icon}></i>
         </a>

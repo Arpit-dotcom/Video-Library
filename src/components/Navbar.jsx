@@ -1,5 +1,5 @@
 import React from "react";
-import "styles/Navbar.css";
+import "styles/navbar.css";
 
 const Navbar = () => {
   return (
@@ -7,7 +7,7 @@ const Navbar = () => {
       <nav className="simple-navigation">
         <a className="nav-list">
           <i className="fas fa-bars"></i>
-          <h1 className="text">Video Library</h1>
+          <h1 className="text">Laugh Factory</h1>
         </a>
 
         <input
