@@ -1,0 +1,67 @@
+@import "./common.css";
+
+.watchLaterContainer {
+  font-size: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  height: 100vh;
+}
+
+.watchLaterContainer .main-content .heading{
+  width: 90%;
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.watchLaterContainer .heading > p{
+    margin-top: .3rem;
+}
+
+.watchLaterContainer .horizontal{
+    position: relative;
+    min-height: 12rem;
+    max-width: 100%;
+    margin: 1rem;
+    border-radius: 0;
+    padding: 1rem;
+    background-color: var(--bg-color);
+}
+
+.watchLaterContainer .fa-times{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.watchLaterContainer .horizontal .img{
+    width: 18rem;
+    border-radius: 9px;
+}
+
+.watchLaterContainer .container1 .header{
+    margin: 0 1rem;
+    font-weight: normal;
+}
+
+.watchLaterContainer .container1 .description{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+}
+
+.watchLaterContainer .footer .view{
+    margin-right: 2rem;
+}
+
+.watchLaterContainer .view > span, .time > span{
+    margin-left: .5rem;
+}
+
+.watchLaterContainer .product-empty {
+  font-size: 5rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 8rem;
+}

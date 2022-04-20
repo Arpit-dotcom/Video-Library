@@ -4,7 +4,7 @@
   width: 15rem;
   background-color: var(--bg-color);
   border: 1px solid var(--white-section);
-  min-height: 76.4vh;
+  min-height: 100vh;
 }
 
 .stacked-list {

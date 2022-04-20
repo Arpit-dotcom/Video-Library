@@ -1,3 +1,11 @@
 :root{
   --bg-color: #e2e8f0;
 }
+
+.margin-top-0_5{
+  margin-top: .5rem;
+}
+
+.margin-top-2{
+  margin-top: 2rem;
+}

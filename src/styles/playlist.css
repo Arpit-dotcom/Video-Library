@@ -4,7 +4,7 @@
   font-size: 1rem;
   display: grid;
   grid-template-columns: 1fr 5fr;
-  height: 76.4vh;;
+  height: 100vh;;
 }
 
 .playlistContainer .main-content .heading{
