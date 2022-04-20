@@ -1,5 +1,5 @@
 import { videos } from "backend/db/videos";
-import { Sidebar } from "./sidebar";
+import { Sidebar } from "components";
 import { VideoCard } from "./video-card";
 
 export const Main = () => {

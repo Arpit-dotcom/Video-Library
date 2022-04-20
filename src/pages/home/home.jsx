@@ -1,4 +1,4 @@
-import { Main } from "./main/main";
+import { Main } from "./main";
 import "styles/home.css";
 
 export const Home = () => {

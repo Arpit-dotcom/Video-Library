@@ -1,3 +1,5 @@
+import "styles/sidebar.css";
+
 export const Sidebar = () => {
   const categories = [
     { icons: "fas fa-home", text: "Home" },

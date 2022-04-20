@@ -6,32 +6,6 @@
   grid-template-columns: 1fr 5fr;
 }
 
-.videoContainer .drawer {
-  width: 15rem;
-  background-color: var(--bg-color);
-  border: 1px solid var(--white-section);
-}
-
-.videoContainer .stacked-list {
-  width: 100%;
-  background-color: var(--bg-color);
-  text-decoration: none;
-  border: none;
-  font-size: 1.3rem;
-  text-align: left;
-}
-
-.videoContainer .list-item .fas,
-.videoContainer .list-item .far {
-  margin: 0 0.5rem;
-}
-
-.videoContainer .list-item {
-  margin: 0;
-  display: block;
-  border: none;
-}
-
 .videoContainer .main-content {
   display: flex;
   justify-content: space-evenly;
