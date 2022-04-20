@@ -1,12 +1,12 @@
 import { Footer, Navbar } from "components";
 import "./App.css";
-import { Home } from "pages";
+import { Playlist } from "pages";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <Home />
+      <Playlist />
       <Footer />
     </div>
   );

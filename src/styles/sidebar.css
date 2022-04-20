@@ -1,12 +1,13 @@
 @import "./common.css";
 
-.videoContainer .drawer {
+.drawer {
   width: 15rem;
   background-color: var(--bg-color);
   border: 1px solid var(--white-section);
+  min-height: 76.4vh;
 }
 
-.videoContainer .stacked-list {
+.stacked-list {
   width: 100%;
   background-color: var(--bg-color);
   text-decoration: none;
@@ -15,13 +16,13 @@
   text-align: left;
 }
 
-.videoContainer .list-item .fas,
-.videoContainer .list-item .far {
+.list-item .fas,
+.list-item .far {
   margin: 0 0.5rem;
 }
 
-.videoContainer .list-item {
+.list-item {
   margin: 0;
   display: block;
-  border: none;
+  border: none !important;
 }

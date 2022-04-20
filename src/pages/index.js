@@ -1,4 +1,5 @@
-import { VideoListing } from "./video-listing/video-listing";
-import { Home } from "./home/home";
+import { VideoListing } from "./video-listing/video-listing.jsx";
+import { Home } from "./home/home.jsx";
+import { Playlist } from "./playlist/playlist.jsx";
 
-export { VideoListing, Home };
+export { VideoListing, Home, Playlist };

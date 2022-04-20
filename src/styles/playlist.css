@@ -1,0 +1,39 @@
+@import "./common.css";
+
+.playlistContainer {
+  font-size: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  height: 76.4vh;;
+}
+
+.playlistContainer .main-content .heading{
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.playlistContainer .normal-list{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.playlistContainer .normal-list-item{
+  background-color: var(--bg-color);
+  margin: 1rem;
+  padding: 1rem;
+  width: 37rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.playlistContainer .normal-list-item > div{
+  display: flex;
+  align-items: center;
+}
+
+.playlistContainer .product-empty {
+  font-size: 5rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 8rem;
+}
