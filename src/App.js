@@ -9,6 +9,9 @@ import {
   LikedVideos,
   History,
   VideoPlayer,
+  Login,
+  Logout,
+  Signup,
 } from "pages";
 
 function App() {
@@ -23,6 +26,9 @@ function App() {
         <Route path="/watchLater" element={<WatchLater />} />
         <Route path="/likedVideos" element={<LikedVideos />} />
         <Route path="/history" element={<History />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
       <Footer />
     </div>

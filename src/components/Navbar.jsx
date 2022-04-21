@@ -25,13 +25,9 @@ const Navbar = () => {
 
         <div className="nav-list">
           <div className="list-item icons">
-            <a className="notification">
-              <i className="fas fa-bell"></i>
-            </a>
-
-            <a className="profile">
+            <Link to="/login" className="profile">
               <i className="fas fa-user"></i>
-            </a>
+            </Link>
           </div>
         </div>
       </nav>

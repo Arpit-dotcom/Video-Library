@@ -5,6 +5,9 @@ import { WatchLater } from "./watch-later/watch-later.jsx";
 import { LikedVideos } from "./liked-videos/liked-videos.jsx";
 import { History } from "./history/history.jsx";
 import { VideoPlayer } from "./video-player/video-player.jsx";
+import { Login } from "./auth/login.jsx";
+import { Logout } from "./auth/logout.jsx";
+import { Signup } from "./auth/signup.jsx";
 
 export {
   VideoListing,
@@ -14,4 +17,7 @@ export {
   LikedVideos,
   History,
   VideoPlayer,
+  Login,
+  Logout,
+  Signup
 };
