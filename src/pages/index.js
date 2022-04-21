@@ -4,5 +4,14 @@ import { Playlist } from "./playlist/playlist.jsx";
 import { WatchLater } from "./watch-later/watch-later.jsx";
 import { LikedVideos } from "./liked-videos/liked-videos.jsx";
 import { History } from "./history/history.jsx";
+import { VideoPlayer } from "./video-player/video-player.jsx";
 
-export { VideoListing, Home, Playlist, WatchLater, LikedVideos,History };
+export {
+  VideoListing,
+  Home,
+  Playlist,
+  WatchLater,
+  LikedVideos,
+  History,
+  VideoPlayer,
+};

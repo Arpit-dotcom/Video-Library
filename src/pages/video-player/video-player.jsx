@@ -1,7 +1,7 @@
 import { Main } from "./main";
-import "styles/playlist.css";
+import "styles/video-details.css";
 
-export const Playlist = () => {
+export const VideoPlayer = () => {
   return (
     <>
       <Main />

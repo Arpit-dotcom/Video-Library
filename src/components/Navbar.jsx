@@ -6,9 +6,13 @@ const Navbar = () => {
     <>
       <nav className="simple-navigation">
         <a className="nav-list">
-          <i className="fas fa-bars"></i>
           <h1 className="text">Laugh Factory</h1>
         </a>
+
+        <div className="nav-list">
+          <h3 className="nav-link">Home</h3>
+          <h3 className="nav-link">Explore</h3>
+        </div>
 
         <input
           className="nav-search"

@@ -9,7 +9,7 @@ export const Main = () => {
         <Sidebar />
 
         <main className="main-content">
-          <div className="header">
+          <div className="top-header">
             <span className="heading">
               <h2>History.</h2>
               <p>{videos.length} videos</p>

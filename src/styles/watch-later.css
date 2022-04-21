@@ -7,7 +7,7 @@
   min-height: 100vh;
 }
 
-.watchLaterContainer .header{
+.watchLaterContainer .top-header{
   display: flex;
   justify-content: space-between;
   align-items: center;

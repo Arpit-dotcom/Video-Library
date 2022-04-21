@@ -1,12 +1,12 @@
 import { Footer, Navbar } from "components";
 import "./App.css";
-import { History } from "pages";
+import { VideoPlayer } from "pages";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <History />
+      <VideoPlayer />
       <Footer />
     </div>
   );
