@@ -1,12 +1,29 @@
 import { Footer, Navbar } from "components";
 import "./App.css";
-import { VideoPlayer } from "pages";
+import { Routes, Route } from "react-router-dom";
+import {
+  VideoListing,
+  Home,
+  Playlist,
+  WatchLater,
+  LikedVideos,
+  History,
+  VideoPlayer,
+} from "pages";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <VideoPlayer />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/videoListing" element={<VideoListing />} />
+        <Route path="/videoPlayer" element={<VideoPlayer />} />
+        <Route path="/playlist" element={<Playlist />} />
+        <Route path="/watchLater" element={<WatchLater />} />
+        <Route path="/likedVideos" element={<LikedVideos />} />
+        <Route path="/history" element={<History />} />
+      </Routes>
       <Footer />
     </div>
   );

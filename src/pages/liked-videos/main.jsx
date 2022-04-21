@@ -1,6 +1,5 @@
 import { videos } from "backend/db/videos";
 import { Sidebar, PlaylistContainer } from "components";
-import "styles/watch-later.css";
 
 export const Main = () => {
   return (
@@ -9,7 +8,7 @@ export const Main = () => {
         <Sidebar />
 
         <main className="main-content">
-          <div className="heading">
+          <div className="margin-1 heading">
             <h2>Liked Videos.</h2>
             <p>{videos.length} videos</p>
           </div>

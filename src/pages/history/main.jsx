@@ -1,6 +1,5 @@
 import { videos } from "backend/db/videos";
 import { PlaylistContainer, Sidebar } from "components";
-import "styles/watch-later.css";
 
 export const Main = () => {
   return (

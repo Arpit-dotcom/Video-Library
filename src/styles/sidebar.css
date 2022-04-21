@@ -16,6 +16,11 @@
   text-align: left;
 }
 
+.link{
+  color: var(--default);
+  text-decoration: none;
+}
+
 .list-item .fas,
 .list-item .far {
   margin: 0 0.5rem;

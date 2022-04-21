@@ -7,21 +7,23 @@
   min-height: 100vh;
 }
 
-.watchLaterContainer .top-header{
+.watchLaterContainer .top-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-right: 2rem;
+  margin: 1rem;
 }
 
-.watchLaterContainer .main-content .heading{
+.watchLaterContainer .main-content .heading {
   width: 90%;
-  margin: 1rem;
   display: flex;
   align-items: center;
 }
 
-.watchLaterContainer .heading > p{
-    margin-top: .3rem;
+.watchLaterContainer .heading > p {
+  margin-top: 0.3rem;
 }
 
+.watchLaterContainer .main-footer {
+  margin: 1rem;
+}

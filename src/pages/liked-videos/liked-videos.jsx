@@ -1,5 +1,5 @@
 import { Main } from "./main";
-import "styles/watch-later.css";
+import "styles/header.css";
 
 export const LikedVideos = () => {
   return (
