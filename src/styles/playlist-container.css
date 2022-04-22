@@ -16,6 +16,12 @@
     right: 1rem;
 }
 
+.horizontal .title{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 2rem;
+}
+
 .horizontal .img{
     width: 18rem;
     border-radius: 9px;
@@ -29,6 +35,7 @@
 .container1 .description{
     text-overflow: ellipsis;
     overflow: hidden;
+    height: 2.3rem;
     -webkit-box-orient: vertical;
     display: -webkit-box;
 }

@@ -1,5 +1,5 @@
 import { Main } from "./main";
-import "styles/video-details.css";
+import "styles/video-player.css";
 
 export const VideoPlayer = () => {
   return (

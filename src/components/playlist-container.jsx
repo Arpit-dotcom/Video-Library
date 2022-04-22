@@ -1,17 +1,14 @@
 import "styles/playlist-container.css";
 
-export const PlaylistContainer = ({ creator, title, views, time, image }) => {
+export const PlaylistContainer = ({ creator,description, title, views, time, poster }) => {
   return (
     <section className="card horizontal">
       <div className="container1">
         <section className="header">
           <p>{creator}</p>
-          <h2 className="margin-top-0_5">{title}</h2>
+          <h2 className="margin-top-0_5 title">{title}</h2>
           <small className="margin-top-0_5 description">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis
-            nesciunt, excepturi eius necessitatibus, omnis sint autem
-            perferendis maiores architecto minus, harum ipsa rerum sit
-            recusandae doloribus. Velit commodi voluptatem minus.
+            {description}
           </small>
           <div className="margin-top-2 footer">
             <span className="view">
@@ -27,7 +24,7 @@ export const PlaylistContainer = ({ creator, title, views, time, image }) => {
 
         <i class="fas fa-times"></i>
 
-        <img class="img" src={image} alt="" />
+        <img class="img" src={poster} alt="" />
       </div>
     </section>
   );

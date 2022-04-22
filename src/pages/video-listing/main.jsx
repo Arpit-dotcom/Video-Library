@@ -1,6 +1,7 @@
 import { videos } from "backend/db/videos";
 import { Sidebar } from "components";
 import { VideoCard } from "./video-card";
+import { home } from "staticData/data";
 
 export const Main = () => {
   return (
@@ -9,14 +10,14 @@ export const Main = () => {
         <Sidebar />
 
         <main className="main-content">
+          <ul className="filter-list">
+            <li className="filter-list-item">All</li>
+            {home.data.map((list) => (
+              <li className="filter-list-item">{list.title}</li>
+            ))}
+          </ul>
           {videos && (
             <>
-              <ul className="filter-list">
-                <li className="filter-list-item">List Item 1</li>
-                <li className="filter-list-item">List Item 2</li>
-                <li className="filter-list-item">List Item 3</li>
-                <li className="filter-list-item">List Item 4</li>
-              </ul>
               {videos.map((item, index) => (
                 <VideoCard {...item} key={index} />
               ))}

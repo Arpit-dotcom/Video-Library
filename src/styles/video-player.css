@@ -1,37 +1,35 @@
 @import "./common.css";
 
-.videoDetailsContainer {
+.videoPlayerContainer {
   font-size: 1rem;
   display: grid;
   grid-template-columns: 1fr 5fr;
   height: 100vh;
 }
 
-.videoDetailsContainer .main-content{
+.videoPlayerContainer .main-content{
     padding: 1rem 2rem 1rem 1rem;
 }
 
-.videoDetailsContainer .title, .description{
+.videoPlayerContainer .title, .description{
     text-align: left;
 }
 
-.videoDetailsContainer .footer{
+.videoPlayerContainer .footer{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* .videoDetailsContainer .sub-container2 .fas, .far{} */
-
-.videoDetailsContainer .sub-container1, .sub-container2{
+.videoPlayerContainer .sub-container1, .sub-container2{
     display: flex;
 }
 
-.videoDetailsContainer .video{
+.videoPlayerContainer .video{
     width: 100%;
 }
 
-.videoDetailsContainer .video-player{
+.videoPlayerContainer .video-player{
     width: 100% !important;
     object-fit: cover;
     height: 55vh !important;

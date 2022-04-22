@@ -1,12 +1,11 @@
 // import { videos } from "backend/db/videos";
 import ReactPlayer from "react-player";
 import { Sidebar } from "components";
-import "styles/playlist.css";
 
 export const Main = () => {
   return (
     <>
-      <section className="videoDetailsContainer">
+      <section className="videoPlayerContainer">
         <Sidebar />
 
         <main className="main-content">
@@ -32,8 +31,8 @@ export const Main = () => {
                 <div className="margin-top-0_5 left-mini-container">
                   <i className="margin-right-0_5 fas fa-eye"></i>
                   <span className="margin-right-2">views</span>
-                  <i className="margin-right-0_5 fas fa-clock"></i>
-                  <span>time</span>
+                  <i className="margin-right-0_5 far fa-dot-circle"></i>
+                  <span>days</span>
                 </div>
               </span>
             </span>

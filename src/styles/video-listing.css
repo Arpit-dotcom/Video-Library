@@ -17,13 +17,19 @@
   padding: 0;
   border: none;
   width: 18rem;
-  height: 16rem;
+  height: 20rem;
   position: relative;
   max-width: none;
 }
 .videoContainer .card-text {
   padding: 0;
   text-align: left;
+}
+
+.videoContainer .title{
+  height: 2.7rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .videoContainer .sm {
@@ -65,7 +71,7 @@
 .videoContainer .timing {
   position: absolute;
   right: 0.5rem;
-  top: 7.5rem;
+  top: 9.5rem;
   color: var(--white-section);
   background-color: var(--default);
   padding: 5px;
