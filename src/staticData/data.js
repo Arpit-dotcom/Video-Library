@@ -20,7 +20,7 @@ export const home = {
     },
     {
       src: "https://yt3.ggpht.com/ytc/AKedOLSvPEUzOL_qQkQQd17lcsvj3ikeb2iEj92MUBi91A=s176-c-k-c0x00ffffff-no-rj-mo",
-      title: "Akash Gupta",
+      title: "Aakash Gupta",
     },
     {
       src: "https://yt3.ggpht.com/ytc/AKedOLTuDOpO2Vc50eR-mu8HjPzDXwnZkqUW_ZDCoQQGCg=s176-c-k-c0x00ffffff-no-rj-mo",

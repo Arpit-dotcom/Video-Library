@@ -71,7 +71,7 @@ export const videos = [
     id: uuid(),
     link: "https://www.youtube.com/watch?v=g1T8-WSYcdI&t=602s",
     poster:
-      "https://i.ytimg.com/an_webp/g1T8-WSYcdI/mqdefault_6s.webp?du=3000&sqp=CMS-iJMG&rs=AOn4CLC_4lcY9PpOGd-0wU0EKhPKXJIBsw",
+      "https://i.ytimg.com/an_webp/g1T8-WSYcdI/mqdefault_6s.webp?du=3000&sqp=CJq3ipMG&rs=AOn4CLBg11SYtBQvDMW0bCrJLn459QdjpA",
     image:
       "https://yt3.ggpht.com/54SDvpLEfFdPeOnCCE_-P6rkiDP0VkVGAsK6pF4ockOPJw5sewC0AOexSTWjQxq8uFcYbXCMPw=s176-c-k-c0x00ffffff-no-rj-mo",
     title: "Middle Class bhi Nahi Hoon | Standup Comedy ft. Haseeb Khan",
@@ -86,7 +86,7 @@ export const videos = [
     id: uuid(),
     link: "https://www.youtube.com/watch?v=8f3e6rXB8Cw",
     poster:
-      "https://i.ytimg.com/an_webp/8f3e6rXB8Cw/mqdefault_6s.webp?du=3000&sqp=CNj0iJMG&rs=AOn4CLAgIAq_vTJhjaIVAtnmJtt-Bu2RNQ",
+      "https://i.ytimg.com/an_webp/8f3e6rXB8Cw/mqdefault_6s.webp?du=3000&sqp=COC_ipMG&rs=AOn4CLBDTnJKBzWhvSaKNXSYhq8Fz6dHsA",
     image:
       "https://yt3.ggpht.com/ytc/AKedOLTuDOpO2Vc50eR-mu8HjPzDXwnZkqUW_ZDCoQQGCg=s176-c-k-c0x00ffffff-no-rj-mo",
     title: "My name is Harsh Gujral - Standup Comedy",
@@ -116,7 +116,7 @@ export const videos = [
     id: uuid(),
     link: "https://www.youtube.com/watch?v=sIl8vsWrD8o",
     poster:
-      "https://i.ytimg.com/an_webp/sIl8vsWrD8o/mqdefault_6s.webp?du=3000&sqp=CMryiJMG&rs=AOn4CLCDxsmB0bM1KbhIUHLjBtTdMcRm1g",
+      "https://i.ytimg.com/an_webp/sIl8vsWrD8o/mqdefault_6s.webp?du=3000&sqp=CKa1ipMG&rs=AOn4CLDoV44dew00pLBVclZokzPdLUIYMA",
     image:
       "https://yt3.ggpht.com/ytc/AKedOLQ-IPFEzpiA0AqSSeK7ZiBWUfrG4a3OZar2p3tXNQ=s176-c-k-c0x00ffffff-no-rj-mo",
     title: "Zakir Khan - When I met a Delhi Girl | AIB Diwas",
@@ -130,7 +130,7 @@ export const videos = [
     id: uuid(),
     link: "https://www.youtube.com/watch?v=dtaJzUbQS7E",
     poster:
-      "https://i.ytimg.com/an_webp/dtaJzUbQS7E/mqdefault_6s.webp?du=3000&sqp=CLrNiJMG&rs=AOn4CLCe41NIR7_kHstDc6dtUizq9LrDUQ",
+      "https://i.ytimg.com/an_webp/dtaJzUbQS7E/mqdefault_6s.webp?du=3000&sqp=CN2kipMG&rs=AOn4CLALpETFOS3m-A_YkGjC8rSlhypFoQ",
     image:
       "https://yt3.ggpht.com/ytc/AKedOLQFBbx9iNh-JQvEo61AHkcDrkbY-Pavaba-y2ck9w=s176-c-k-c0x00ffffff-no-rj-mo",
     title: "Marriage & Indian English | Stand-Up Comedy by Abhishek Upmanyu",
@@ -160,7 +160,7 @@ export const videos = [
     id: uuid(),
     link: "https://www.youtube.com/watch?v=pzPCJj1U8bE&t=230s",
     poster:
-      "https://i.ytimg.com/an_webp/pzPCJj1U8bE/mqdefault_6s.webp?du=3000&sqp=CNzWiJMG&rs=AOn4CLDrG8tTeRB-QTOdgNeReF2eEheWFw",
+      "https://i.ytimg.com/an_webp/pzPCJj1U8bE/mqdefault_6s.webp?du=3000&sqp=CL79iZMG&rs=AOn4CLC0u_i6jS7yJTW8dp16n0HwVpBNrQ",
     image:
       "https://yt3.ggpht.com/54SDvpLEfFdPeOnCCE_-P6rkiDP0VkVGAsK6pF4ockOPJw5sewC0AOexSTWjQxq8uFcYbXCMPw=s176-c-k-c0x00ffffff-no-rj-mo",
     title: "Main Karachi se Hoon - Stand Up Comedy ft. Haseeb Khan",
@@ -174,7 +174,7 @@ export const videos = [
     id: uuid(),
     link: "https://www.youtube.com/watch?v=8KFi3ag9bEs",
     poster:
-      "https://i.ytimg.com/an_webp/8KFi3ag9bEs/mqdefault_6s.webp?du=3000&sqp=CKb4iJMG&rs=AOn4CLC5h9DfvYKjG2kT0vbRfdRIwzepSA",
+      "https://i.ytimg.com/an_webp/8KFi3ag9bEs/mqdefault_6s.webp?du=3000&sqp=CO3DipMG&rs=AOn4CLAMjwivZBd1gcye6EQQO5YaEoBrEQ",
     image:
       "https://yt3.ggpht.com/ytc/AKedOLTuDOpO2Vc50eR-mu8HjPzDXwnZkqUW_ZDCoQQGCg=s176-c-k-c0x00ffffff-no-rj-mo",
     title:
@@ -206,7 +206,7 @@ export const videos = [
     id: uuid(),
     link: "https://www.youtube.com/watch?v=B9nTWeqund8",
     poster:
-      "https://i.ytimg.com/an_webp/B9nTWeqund8/mqdefault_6s.webp?du=3000&sqp=CNzwiJMG&rs=AOn4CLBuSbCjD2D5pKlAaAlUpv3jfRA8VQ",
+      "https://i.ytimg.com/an_webp/B9nTWeqund8/mqdefault_6s.webp?du=3000&sqp=CJexipMG&rs=AOn4CLDlFkzwoEyAf0Ey_upAbnhnkBXL2Q",
     image:
       "https://yt3.ggpht.com/ytc/AKedOLQ-IPFEzpiA0AqSSeK7ZiBWUfrG4a3OZar2p3tXNQ=s176-c-k-c0x00ffffff-no-rj-mo",
     title: "Babu Khana Kha lo | Zakir Khan | Stand-Up Comedy | Sukha poori 5",
@@ -220,7 +220,7 @@ export const videos = [
     id: uuid(),
     link: "https://www.youtube.com/watch?v=HQILxqS831E",
     poster:
-      "https://i.ytimg.com/an_webp/HQILxqS831E/mqdefault_6s.webp?du=3000&sqp=CL2NiZMG&rs=AOn4CLBxzCea_t7zokCNfhh7gtXnQHiHOA",
+      "https://i.ytimg.com/an_webp/HQILxqS831E/mqdefault_6s.webp?du=3000&sqp=CPK7ipMG&rs=AOn4CLBd4T4XMxWIgtLU-jvVTFJVhzvFGg",
     image:
       "https://yt3.ggpht.com/ytc/AKedOLQFBbx9iNh-JQvEo61AHkcDrkbY-Pavaba-y2ck9w=s176-c-k-c0x00ffffff-no-rj-mo",
     title:
@@ -265,7 +265,7 @@ export const videos = [
     id: uuid(),
     link: "https://www.youtube.com/watch?v=PTIaBLtp4R8",
     poster:
-      "https://i.ytimg.com/an_webp/PTIaBLtp4R8/mqdefault_6s.webp?du=3000&sqp=CKSPiZMG&rs=AOn4CLAkSU5yo3EWip7Pj09uoRfdIQzaMw",
+      "https://i.ytimg.com/an_webp/PTIaBLtp4R8/mqdefault_6s.webp?du=3000&sqp=CM-zipMG&rs=AOn4CLCW0Q40WnzucxrRZxfZctxUAipTGQ",
     image:
       "https://yt3.ggpht.com/ytc/AKedOLSvPEUzOL_qQkQQd17lcsvj3ikeb2iEj92MUBi91A=s176-c-k-c0x00ffffff-no-rj-mo",
     title: "Dogs | Stand-Up Comedy by Aakash Gupta",
@@ -280,7 +280,7 @@ export const videos = [
     id: uuid(),
     link: "https://www.youtube.com/watch?v=2V1shb3Mi4s&t=3s",
     poster:
-      "https://i.ytimg.com/an_webp/2V1shb3Mi4s/mqdefault_6s.webp?du=3000&sqp=CJb3iJMG&rs=AOn4CLAYGTmnWXgc-uQl2gDutgqCLWijLw",
+      "https://i.ytimg.com/an_webp/2V1shb3Mi4s/mqdefault_6s.webp?du=3000&sqp=COefipMG&rs=AOn4CLBivXdo2uCrqkqqRXQhhLNnXCBzDA",
     image:
       "https://yt3.ggpht.com/ytc/AKedOLQ-IPFEzpiA0AqSSeK7ZiBWUfrG4a3OZar2p3tXNQ=s176-c-k-c0x00ffffff-no-rj-mo",
     title: "Bhai Tumhara Superman | Zakir khan | Comedy",
@@ -295,7 +295,7 @@ export const videos = [
     id: uuid(),
     link: "https://www.youtube.com/watch?v=rEFfoWZG1Vg",
     poster:
-      "https://i.ytimg.com/an_webp/rEFfoWZG1Vg/mqdefault_6s.webp?du=3000&sqp=CKj6iJMG&rs=AOn4CLBmOMnrJhDxaXpVxEw18MyUoRf2rg",
+      "https://i.ytimg.com/an_webp/rEFfoWZG1Vg/mqdefault_6s.webp?du=3000&sqp=CLifipMG&rs=AOn4CLBwqGKitji0yaZbSB9XtHOyhl8yKA",
     image:
       "https://yt3.ggpht.com/ytc/AKedOLQFBbx9iNh-JQvEo61AHkcDrkbY-Pavaba-y2ck9w=s176-c-k-c0x00ffffff-no-rj-mo",
     title:

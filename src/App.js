@@ -13,6 +13,7 @@ import {
   Logout,
   Signup,
 } from "pages";
+import Mockman from "mockman-js";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/mock" element={<Mockman />} />
       </Routes>
       <Footer />
     </div>
