@@ -1,4 +1,6 @@
-import { Footer } from "./Footer";
-import { Navbar } from "./Navbar";
+import { Footer } from "./footer";
+import { Navbar } from "./navbar";
+import { Sidebar } from "./sidebar";
+import { PlaylistContainer } from "./playlist-container";
 
-export { Footer, Navbar };
+export { Footer, Navbar, Sidebar, PlaylistContainer };

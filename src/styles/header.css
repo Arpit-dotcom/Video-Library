@@ -1,0 +1,29 @@
+@import "./common.css";
+
+.watchLaterContainer {
+  font-size: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  min-height: 100vh;
+}
+
+.watchLaterContainer .top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem;
+}
+
+.watchLaterContainer .main-content .heading {
+  width: 90%;
+  display: flex;
+  align-items: center;
+}
+
+.watchLaterContainer .heading > p {
+  margin-top: 0.3rem;
+}
+
+.watchLaterContainer .main-footer {
+  margin: 1rem;
+}

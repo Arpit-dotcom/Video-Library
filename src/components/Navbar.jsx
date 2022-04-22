@@ -1,14 +1,21 @@
 import React from "react";
-import "styles/Navbar.css";
+import { Link } from "react-router-dom";
+import "styles/navbar.css";
 
 const Navbar = () => {
   return (
     <>
       <nav className="simple-navigation">
         <a className="nav-list">
-          <i className="fas fa-bars"></i>
-          <h1 className="text">Video Library</h1>
+          <h1 className="text">Laugh Factory</h1>
         </a>
+
+        <div className="nav-list">
+          <Link to="/" className="nav-link">Home</Link>
+          <Link to="/videoListing" className="nav-link">
+            Explore
+          </Link>
+        </div>
 
         <input
           className="nav-search"
@@ -18,13 +25,9 @@ const Navbar = () => {
 
         <div className="nav-list">
           <div className="list-item icons">
-            <a className="notification">
-              <i className="fas fa-bell"></i>
-            </a>
-
-            <a className="profile">
+            <Link to="/login" className="profile">
               <i className="fas fa-user"></i>
-            </a>
+            </Link>
           </div>
         </div>
       </nav>

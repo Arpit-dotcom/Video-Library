@@ -1,0 +1,35 @@
+@import "../common.css";
+
+.logoutContainer {
+  font-size: 1rem;
+  margin: auto;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+  padding: 2rem;
+  background-color: var(--secondary-color);
+  width: 25rem;
+  border: 1px solid var(--default);
+  height: 14.5rem;
+}
+
+.logoutContainer .heading{
+  margin: 2rem;
+}
+
+.logoutContainer .logout .primary {
+  text-decoration: none;
+  color: var(--secondary-color);
+  background-color: var(--bg-color);
+  padding: 1rem;
+  border-radius: 1rem;
+  margin: 2rem 1.2rem;
+}
+
+.logoutContainer .logout .secondary {
+  text-decoration: none;
+  color: var(--default);
+  border: 1px solid;
+  padding: 1rem;
+  margin: 2rem 1.2rem;
+  border-radius: 1rem;
+}

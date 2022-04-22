@@ -1,0 +1,56 @@
+@import "./common.css";
+
+.horizontal{
+    position: relative;
+    min-height: 12rem;
+    max-width: 100%;
+    margin: 1rem;
+    border-radius: 0;
+    padding: 1rem;
+    background-color: var(--bg-color);
+}
+
+.fa-times{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.horizontal .title{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 2rem;
+}
+
+.horizontal .img{
+    width: 18rem;
+    border-radius: 9px;
+}
+
+.container1 .header{
+    margin: 0 1rem;
+    font-weight: normal;
+}
+
+.container1 .description{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 2.3rem;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+}
+
+.footer .view{
+    margin-right: 2rem;
+}
+
+.view > span, .time > span{
+    margin-left: .5rem;
+}
+
+.product-empty {
+  font-size: 5rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 8rem;
+}
