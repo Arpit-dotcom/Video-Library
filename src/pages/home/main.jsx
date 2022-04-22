@@ -12,7 +12,7 @@ const Main = () => {
         <section className="sub-container">
           {home.data.map((item, index) => (
             <Link
-              to={`/product/${item.creator}`}
+              to={`/videoListing/${item.title}`}
               key={index}
               style={{ cursor: "pointer" }}
             >
