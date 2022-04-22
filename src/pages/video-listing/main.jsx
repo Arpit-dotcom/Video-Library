@@ -2,6 +2,7 @@ import { videos } from "backend/db/videos";
 import { Sidebar } from "components";
 import { VideoCard } from "./video-card";
 import { home } from "staticData/data";
+import { Link } from "react-router-dom";
 import { useVideoListing } from "contexts";
 
 export const Main = () => {
@@ -13,7 +14,8 @@ export const Main = () => {
 
         <main className="main-content">
           <ul className="filter-list">
-            <li
+            <Link
+              to="/videoListing"
               className="filter-list-item"
               style={{ cursor: "pointer" }}
               onClick={() =>
@@ -21,9 +23,10 @@ export const Main = () => {
               }
             >
               All
-            </li>
+            </Link>
             {home.data.map(({ title }) => (
-              <li
+              <Link
+                to={`/videoListing/${title}`}
                 style={{ cursor: "pointer" }}
                 className="filter-list-item"
                 onClick={() =>
@@ -31,7 +34,7 @@ export const Main = () => {
                 }
               >
                 {title}
-              </li>
+              </Link>
             ))}
           </ul>
           {filteredVideos && (
