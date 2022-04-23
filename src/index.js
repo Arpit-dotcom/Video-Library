@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
 import {BrowserRouter} from "react-router-dom";
-import { VideoListingProvider } from "contexts";
+import { VideoListingProvider, WatchLaterProvider } from "contexts";
 
 // Call make Server
 makeServer();
@@ -13,7 +13,9 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <VideoListingProvider>
-        <App />
+        <WatchLaterProvider>
+          <App />
+        </WatchLaterProvider>
       </VideoListingProvider>
     </BrowserRouter>
   </React.StrictMode>,
