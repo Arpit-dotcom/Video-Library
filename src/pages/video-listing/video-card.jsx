@@ -14,7 +14,7 @@ export const VideoCard = ({
     <section className="card badge-card" key={id}>
       <button className="timing">{time}</button>
       <Link to={`/videoPlayer/${id}`}>
-        <img className="img" src={poster} alt="card-image" />
+        <img className="img" src={poster} alt="card-poster" />
       </Link>
       <div className="card-text">
         <section className="avatar flex">

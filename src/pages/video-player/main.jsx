@@ -32,7 +32,7 @@ export const Main = () => {
               <img
                 className="round sm"
                 src={filterVideo.image}
-                alt="avatar-image"
+                alt="video-avatar"
               />
               <span className="margin-top-0_5 left-sub-container">
                 <p style={{ textAlign: "left" }}>{filterVideo.creator}</p>
