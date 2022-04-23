@@ -5,8 +5,6 @@ import { useEffect } from "react";
 import { useVideoListing } from "contexts";
 
 export const VideoListing = () =>{
-  
-  let params = useParams();
 
   const getVideoListing = (category, videoDispatch) =>{
     if(category){

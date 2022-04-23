@@ -16,8 +16,7 @@ export const Main = () => {
           <ul className="filter-list">
             <Link
               to="/videoListing"
-              className="filter-list-item"
-              style={{ cursor: "pointer" }}
+              className="cursor-pointer filter-list-item"
               onClick={() =>
                 videoDispatch({ type: "category", payload: "all" })
               }
@@ -27,8 +26,7 @@ export const Main = () => {
             {home.data.map(({ title }) => (
               <Link
                 to={`/videoListing/${title}`}
-                style={{ cursor: "pointer" }}
-                className="filter-list-item"
+                className="cursor-pointer filter-list-item"
                 onClick={() =>
                   videoDispatch({ type: "category", payload: title })
                 }
