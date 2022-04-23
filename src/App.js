@@ -21,10 +21,12 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/videoListing" element={<VideoListing />} >
+        <Route path="/videoListing" element={<VideoListing />}>
           <Route path=":category" element={<VideoListing />} />
         </Route>
-        <Route path="/videoPlayer" element={<VideoPlayer />} />
+        <Route path="/videoPlayer" element={<VideoPlayer />}>
+          <Route path=":videoId" element={<VideoPlayer />} />
+        </Route>
         <Route path="/playlist" element={<Playlist />} />
         <Route path="/watchLater" element={<WatchLater />} />
         <Route path="/likedVideos" element={<LikedVideos />} />

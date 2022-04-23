@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const VideoCard = ({
   id,
   poster,
@@ -11,7 +13,9 @@ export const VideoCard = ({
   return (
     <section className="card badge-card" key={id}>
       <button className="timing">{time}</button>
-      <img className="img" src={poster} alt="card-image" />
+      <Link to={`/videoPlayer/${id}`}>
+        <img className="img" src={poster} alt="card-poster" />
+      </Link>
       <div className="card-text">
         <section className="avatar flex">
           <span className="round-avatar">
