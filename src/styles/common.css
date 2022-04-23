@@ -33,3 +33,7 @@
 .margin-2{
   margin: 2rem;
 }
+
+.cursor-pointer{
+  cursor: pointer;
+}

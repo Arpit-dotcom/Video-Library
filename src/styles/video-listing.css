@@ -60,6 +60,7 @@
 }
 
 .videoContainer .filter-list-item {
+  text-decoration: none;
   display: inline;
   border: 1px solid var(--default);
   padding: 0.5rem 1rem;
