@@ -105,17 +105,25 @@
 
 .videoContainer .card-pop-up {
   border: 1px solid var(--default);
-  width: 10rem;
+  width: 12rem;
   position: absolute;
-  top: 14rem;
-  right: 1rem;
+  top: 12.5rem;
+  right: 0.5rem;
+  text-align: left;
   background-color: var(--white-section);
 }
 
 .videoContainer .card-pop-up > p {
-  padding: 0.2rem 0;
+  padding: 0.2rem;
 }
 
-.like {
-  border-bottom: 1px solid var(--default);
+.videoContainer .fa-list,
+.fa-clock {
+  margin: 0 0.5rem;
+}
+
+.videoContainer .fa-times {
+  position: absolute;
+  top: 7px;
+  right: 9px;
 }

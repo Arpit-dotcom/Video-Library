@@ -12,6 +12,7 @@ export const VideoCard = ({ filtervideo }) => {
 
   const addWatchLater = (video) => {
     watchLaterDispatch({ type: "Add to watch-later", payload: video });
+    setShow(false);
   };
 
   return (
@@ -30,10 +31,16 @@ export const VideoCard = ({ filtervideo }) => {
       ></i>
       {show && (
         <div className="card-pop-up">
-          <p className="like">Like videos</p>
-          <p className="cursor-pointer watch" onClick={() => addWatchLater(filtervideo)}>
-            Watch Later
+          <p className="playlist">
+            <i className="fas fa-list"></i>Save to Playlist
           </p>
+          <p
+            className="cursor-pointer watch"
+            onClick={() => addWatchLater(filtervideo)}
+          >
+            <i className="far fa-clock"></i>Watch Later
+          </p>
+          <i className="cursor-pointer fas fa-times" onClick={() => cardPopUp()}></i>
         </div>
       )}
       <div className="card-text">
