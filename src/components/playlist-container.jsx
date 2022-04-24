@@ -6,7 +6,7 @@ export const PlaylistContainer = ({ video }) => {
   const { watchLaterDispatch } = useWatchLater();
 
   const deleteWatchLater = (video) => {
-    watchLaterDispatch({ type: "Delete from watch-later", payload: video });
+    watchLaterDispatch({ type: "DELETE_FROM_WATCH_LATER", payload: video });
   };
 
   return (

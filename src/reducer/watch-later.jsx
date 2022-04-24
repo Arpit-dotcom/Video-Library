@@ -2,7 +2,7 @@ import { addWatchLaterVideos, deleteWatchLaterVideos } from "utils";
 
 export const watchLaterReducer = (watchLaterState, watchLaterAction) => {
   switch (watchLaterAction.type) {
-    case "Add to watch-later":
+    case "ADD_TO_WATCH_LATER":
       return {
         ...watchLaterState,
         watchLater: addWatchLaterVideos(
@@ -10,7 +10,7 @@ export const watchLaterReducer = (watchLaterState, watchLaterAction) => {
           watchLaterAction.payload
         ),
       };
-    case "Delete from watch-later":
+    case "DELETE_FROM_WATCH_LATER":
       return {
         ...watchLaterState,
         watchLater: deleteWatchLaterVideos(

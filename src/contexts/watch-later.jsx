@@ -9,7 +9,6 @@ const WatchLaterProvider = ({ children }) => {
     watchLater: [],
   });
 
-  console.log(watchLaterState.watchLater);
   return (
     <WatchLaterContext.Provider value={{ watchLaterDispatch, watchLaterState }}>
       {children}

@@ -11,7 +11,7 @@ export const VideoCard = ({ filtervideo }) => {
   };
 
   const addWatchLater = (video) => {
-    watchLaterDispatch({ type: "Add to watch-later", payload: video });
+    watchLaterDispatch({ type: "ADD_TO_WATCH_LATER", payload: video });
     setShow(false);
   };
 

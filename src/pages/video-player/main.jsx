@@ -15,7 +15,7 @@ export const Main = () => {
   const filterVideo = getFilterVideo(videoId, videos);
 
   const addWatchLater = (videoId) =>{
-    watchLaterDispatch({ type: "Add to watch-later", payload: videoId });
+    watchLaterDispatch({ type: "ADD_TO_WATCH_LATER", payload: videoId });
   }
 
   return (
