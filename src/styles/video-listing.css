@@ -26,7 +26,8 @@
   text-align: left;
 }
 
-.videoContainer .title{
+.videoContainer .title {
+  width: 12rem;
   height: 2.7rem;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -43,7 +44,7 @@
 
 .videoContainer .img {
   object-fit: cover;
-  height: 60%;
+  height: 100%;
 }
 
 .videoContainer .fa-eye,
@@ -69,6 +70,10 @@
   border-radius: 5rem;
 }
 
+.videoContainer .video-link {
+  height: 60%;
+}
+
 .videoContainer .timing {
   position: absolute;
   right: 0.5rem;
@@ -90,4 +95,35 @@
   display: flex;
   justify-content: center;
   margin-top: 8rem;
+}
+
+.videoContainer .fa-ellipsis-v {
+  position: absolute;
+  right: 1rem;
+  top: 12.5rem;
+}
+
+.videoContainer .card-pop-up {
+  border: 1px solid var(--default);
+  width: 12rem;
+  position: absolute;
+  top: 12.5rem;
+  right: 0.5rem;
+  text-align: left;
+  background-color: var(--white-section);
+}
+
+.videoContainer .card-pop-up > p {
+  padding: 0.2rem;
+}
+
+.videoContainer .fa-list,
+.fa-clock {
+  margin: 0 0.5rem;
+}
+
+.videoContainer .fa-times {
+  position: absolute;
+  top: 7px;
+  right: 9px;
 }

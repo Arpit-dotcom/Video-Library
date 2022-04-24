@@ -37,8 +37,8 @@ export const Main = () => {
           </ul>
           {filteredVideos && (
             <>
-              {filteredVideos.map((item, index) => (
-                <VideoCard {...item} key={index} />
+              {filteredVideos.map((filtervideo, index) => (
+                <VideoCard filtervideo={filtervideo} key={index} />
               ))}
             </>
           )}

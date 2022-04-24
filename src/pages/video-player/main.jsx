@@ -2,15 +2,22 @@ import { videos } from "backend/db/videos";
 import ReactPlayer from "react-player";
 import { Sidebar } from "components";
 import { useParams } from "react-router-dom";
+import { useWatchLater } from "contexts";
 
 export const Main = () => {
   const { videoId } = useParams();
+  const {watchLaterDispatch} = useWatchLater();
 
   const getFilterVideo = (videoId, videos) => {
     return videos.find((video) => video.id === videoId);
   };
 
   const filterVideo = getFilterVideo(videoId, videos);
+
+  const addWatchLater = (videoId) =>{
+    watchLaterDispatch({ type: "ADD_TO_WATCH_LATER", payload: videoId });
+  }
+
   return (
     <>
       <section className="videoPlayerContainer">
@@ -50,7 +57,12 @@ export const Main = () => {
               <i className="margin-right-0_5 margin-top-0_2 fas fa-list"></i>
               <span className="margin-right-2">Save to playlist</span>
               <i className="margin-right-0_5 margin-top-0_2 far fa-clock"></i>
-              <span>Watch later</span>
+              <span
+                className="cursor-pointer"
+                onClick={() => addWatchLater(filterVideo)}
+              >
+                Watch later
+              </span>
             </span>
           </div>
 

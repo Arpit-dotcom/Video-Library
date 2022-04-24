@@ -1,3 +1,4 @@
 import { videoReducer } from "./video-listing";
+import { watchLaterReducer } from "./watch-later";
 
-export { videoReducer };
+export { videoReducer,watchLaterReducer };
