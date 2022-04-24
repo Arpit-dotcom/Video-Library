@@ -2,11 +2,12 @@ import { videos } from "backend/db/videos";
 import ReactPlayer from "react-player";
 import { Sidebar } from "components";
 import { useParams } from "react-router-dom";
-import { useWatchLater } from "contexts";
+import { useWatchLater, useLikedVideo } from "contexts";
 
 export const Main = () => {
   const { videoId } = useParams();
-  const {watchLaterDispatch} = useWatchLater();
+  const { watchLaterDispatch } = useWatchLater();
+  const { likedVideoDispatch } = useLikedVideo();
 
   const getFilterVideo = (videoId, videos) => {
     return videos.find((video) => video.id === videoId);
@@ -14,9 +15,13 @@ export const Main = () => {
 
   const filterVideo = getFilterVideo(videoId, videos);
 
-  const addWatchLater = (videoId) =>{
+  const addWatchLater = (videoId) => {
     watchLaterDispatch({ type: "ADD_TO_WATCH_LATER", payload: videoId });
-  }
+  };
+
+  const addLikedVideos = (videoId) => {
+    likedVideoDispatch({ type: "ADD_TO_LIKED_VIDEO", payload: videoId });
+  };
 
   return (
     <>
@@ -53,7 +58,12 @@ export const Main = () => {
             </span>
             <span className="margin-top-0_5 sub-container2">
               <i className="margin-right-0_5 margin-top-0_2 fas fa-thumbs-up"></i>
-              <span className="margin-right-2">Like</span>
+              <span
+                className="cursor-pointer margin-right-2"
+                onClick={() => addLikedVideos(filterVideo)}
+              >
+                Like
+              </span>
               <i className="margin-right-0_5 margin-top-0_2 fas fa-list"></i>
               <span className="margin-right-2">Save to playlist</span>
               <i className="margin-right-0_5 margin-top-0_2 far fa-clock"></i>
