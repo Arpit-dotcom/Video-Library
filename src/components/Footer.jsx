@@ -1,5 +1,5 @@
 import React from "react";
-import "styles/footer.css";
+import "styles/Footer.css";
 
 const contactLinks = [
   { link: "https://github.com/Arpit-dotcom/", icon: "fab fa-github" },
