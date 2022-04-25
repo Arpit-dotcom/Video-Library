@@ -11,22 +11,23 @@ const contactLinks = [
 ];
 const Footer = () => {
   return (
-  <footer className="main-footer">
-    <h2 className="footer-header">CONTACT US</h2>
+    <footer className="main-footer">
+      <h2 className="footer-header">CONTACT US</h2>
 
-    <div className="footer-link">
-      {contactLinks.map((contactLink,index) => (
-        <a
-          className="link"
-          href={contactLink.link}
-          target="_blank"
-          key={index}
-        >
-          <i className={contactLink.icon}></i>
-        </a>
-      ))}
-    </div>
-  </footer>
-);}
+      <div className="footer-link">
+        {contactLinks.map((contactLink, index) => (
+          <a
+            className="link"
+            href={contactLink.link}
+            target="_blank"
+            key={index}
+          >
+            <i className={contactLink.icon}></i>
+          </a>
+        ))}
+      </div>
+    </footer>
+  );
+};
 
 export { Footer };
