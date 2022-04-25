@@ -1,4 +1,3 @@
-import { videos } from "backend/db/videos";
 import { Sidebar } from "components";
 import { VideoCard } from "./video-card";
 import { home } from "staticData/data";
