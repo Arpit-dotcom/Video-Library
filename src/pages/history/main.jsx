@@ -1,7 +1,13 @@
-import { videos } from "backend/db/videos";
 import { PlaylistContainer, Sidebar } from "components";
+import { useHistory } from "contexts";
 
 export const Main = () => {
+  const { historyState, historyDispatch } = useHistory();
+
+  const deleteAllHistory = () => {
+    historyDispatch({ type: "DELETE_ALL__HISTORY" });
+  };
+
   return (
     <>
       <section className="watchLaterContainer">
@@ -11,15 +17,18 @@ export const Main = () => {
           <div className="top-header">
             <span className="heading">
               <h2>History.</h2>
-              <p>{videos.length} videos</p>
+              <p>{historyState.history.length} videos</p>
             </span>
             <span>
-              <i className="fas fa-trash"></i>
+              <i
+                className="cursor-pointer fas fa-trash"
+                onClick={() => deleteAllHistory()}
+              ></i>
             </span>
           </div>
 
-          {videos.map((video) => {
-            return <PlaylistContainer {...video} />;
+          {historyState.history.map((video) => {
+            return <PlaylistContainer video={video} />;
           })}
         </main>
       </section>
