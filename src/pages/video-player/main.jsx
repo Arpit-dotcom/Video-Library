@@ -2,12 +2,14 @@ import { videos } from "backend/db/videos";
 import ReactPlayer from "react-player";
 import { Sidebar } from "components";
 import { useParams } from "react-router-dom";
-import { useWatchLater, useLikedVideo } from "contexts";
+import { useWatchLater, useLikedVideo, useHistory } from "contexts";
+import { useEffect } from "react";
 
 export const Main = () => {
   const { videoId } = useParams();
   const { watchLaterDispatch } = useWatchLater();
   const { likedVideoDispatch } = useLikedVideo();
+  const { historyDispatch } = useHistory();
 
   const getFilterVideo = (videoId, videos) => {
     return videos.find((video) => video.id === videoId);
@@ -22,6 +24,10 @@ export const Main = () => {
   const addLikedVideos = (videoId) => {
     likedVideoDispatch({ type: "ADD_TO_LIKED_VIDEO", payload: videoId });
   };
+
+  useEffect(() => {
+    historyDispatch({ type: "ADD_TO_HISTORY", payload: filterVideo });
+  },[videoId]);
 
   return (
     <>
