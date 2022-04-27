@@ -1,4 +1,9 @@
-import { useHistory, useLikedVideo, useWatchLater } from "contexts";
+import {
+  useHistory,
+  useLikedVideo,
+  usePlaylist,
+  useWatchLater,
+} from "contexts";
 import { Link, useLocation } from "react-router-dom";
 import "styles/playlist-container.css";
 
@@ -7,6 +12,7 @@ export const PlaylistContainer = ({ video }) => {
   const { historyDispatch } = useHistory();
   const { watchLaterDispatch } = useWatchLater();
   const { likedVideoDispatch } = useLikedVideo();
+  const { playlistDispatch } = usePlaylist();
 
   const deleteWatchLater = (video) => {
     watchLaterDispatch({ type: "DELETE_FROM_WATCH_LATER", payload: video });
@@ -18,6 +24,10 @@ export const PlaylistContainer = ({ video }) => {
 
   const deleteHistory = (video) => {
     historyDispatch({ type: "DELETE_FROM_HISTORY", payload: video });
+  };
+
+  const deletePlaylist = (video) => {
+    playlistDispatch({ type: "DELETE_FROM_PLAYLIST", payload: video });
   };
 
   return (
@@ -59,6 +69,13 @@ export const PlaylistContainer = ({ video }) => {
           <i
             className="cursor-pointer fas fa-times"
             onClick={() => deleteHistory(video)}
+          ></i>
+        )}
+
+        {pathname === "/playlist" && (
+          <i
+            className="cursor-pointer fas fa-times"
+            onClick={() => deletePlaylist(video)}
           ></i>
         )}
 
