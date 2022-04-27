@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { useWatchLater } from "contexts";
+import { usePlaylist, useWatchLater } from "contexts";
 
 export const VideoCard = ({ filtervideo }) => {
   const [show, setShow] = useState(false);
-  const {watchLaterDispatch} = useWatchLater();
+  const { watchLaterDispatch } = useWatchLater();
+  const { playlistDispatch } = usePlaylist();
 
   const cardPopUp = () => {
     setShow((prev) => !prev);
@@ -12,6 +13,11 @@ export const VideoCard = ({ filtervideo }) => {
 
   const addWatchLater = (video) => {
     watchLaterDispatch({ type: "ADD_TO_WATCH_LATER", payload: video });
+    setShow(false);
+  };
+
+  const addPlaylist = (video) => {
+    playlistDispatch({ type: "ADD_TO_PLAYLIST", payload: video });
     setShow(false);
   };
 
@@ -31,7 +37,10 @@ export const VideoCard = ({ filtervideo }) => {
       ></i>
       {show && (
         <div className="card-pop-up">
-          <p className="playlist">
+          <p
+            className="cursor-pointer playlist"
+            onClick={() => addPlaylist(filtervideo)}
+          >
             <i className="fas fa-list"></i>Save to Playlist
           </p>
           <p
@@ -40,7 +49,10 @@ export const VideoCard = ({ filtervideo }) => {
           >
             <i className="far fa-clock"></i>Watch Later
           </p>
-          <i className="cursor-pointer fas fa-times" onClick={() => cardPopUp()}></i>
+          <i
+            className="cursor-pointer fas fa-times"
+            onClick={() => cardPopUp()}
+          ></i>
         </div>
       )}
       <div className="card-text">

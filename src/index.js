@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
 import {BrowserRouter} from "react-router-dom";
-import { HistoryProvider, LikedVideoProvider, VideoListingProvider, WatchLaterProvider } from "contexts";
+import { HistoryProvider, LikedVideoProvider, PlaylistProvider, VideoListingProvider, WatchLaterProvider } from "contexts";
 
 // Call make Server
 makeServer();
@@ -13,13 +13,15 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <VideoListingProvider>
-        <HistoryProvider>
-          <WatchLaterProvider>
-            <LikedVideoProvider>
-              <App />
-            </LikedVideoProvider>
-          </WatchLaterProvider>
-        </HistoryProvider>
+        <PlaylistProvider>
+          <HistoryProvider>
+            <WatchLaterProvider>
+              <LikedVideoProvider>
+                <App />
+              </LikedVideoProvider>
+            </WatchLaterProvider>
+          </HistoryProvider>
+        </PlaylistProvider>
       </VideoListingProvider>
     </BrowserRouter>
   </React.StrictMode>,

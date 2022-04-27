@@ -5,12 +5,12 @@ export const Main = () => {
   const { watchLaterState } = useWatchLater();
   return (
     <>
-      <section className="watchLaterContainer">
+      <section className="main">
         <Sidebar />
 
         <main className="main-content">
           <div className="margin-1 heading">
-            <h2>Watch Later.</h2>
+            <h1>Watch Later.</h1>
             <p>{watchLaterState.watchLater.length} videos</p>
           </div>
 

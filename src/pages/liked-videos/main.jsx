@@ -5,12 +5,12 @@ export const Main = () => {
   const {likedVideoState} = useLikedVideo()
   return (
     <>
-      <section className="watchLaterContainer">
+      <section className="main">
         <Sidebar />
 
         <main className="main-content">
           <div className="margin-1 heading">
-            <h2>Liked Videos.</h2>
+            <h1>Liked Videos.</h1>
             <p>{likedVideoState.likedVideo.length} videos</p>
           </div>
 
