@@ -1,23 +1,24 @@
+import { useAuth } from "contexts";
 import React from "react";
 import { Link } from "react-router-dom";
 import "styles/Navbar.css";
 
 const Navbar = () => {
+  const { isLoggedIn } = useAuth();
   return (
     <>
       <nav className="simple-navigation">
-        <a className="nav-list">
+        <span className="nav-list">
           <h1 className="text">Laugh Factory</h1>
-        </a>
-
-        <div className="nav-list">
-          <Link to="/" className="nav-link">
-            Home
-          </Link>
-          <Link to="/videoListing" className="nav-link">
-            Explore
-          </Link>
-        </div>
+          <div className="nav-list-link">
+            <Link to="/" className="nav-link">
+              Home
+            </Link>
+            <Link to="/videoListing" className="nav-link">
+              Explore
+            </Link>
+          </div>
+        </span>
 
         <input
           className="nav-search"
@@ -27,8 +28,11 @@ const Navbar = () => {
 
         <div className="nav-list">
           <div className="list-item icons">
-            <Link to="/login" className="profile">
+            <Link to={!isLoggedIn ? "/login" : "/logout"} className="profile">
               <i className="fas fa-user"></i>
+              <small className="nav-icon-text">
+                {!isLoggedIn ? "Login" : "Logout"}
+              </small>
             </Link>
           </div>
         </div>

@@ -6,7 +6,6 @@ export const Main = () => {
   const { playlistState } = usePlaylist();
   return (
     <>
-      {console.log(playlistState.playlist)}
       <section className="main">
         <Sidebar />
 

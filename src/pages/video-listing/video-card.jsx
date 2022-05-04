@@ -1,14 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { usePlaylist, useWatchLater } from "contexts";
+import { useAuth, usePlaylist, useWatchLater } from "contexts";
 
 export const VideoCard = ({ filtervideo }) => {
+  const navigate = useNavigate();
+  const { isLoggedIn } = useAuth();
   const [show, setShow] = useState(false);
   const { watchLaterDispatch } = useWatchLater();
   const { playlistDispatch } = usePlaylist();
 
   const cardPopUp = () => {
-    setShow((prev) => !prev);
+    !isLoggedIn ? navigate("/login") : setShow((prev) => !prev);
   };
 
   const addWatchLater = (video) => {

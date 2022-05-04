@@ -34,7 +34,7 @@
   color: var(--secondary-color);
   cursor: pointer;
   text-decoration: none;
-  margin: 1rem 0;
+  margin: .5rem 0;
 }
 
 .loginContainer .material-icons-outlined {

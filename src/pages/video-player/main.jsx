@@ -1,16 +1,19 @@
 import { videos } from "backend/db/videos";
 import ReactPlayer from "react-player";
 import { Sidebar } from "components";
-import { useParams } from "react-router-dom";
+import { useParams,useNavigate } from "react-router-dom";
 import {
   useWatchLater,
   useLikedVideo,
   useHistory,
   usePlaylist,
+  useAuth,
 } from "contexts";
 import { useEffect } from "react";
 
 export const Main = () => {
+  const navigate = useNavigate();
+  const { isLoggedIn } = useAuth();
   const { videoId } = useParams();
   const { watchLaterDispatch } = useWatchLater();
   const { likedVideoDispatch } = useLikedVideo();
@@ -24,15 +27,21 @@ export const Main = () => {
   const filterVideo = getFilterVideo(videoId, videos);
 
   const addWatchLater = (videoId) => {
-    watchLaterDispatch({ type: "ADD_TO_WATCH_LATER", payload: videoId });
+    !isLoggedIn
+      ? navigate("/login")
+      : watchLaterDispatch({ type: "ADD_TO_WATCH_LATER", payload: videoId });
   };
 
   const addLikedVideos = (videoId) => {
-    likedVideoDispatch({ type: "ADD_TO_LIKED_VIDEO", payload: videoId });
+    !isLoggedIn
+      ? navigate("/login")
+      : likedVideoDispatch({ type: "ADD_TO_LIKED_VIDEO", payload: videoId });
   };
 
   const addPlaylist = (videoId) => {
-    playlistDispatch({ type: "ADD_TO_PLAYLIST", payload: videoId });
+    !isLoggedIn
+      ? navigate("/login")
+      : playlistDispatch({ type: "ADD_TO_PLAYLIST", payload: videoId });
   };
 
   useEffect(() => {

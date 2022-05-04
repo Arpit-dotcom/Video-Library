@@ -22,14 +22,16 @@ export const Main = () => {
             >
               All
             </Link>
-            {home.data.map(({ title }) => (
+            {home.data.map(({ title },index) => (
               <Link
                 to={`/videoListing/${title}`}
                 className="cursor-pointer filter-list-item"
+                key={index}
                 onClick={() =>
                   videoDispatch({ type: "category", payload: title })
                 }
               >
+                
                 {title}
               </Link>
             ))}

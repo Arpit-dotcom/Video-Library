@@ -12,17 +12,13 @@
   height: 14.5rem;
 }
 
-.logoutContainer .heading{
-  margin: 2rem;
-}
-
 .logoutContainer .logout .primary {
   text-decoration: none;
   color: var(--secondary-color);
   background-color: var(--bg-color);
   padding: 1rem;
   border-radius: 1rem;
-  margin: 2rem 1.2rem;
+  margin: 2rem 1.7rem;
 }
 
 .logoutContainer .logout .secondary {
@@ -30,6 +26,6 @@
   color: var(--default);
   border: 1px solid;
   padding: 1rem;
-  margin: 2rem 1.2rem;
+  margin: 2rem 1.7rem;
   border-radius: 1rem;
 }

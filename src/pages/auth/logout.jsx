@@ -1,13 +1,30 @@
 import "styles/auth/logout.css";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "contexts";
 
 export const Logout = () => {
+  const { setIsLoggedIn } = useAuth();
+  const navigate = useNavigate();
+
   useEffect(() => {
     document.title = "Logout | Laugh Factory";
   }, []);
+
+  const notLogOutHandler = () => {
+    navigate("/videoListing");
+  };
+
+  const logOutHandler = () => {
+    localStorage.clear();
+    setIsLoggedIn(false);
+    navigate("/videoListing");
+  };
+
   return (
     <section className="logoutContainer">
       <div className="heading">
+        {/* <span className="material-icons-outlined"> logout </span> */}
         <h1>
           <strong>LOG OUT</strong>
         </h1>
@@ -15,13 +32,19 @@ export const Logout = () => {
       </div>
 
       <form className="logout" action="logout">
-        <a className="primary" href="#">
+        <button
+          className="cursor-pointer primary"
+          onClick={() => notLogOutHandler()}
+        >
           Just kidding
-        </a>
+        </button>
 
-        <a className="secondary" href="#">
+        <button
+          className="cursor-pointer secondary"
+          onClick={() => logOutHandler()}
+        >
           Log Me Out
-        </a>
+        </button>
       </form>
     </section>
   );
