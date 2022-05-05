@@ -29,6 +29,10 @@
     width: 100%;
 }
 
+.videoPlayerContainer .fa-clock{
+    margin-top: 0.2rem;
+}
+
 .videoPlayerContainer .video-player{
     width: 100% !important;
     object-fit: cover;

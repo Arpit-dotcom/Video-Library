@@ -1,10 +1,14 @@
 import "styles/auth/logout.css";
 import { useEffect } from "react";
+import { useLogout } from "utils";
 
 export const Logout = () => {
+  const {notLogOutHandler, logOutHandler} = useLogout();
+
   useEffect(() => {
     document.title = "Logout | Laugh Factory";
   }, []);
+
   return (
     <section className="logoutContainer">
       <div className="heading">
@@ -15,13 +19,19 @@ export const Logout = () => {
       </div>
 
       <form className="logout" action="logout">
-        <a className="primary" href="#">
+        <button
+          className="cursor-pointer primary"
+          onClick={() => notLogOutHandler()}
+        >
           Just kidding
-        </a>
+        </button>
 
-        <a className="secondary" href="#">
+        <button
+          className="cursor-pointer secondary"
+          onClick={() => logOutHandler()}
+        >
           Log Me Out
-        </a>
+        </button>
       </form>
     </section>
   );

@@ -1,10 +1,12 @@
 import { Main } from "./main";
 import "styles/video-listing.css";
 import { useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 import { useVideoListing } from "contexts";
+import axios from "axios";
 
 export const VideoListing = () =>{
+  const [categories, setCategories] = useState([]);
 
   const getVideoListing = (category, videoDispatch) =>{
     if(category){
@@ -32,14 +34,18 @@ export const VideoListing = () =>{
   useEffect(() =>{
     document.title = "VideoListing | Laugh Factory";
     getVideoListing(category, videoDispatch);
-  })
+     (async () => {
+       const response = await axios("/api/categories");
+       setCategories(response.data.categories);
+     })();
+  },[])
 
   const {videoDispatch} = useVideoListing();
   const {category} = useParams();
 
     return (
       <>
-        <Main />
+        <Main categories={categories}/>
       </>
     );
 }

@@ -1,13 +1,22 @@
 import { Link } from "react-router-dom";
 import "styles/auth/login.css";
 import { useEffect } from "react";
-
-const loginData = ["Email", "Password"];
+import { useLogin } from "utils";
 
 export const Login = () => {
+  const {
+    loginHandler,
+    dummyHandler,
+    _email,
+    _password,
+    setEmail,
+    setPassword,
+  } = useLogin();
+
   useEffect(() => {
     document.title = "Login | Laugh Factory";
   }, []);
+
   return (
     <section className="loginContainer">
       <div className="heading">
@@ -18,15 +27,40 @@ export const Login = () => {
       </div>
 
       <form className="margin-2" action="login">
-        {loginData.map((item) => (
-          <>
-            <label for="Email">
-              {item}
-              <input className="inp" type="text" placeholder={item} required />
-            </label>
-          </>
-        ))}
-        <input className="submit" type="submit" value="Login" />
+        <label htmlFor="Email">
+          Email
+          <input
+            className="inp"
+            type="email"
+            placeholder="Email"
+            value={_email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </label>
+        <label htmlFor="Password">
+          Password
+          <input
+            className="inp"
+            type="password"
+            placeholder="Password"
+            value={_password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </label>
+        <input
+          className="submit"
+          type="submit"
+          value="Login"
+          onClick={(event) => loginHandler(event)}
+        />
+        <input
+          className="submit"
+          type="submit"
+          onClick={(event) => dummyHandler(event)}
+          value="Login as Test Credential"
+        />
       </form>
       <p>
         Don't have an account?

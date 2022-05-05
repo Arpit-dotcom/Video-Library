@@ -7,21 +7,27 @@ import { v4 as uuid } from "uuid";
 
 export const categories = [
   {
-    _id: uuid(),
-    categoryName: "Computer Programming",
-    description:
-      "Computer programming is the process of designing and building an executable computer program to accomplish a specific computing",
+    src: "https://yt3.ggpht.com/ytc/AKedOLQ-IPFEzpiA0AqSSeK7ZiBWUfrG4a3OZar2p3tXNQ=s176-c-k-c0x00ffffff-no-rj-mo",
+    title: "Zakir Khan",
   },
   {
-    _id: uuid(),
-    categoryName: "Frontend Development",
-    description:
-      "Front-end web development, also known as client-side development is the practice of producing HTML, CSS and JavaScript for a website or Web Application",
+    src: "https://yt3.ggpht.com/ytc/AKedOLQFBbx9iNh-JQvEo61AHkcDrkbY-Pavaba-y2ck9w=s176-c-k-c0x00ffffff-no-rj-mo",
+    title: "Abhishek Upmanyu",
   },
   {
-    _id: uuid(),
-    categoryName: "Backend Development",
-    description:
-      "Backend Development is also known as server-side development. It is everything that the users don't see and contains behind-the-scenes activities that occur when performing any action on a website.",
+    src: "https://yt3.ggpht.com/ytc/AKedOLT4Em51isWMSdGWnXAjOQr-D2WRCnnbGQbRXjyj1JU=s176-c-k-c0x00ffffff-no-rj-mo",
+    title: "Munawar Faruqui",
+  },
+  {
+    src: "https://yt3.ggpht.com/54SDvpLEfFdPeOnCCE_-P6rkiDP0VkVGAsK6pF4ockOPJw5sewC0AOexSTWjQxq8uFcYbXCMPw=s176-c-k-c0x00ffffff-no-rj-mo",
+    title: "Haseeb Khan",
+  },
+  {
+    src: "https://yt3.ggpht.com/ytc/AKedOLSvPEUzOL_qQkQQd17lcsvj3ikeb2iEj92MUBi91A=s176-c-k-c0x00ffffff-no-rj-mo",
+    title: "Aakash Gupta",
+  },
+  {
+    src: "https://yt3.ggpht.com/ytc/AKedOLTuDOpO2Vc50eR-mu8HjPzDXwnZkqUW_ZDCoQQGCg=s176-c-k-c0x00ffffff-no-rj-mo",
+    title: "Harsh Gujral",
   },
 ];
