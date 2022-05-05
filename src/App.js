@@ -1,4 +1,4 @@
-import { Footer, Navbar } from "components";
+import { Navbar } from "components";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import {
@@ -65,7 +65,6 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/mock" element={<Mockman />} />
       </Routes>
-      <Footer />
     </div>
   );
 }

@@ -32,7 +32,7 @@ export const VideoListing = () =>{
   useEffect(() =>{
     document.title = "VideoListing | Laugh Factory";
     getVideoListing(category, videoDispatch);
-  })
+  },[])
 
   const {videoDispatch} = useVideoListing();
   const {category} = useParams();

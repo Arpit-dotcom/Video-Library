@@ -14,20 +14,20 @@
 
 .videoContainer .card {
   background-color: var(--white-section);
-  padding: 0;
-  border: none;
-  width: 18rem;
+  width: 23rem;
   height: 20rem;
+  padding: 0.5rem;
   position: relative;
   max-width: none;
 }
 .videoContainer .card-text {
   padding: 0;
+  margin-top: 0.7rem;
   text-align: left;
 }
 
 .videoContainer .title {
-  width: 12rem;
+  width: 17rem;
   height: 2.7rem;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -45,6 +45,7 @@
 .videoContainer .img {
   object-fit: cover;
   height: 100%;
+  border-radius: 1rem;
 }
 
 .videoContainer .fa-eye,
@@ -54,13 +55,15 @@
 
 .videoContainer .filter-list {
   list-style: none;
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
   width: 100%;
   text-align: left;
   margin: 1rem;
 }
 
 .videoContainer .filter-list-item {
+  height: 2.5rem;
   text-decoration: none;
   display: inline;
   border: 1px solid var(--default);
@@ -71,13 +74,13 @@
 }
 
 .videoContainer .video-link {
-  height: 60%;
+  height: 65%;
 }
 
 .videoContainer .timing {
   position: absolute;
-  right: 0.5rem;
-  top: 9.5rem;
+  right: 1.3rem;
+  top: 10.4rem;
   color: var(--white-section);
   background-color: var(--default);
   padding: 5px;
@@ -100,14 +103,15 @@
 .videoContainer .fa-ellipsis-v {
   position: absolute;
   right: 1rem;
-  top: 12.5rem;
+  top: 13.8rem;
 }
 
 .videoContainer .card-pop-up {
   border: 1px solid var(--default);
   width: 12rem;
   position: absolute;
-  top: 12.5rem;
+  height: 5rem;
+  top: 14rem;
   right: 0.5rem;
   text-align: left;
   background-color: var(--white-section);
@@ -115,6 +119,7 @@
 
 .videoContainer .card-pop-up > p {
   padding: 0.2rem;
+  margin: 0.5rem 0;
 }
 
 .videoContainer .fa-list,

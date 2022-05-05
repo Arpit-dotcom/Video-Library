@@ -5,6 +5,7 @@ import "styles/Navbar.css";
 
 const Navbar = () => {
   const { isLoggedIn } = useAuth();
+
   return (
     <>
       <nav className="simple-navigation">
@@ -20,11 +21,11 @@ const Navbar = () => {
           </div>
         </span>
 
-        <input
-          className="nav-search"
-          type="text"
-          placeholder="Search for product, brands and more"
-        />
+          <input
+            className="nav-search"
+            type="text"
+            placeholder="Search for product, brands and more"
+          />
 
         <div className="nav-list">
           <div className="list-item icons">
