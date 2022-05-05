@@ -3,6 +3,9 @@ import { addWatchLaterVideos, deleteWatchLaterVideos } from "./watch-later";
 import { addLikedVideo, deleteLikedVideo } from "./liked-videos";
 import { addHistory, deleteHistory } from "./history";
 import { addPlaylist, deletePlaylist } from "./playlist";
+import { useLogin } from "./login";
+import { useLogout } from "./logout";
+import { useSignup } from "./signup";
 
 export {
   getFilteredVideos,
@@ -14,4 +17,7 @@ export {
   deleteHistory,
   addPlaylist,
   deletePlaylist,
+  useLogin,
+  useLogout,
+  useSignup,
 };

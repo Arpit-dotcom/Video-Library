@@ -1,30 +1,17 @@
 import "styles/auth/logout.css";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "contexts";
+import { useLogout } from "utils";
 
 export const Logout = () => {
-  const { setIsLoggedIn } = useAuth();
-  const navigate = useNavigate();
+  const {notLogOutHandler, logOutHandler} = useLogout();
 
   useEffect(() => {
     document.title = "Logout | Laugh Factory";
   }, []);
 
-  const notLogOutHandler = () => {
-    navigate("/videoListing");
-  };
-
-  const logOutHandler = () => {
-    localStorage.clear();
-    setIsLoggedIn(false);
-    navigate("/videoListing");
-  };
-
   return (
     <section className="logoutContainer">
       <div className="heading">
-        {/* <span className="material-icons-outlined"> logout </span> */}
         <h1>
           <strong>LOG OUT</strong>
         </h1>
