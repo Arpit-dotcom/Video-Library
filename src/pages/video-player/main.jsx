@@ -1,7 +1,7 @@
 import { videos } from "backend/db/videos";
 import ReactPlayer from "react-player";
 import { Sidebar } from "components";
-import { useParams,useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import {
   useWatchLater,
   useLikedVideo,
@@ -82,25 +82,27 @@ export const Main = () => {
               </span>
             </span>
             <span className="margin-top-0_5 sub-container2">
-              <i className="margin-right-0_5 margin-top-0_2 fas fa-thumbs-up"></i>
               <span
                 className="cursor-pointer margin-right-2"
                 onClick={() => addLikedVideos(filterVideo)}
               >
+                <i className="margin-right-0_5 margin-top-0_2 fas fa-thumbs-up"></i>
                 Like
               </span>
-              <i className="margin-right-0_5 margin-top-0_2 fas fa-list"></i>
+
               <span
                 className="cursor-pointer margin-right-2"
                 onClick={() => addPlaylist(filterVideo)}
               >
+                <i className="margin-right-0_5 margin-top-0_2 fas fa-list"></i>
                 Save to playlist
               </span>
-              <i className="margin-right-0_5 margin-top-0_2 far fa-clock"></i>
+
               <span
                 className="cursor-pointer"
                 onClick={() => addWatchLater(filterVideo)}
               >
+                <i className="margin-right-0_5 margin-top-0_2 far fa-clock"></i>
                 Watch later
               </span>
             </span>

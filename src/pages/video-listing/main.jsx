@@ -1,11 +1,12 @@
 import { Sidebar } from "components";
 import { VideoCard } from "./video-card";
-import { home } from "staticData/data";
 import { Link } from "react-router-dom";
 import { useVideoListing } from "contexts";
 
-export const Main = () => {
+export const Main = ({categories}) => {
   const { videoDispatch, filteredVideos } = useVideoListing();
+  
+  console.log(categories)
   return (
     <>
       <section className="videoContainer">
@@ -22,7 +23,7 @@ export const Main = () => {
             >
               All
             </Link>
-            {home.data.map(({ title },index) => (
+            {categories.map(({ title },index) => (
               <Link
                 to={`/videoListing/${title}`}
                 className="cursor-pointer filter-list-item"
