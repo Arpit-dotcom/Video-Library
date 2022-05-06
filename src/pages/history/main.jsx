@@ -1,11 +1,14 @@
 import { PlaylistContainer, Sidebar } from "components";
 import { useHistory } from "contexts";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const Main = () => {
   const { historyState, historyDispatch } = useHistory();
 
   const deleteAllHistory = () => {
     historyDispatch({ type: "DELETE_ALL__HISTORY" });
+    toast.error("All videos deleted from history!");
   };
 
   return (
@@ -32,6 +35,7 @@ export const Main = () => {
           })}
         </main>
       </section>
+      <ToastContainer />
     </>
   );
 };

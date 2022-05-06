@@ -1,6 +1,8 @@
 import "styles/auth/logout.css";
 import { useEffect } from "react";
 import { useLogout } from "utils";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const Logout = () => {
   const {notLogOutHandler, logOutHandler} = useLogout();
@@ -28,11 +30,12 @@ export const Logout = () => {
 
         <button
           className="cursor-pointer secondary"
-          onClick={() => logOutHandler()}
+          onClick={() => (logOutHandler(),toast.error("Logout successfully!"))}
         >
           Log Me Out
         </button>
       </form>
+      <ToastContainer />
     </section>
   );
 };

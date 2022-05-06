@@ -28,7 +28,7 @@ const VideoListingProvider = ({ children }) => {
 
   const filteredVideos = getFilteredVideos(videos, videoState.category);
   return (
-    <VideoListingContext.Provider value={{ videoDispatch, filteredVideos }}>
+    <VideoListingContext.Provider value={{ videoDispatch, filteredVideos, videos }}>
       {children}
     </VideoListingContext.Provider>
   );

@@ -10,6 +10,8 @@ import {
   useAuth,
 } from "contexts";
 import { useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const Main = () => {
   const navigate = useNavigate();
@@ -29,23 +31,27 @@ export const Main = () => {
   const addWatchLater = (videoId) => {
     !isLoggedIn
       ? navigate("/login")
-      : watchLaterDispatch({ type: "ADD_TO_WATCH_LATER", payload: videoId });
+      : (watchLaterDispatch({ type: "ADD_TO_WATCH_LATER", payload: videoId }),
+        toast.success("Video add to watch later!"));
   };
 
   const addLikedVideos = (videoId) => {
     !isLoggedIn
       ? navigate("/login")
-      : likedVideoDispatch({ type: "ADD_TO_LIKED_VIDEO", payload: videoId });
+      : (likedVideoDispatch({ type: "ADD_TO_LIKED_VIDEO", payload: videoId }),
+        toast.success("Video add to liked videos!"));
   };
 
   const addPlaylist = (videoId) => {
     !isLoggedIn
       ? navigate("/login")
-      : playlistDispatch({ type: "ADD_TO_PLAYLIST", payload: videoId });
+      : (playlistDispatch({ type: "ADD_TO_PLAYLIST", payload: videoId }),
+        toast.success("Video add to playlist!"));
   };
 
   useEffect(() => {
     historyDispatch({ type: "ADD_TO_HISTORY", payload: filterVideo });
+    toast.success("Video add to history!");
   }, [videoId]);
 
   return (
@@ -113,6 +119,7 @@ export const Main = () => {
           </div>
         </main>
       </section>
+      <ToastContainer />
     </>
   );
 };

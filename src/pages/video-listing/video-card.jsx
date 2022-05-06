@@ -1,6 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAuth, usePlaylist, useWatchLater } from "contexts";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const VideoCard = ({ filtervideo }) => {
   const navigate = useNavigate();
@@ -16,11 +18,13 @@ export const VideoCard = ({ filtervideo }) => {
   const addWatchLater = (video) => {
     watchLaterDispatch({ type: "ADD_TO_WATCH_LATER", payload: video });
     setShow(false);
+    toast.success("Video add to watch later!");
   };
 
   const addPlaylist = (video) => {
     playlistDispatch({ type: "ADD_TO_PLAYLIST", payload: video });
     setShow(false);
+    toast.success("Video add to playlist!");
   };
 
   return (
@@ -82,6 +86,7 @@ export const VideoCard = ({ filtervideo }) => {
           </span>
         </section>
       </div>
+      <ToastContainer />
     </section>
   );
 };

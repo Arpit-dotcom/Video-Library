@@ -29,9 +29,12 @@ export const useSignup = () => {
       });
       localStorage.setItem("token", response.data.encodedToken);
       setIsLoggedIn(true);
-      navigate(location.state?.from?.pathname || "/videoListing", {
-        replace: true,
-      });
+      setTimeout(()=>{
+        navigate(location.state?.from?.pathname || "/videoListing", {
+          replace: true,
+        });
+      },5000)
+      
     } catch (e) {
       console.log(e);
     }

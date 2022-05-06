@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import "styles/auth/signup.css";
 import { useEffect } from "react";
 import { useSignup } from "utils";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const Signup = () => {
   const { submitHandler, signUpDispatch, signUpState } = useSignup();
@@ -88,7 +89,9 @@ export const Signup = () => {
         <input
           className="submit"
           type="submit"
-          onClick={(event) => submitHandler(event)}
+          onClick={(event) => (
+            submitHandler(event), toast.success("Signin successfully!")
+          )}
           value="Signup"
         />
       </form>
@@ -99,6 +102,7 @@ export const Signup = () => {
           Log In
         </Link>
       </p>
+      <ToastContainer />
     </section>
   );
 };

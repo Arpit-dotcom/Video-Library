@@ -2,10 +2,12 @@ import { useAuth } from "contexts";
 import React from "react";
 import { Link } from "react-router-dom";
 import "styles/Navbar.css";
+import { useSearchBar } from "utils";
 
 const Navbar = () => {
   const { isLoggedIn } = useAuth();
-
+  const {searchHandler, searchInput} = useSearchBar();
+  
   return (
     <>
       <nav className="simple-navigation">
@@ -21,11 +23,13 @@ const Navbar = () => {
           </div>
         </span>
 
-          <input
-            className="nav-search"
-            type="text"
-            placeholder="Search for product, brands and more"
-          />
+        <input
+          className="nav-search"
+          type="text"
+          value={searchInput}
+          placeholder="Search for product, brands and more"
+          onChange={(event) => searchHandler(event)}
+        />
 
         <div className="nav-list">
           <div className="list-item icons">

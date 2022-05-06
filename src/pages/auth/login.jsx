@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import "styles/auth/login.css";
 import { useEffect } from "react";
 import { useLogin } from "utils";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const Login = () => {
   const {
@@ -53,7 +55,7 @@ export const Login = () => {
           className="submit"
           type="submit"
           value="Login"
-          onClick={(event) => loginHandler(event)}
+          onClick={(event) => (loginHandler(event),toast.success("Login successfully!"))}
         />
         <input
           className="submit"
@@ -68,6 +70,7 @@ export const Login = () => {
           Sign Up
         </Link>
       </p>
+      <ToastContainer />
     </section>
   );
 };
