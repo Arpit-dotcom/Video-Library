@@ -14,8 +14,8 @@ export const Main = () => {
             <p>{watchLaterState.watchLater.length} videos</p>
           </div>
 
-          {watchLaterState.watchLater.map((video) => {
-            return <PlaylistContainer video={video} />;
+          {watchLaterState.watchLater.map((video,index ) => {
+            return <PlaylistContainer video={video} key={index}/>;
           })}
         </main>
       </section>

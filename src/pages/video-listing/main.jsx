@@ -6,7 +6,6 @@ import { useVideoListing } from "contexts";
 export const Main = ({categories}) => {
   const { videoDispatch, filteredVideos } = useVideoListing();
   
-  console.log(categories)
   return (
     <>
       <section className="videoContainer">

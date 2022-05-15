@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "contexts";
 
 export const useLogout = () => {
-  const { setIsLoggedIn } = useAuth();
+  const { setIsLoggedIn, setToken } = useAuth();
   const navigate = useNavigate();
 
   const notLogOutHandler = () => {
@@ -10,7 +10,7 @@ export const useLogout = () => {
   };
 
   const logOutHandler = () => {
-    localStorage.clear();
+    setToken("");
     setIsLoggedIn(false);
     navigate("/videoListing");
   };

@@ -6,7 +6,7 @@ import { useAuth } from "contexts";
 export const useLogin = () => {
   const [_email, setEmail] = useState("");
   const [_password, setPassword] = useState("");
-  const { setIsLoggedIn } = useAuth();
+  const { setIsLoggedIn, setToken } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -17,8 +17,7 @@ export const useLogin = () => {
         email: _email,
         password: _password,
       });
-      console.log(response);
-      localStorage.setItem("token", response.data.encodedToken);
+      setToken(response.data.encodedToken);
       setIsLoggedIn(true);
       navigate(location.state?.from?.pathname || "/videoListing", {
         replace: true,
