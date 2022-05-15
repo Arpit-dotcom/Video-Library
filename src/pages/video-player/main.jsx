@@ -1,4 +1,3 @@
-import { videos } from "backend/db/videos";
 import ReactPlayer from "react-player";
 import { Sidebar } from "components";
 import { useParams, useNavigate } from "react-router-dom";
@@ -9,9 +8,11 @@ import {
   usePlaylist,
   useAuth,
 } from "contexts";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export const Main = () => {
+  const [video, setVideo] = useState({});
   const navigate = useNavigate();
   const { isLoggedIn } = useAuth();
   const { videoId } = useParams();
@@ -19,12 +20,6 @@ export const Main = () => {
   const { likedVideoDispatch } = useLikedVideo();
   const { historyDispatch } = useHistory();
   const { playlistDispatch } = usePlaylist();
-
-  const getFilterVideo = (videoId, videos) => {
-    return videos.find((video) => video.id === videoId);
-  };
-
-  const filterVideo = getFilterVideo(videoId, videos);
 
   const addWatchLater = (videoId) => {
     !isLoggedIn
@@ -45,7 +40,15 @@ export const Main = () => {
   };
 
   useEffect(() => {
-    historyDispatch({ type: "ADD_TO_HISTORY", payload: filterVideo });
+    historyDispatch({ type: "ADD_TO_HISTORY", payload: video });
+    (async () => {
+      try {
+        const response = await axios.get(`/api/video/${videoId}`);
+        setVideo(response.data.video);
+      } catch (e) {
+        console.log(e);
+      }
+    })();
   }, [videoId]);
 
   return (
@@ -57,34 +60,34 @@ export const Main = () => {
           <div className="video">
             <ReactPlayer
               className="video-player"
-              url={filterVideo.link}
+              url={video.link}
               controls
             />
           </div>
 
-          <h2 className="margin-top-1 title">{filterVideo.title}</h2>
+          <h2 className="margin-top-1 title">{video.title}</h2>
 
           <div className="margin-top-2 footer">
             <span className="sub-container1">
               <img
                 className="round sm"
-                src={filterVideo.image}
+                src={video.image}
                 alt="video-avatar"
               />
               <span className="margin-top-0_5 left-sub-container">
-                <p style={{ textAlign: "left" }}>{filterVideo.creator}</p>
+                <p style={{ textAlign: "left" }}>{video.creator}</p>
                 <div className="margin-top-0_5 left-mini-container">
                   <i className="margin-right-0_5 fas fa-eye"></i>
-                  <span className="margin-right-2">{filterVideo.views}</span>
+                  <span className="margin-right-2">{video.views}</span>
                   <i className="margin-right-0_5 far fa-dot-circle"></i>
-                  <span>{filterVideo.days}</span>
+                  <span>{video.days}</span>
                 </div>
               </span>
             </span>
             <span className="margin-top-0_5 sub-container2">
               <span
                 className="cursor-pointer margin-right-2"
-                onClick={() => addLikedVideos(filterVideo)}
+                onClick={() => addLikedVideos(video)}
               >
                 <i className="margin-right-0_5 margin-top-0_2 fas fa-thumbs-up"></i>
                 Like
@@ -92,7 +95,7 @@ export const Main = () => {
 
               <span
                 className="cursor-pointer margin-right-2"
-                onClick={() => addPlaylist(filterVideo)}
+                onClick={() => addPlaylist(video)}
               >
                 <i className="margin-right-0_5 margin-top-0_2 fas fa-list"></i>
                 Save to playlist
@@ -100,7 +103,7 @@ export const Main = () => {
 
               <span
                 className="cursor-pointer"
-                onClick={() => addWatchLater(filterVideo)}
+                onClick={() => addWatchLater(video)}
               >
                 <i className="margin-right-0_5 margin-top-0_2 far fa-clock"></i>
                 Watch later
@@ -109,7 +112,7 @@ export const Main = () => {
           </div>
 
           <div className="margin-top-2 description">
-            {filterVideo.description}
+            {video.description}
           </div>
         </main>
       </section>

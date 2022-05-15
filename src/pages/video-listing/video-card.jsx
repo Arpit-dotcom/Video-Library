@@ -24,9 +24,9 @@ export const VideoCard = ({ filtervideo }) => {
   };
 
   return (
-    <section className="card badge-card" key={filtervideo.id}>
+    <section className="card badge-card" key={filtervideo._id}>
       <button className="timing">{filtervideo.time}</button>
-      <Link to={`/videoPlayer/${filtervideo.id}`} className="video-link">
+      <Link to={`/videoPlayer/${filtervideo._id}`} className="video-link">
         <img
           className="img"
           src="https://media.istockphoto.com/photos/play-icon-youtube-picture-id1344290509?b=1&k=20&m=1344290509&s=170667a&w=0&h=nsr6-eek2_1H4OqmX5tdJE9LFVn20puWnO4xXx9j18g="

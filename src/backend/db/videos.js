@@ -6,7 +6,7 @@ import { v4 as uuid } from "uuid";
 
 export const videos = [
   {
-    id: uuid(),
+    _id: uuid(),
     link: "https://www.youtube.com/watch?v=Y2Oj9gllHno",
     poster:
       "https://i.ytimg.com/vi/Y2Oj9gllHno/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDNsiucDjYGTBJqLj4o_3DztII1DA",
@@ -21,7 +21,7 @@ export const videos = [
     creator: "Aakash Gupta",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     link: "https://www.youtube.com/watch?v=MLdXYEWTC1k&t=167s",
     poster:
       "https://i.ytimg.com/an_webp/MLdXYEWTC1k/mqdefault_6s.webp?du=3000&sqp=CN39iJMG&rs=AOn4CLC-5Cz25MN8yVidTFr0E5tY7mfxzA",
@@ -36,7 +36,7 @@ export const videos = [
     creator: "Zakir khan",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     link: "https://www.youtube.com/watch?v=c7QYEedjb_o&t=3s",
     poster:
       "https://i.ytimg.com/an_webp/c7QYEedjb_o/mqdefault_6s.webp?du=3000&sqp=CLbziJMG&rs=AOn4CLATob2I_qNVfnX5gF7eR0BI8lHhsA",
@@ -52,7 +52,7 @@ export const videos = [
     creator: "Abhishek Upmanyu",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     link: "https://www.youtube.com/watch?v=vTrH8mr0C4g",
     poster:
       "https://i.ytimg.com/an_webp/vTrH8mr0C4g/mqdefault_6s.webp?du=3000&sqp=CLiHiZMG&rs=AOn4CLAn2C5jYPcRisI7RWmsHnu4IphaBQ",
@@ -68,7 +68,7 @@ export const videos = [
     creator: "Munawar Faruqui",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     link: "https://www.youtube.com/watch?v=g1T8-WSYcdI&t=602s",
     poster:
       "https://i.ytimg.com/an_webp/g1T8-WSYcdI/mqdefault_6s.webp?du=3000&sqp=CJq3ipMG&rs=AOn4CLBg11SYtBQvDMW0bCrJLn459QdjpA",
@@ -83,7 +83,7 @@ export const videos = [
     creator: "Haseeb Khan",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     link: "https://www.youtube.com/watch?v=8f3e6rXB8Cw",
     poster:
       "https://i.ytimg.com/an_webp/8f3e6rXB8Cw/mqdefault_6s.webp?du=3000&sqp=COC_ipMG&rs=AOn4CLBDTnJKBzWhvSaKNXSYhq8Fz6dHsA",
@@ -98,7 +98,7 @@ export const videos = [
     creator: "Harsh Gujral",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     link: "https://www.youtube.com/watch?v=6d2wzfx4sRs",
     poster:
       "https://i.ytimg.com/an_webp/6d2wzfx4sRs/mqdefault_6s.webp?du=3000&sqp=CM-HiZMG&rs=AOn4CLCbZWXHWL4bhXq6aSus3xNVrf03Vg",
@@ -113,7 +113,7 @@ export const videos = [
     creator: "Aakash Gupta",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     link: "https://www.youtube.com/watch?v=sIl8vsWrD8o",
     poster:
       "https://i.ytimg.com/an_webp/sIl8vsWrD8o/mqdefault_6s.webp?du=3000&sqp=CKa1ipMG&rs=AOn4CLDoV44dew00pLBVclZokzPdLUIYMA",
@@ -127,7 +127,7 @@ export const videos = [
     creator: "Zakir Khan",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     link: "https://www.youtube.com/watch?v=dtaJzUbQS7E",
     poster:
       "https://i.ytimg.com/an_webp/dtaJzUbQS7E/mqdefault_6s.webp?du=3000&sqp=CN2kipMG&rs=AOn4CLALpETFOS3m-A_YkGjC8rSlhypFoQ",
@@ -142,7 +142,7 @@ export const videos = [
     creator: "Abhishek Upmanyu",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     link: "https://www.youtube.com/watch?v=UMUbAvDYh9k",
     poster:
       "https://i.ytimg.com/an_webp/UMUbAvDYh9k/mqdefault_6s.webp?du=3000&sqp=CJeKiZMG&rs=AOn4CLBRPr4r9BlHhBW-VzfUXK5knEoy3A",
@@ -157,7 +157,7 @@ export const videos = [
     creator: "Munawar Faruqui",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     link: "https://www.youtube.com/watch?v=pzPCJj1U8bE&t=230s",
     poster:
       "https://i.ytimg.com/an_webp/pzPCJj1U8bE/mqdefault_6s.webp?du=3000&sqp=CL79iZMG&rs=AOn4CLC0u_i6jS7yJTW8dp16n0HwVpBNrQ",
@@ -171,7 +171,7 @@ export const videos = [
     creator: "Haseeb Khan",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     link: "https://www.youtube.com/watch?v=8KFi3ag9bEs",
     poster:
       "https://i.ytimg.com/an_webp/8KFi3ag9bEs/mqdefault_6s.webp?du=3000&sqp=CO3DipMG&rs=AOn4CLAMjwivZBd1gcye6EQQO5YaEoBrEQ",
@@ -187,7 +187,7 @@ export const videos = [
     creator: "Harsh Gujral",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     link: "https://www.youtube.com/watch?v=KBZfnt80s54&t=21s",
     poster:
       "https://i.ytimg.com/an_webp/KBZfnt80s54/mqdefault_6s.webp?du=3000&sqp=CPT3iJMG&rs=AOn4CLC882eaygsJFDyIiv7_aL-Nq3nWgA",
@@ -203,7 +203,7 @@ export const videos = [
     creator: "Aakash Gupta",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     link: "https://www.youtube.com/watch?v=B9nTWeqund8",
     poster:
       "https://i.ytimg.com/an_webp/B9nTWeqund8/mqdefault_6s.webp?du=3000&sqp=CJexipMG&rs=AOn4CLDlFkzwoEyAf0Ey_upAbnhnkBXL2Q",
@@ -217,7 +217,7 @@ export const videos = [
     creator: "Zakir Khan",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     link: "https://www.youtube.com/watch?v=HQILxqS831E",
     poster:
       "https://i.ytimg.com/an_webp/HQILxqS831E/mqdefault_6s.webp?du=3000&sqp=CPK7ipMG&rs=AOn4CLBd4T4XMxWIgtLU-jvVTFJVhzvFGg",
@@ -232,7 +232,7 @@ export const videos = [
     creator: "Abhishek Upmanyu",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     link: "https://www.youtube.com/watch?v=cHLM9L_5gj0",
     poster:
       "https://i.ytimg.com/an_webp/cHLM9L_5gj0/mqdefault_6s.webp?du=3000&sqp=CLqJiZMG&rs=AOn4CLADyCktU0UL1qoxO3-GnhfMtqCxWg",
@@ -248,7 +248,7 @@ export const videos = [
     creator: "Munawar Faruqui",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     link: "https://www.youtube.com/watch?v=hj4kzcdd8ZE",
     poster:
       "https://i.ytimg.com/an_webp/hj4kzcdd8ZE/mqdefault_6s.webp?du=3000&sqp=CKL1iJMG&rs=AOn4CLDzMNBJgKM6hd69kGrXz7vyQJSJIQ",
@@ -262,7 +262,7 @@ export const videos = [
     creator: "Harsh Gujral",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     link: "https://www.youtube.com/watch?v=PTIaBLtp4R8",
     poster:
       "https://i.ytimg.com/an_webp/PTIaBLtp4R8/mqdefault_6s.webp?du=3000&sqp=CM-zipMG&rs=AOn4CLCW0Q40WnzucxrRZxfZctxUAipTGQ",
@@ -277,7 +277,7 @@ export const videos = [
     creator: "Aakash Gupta",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     link: "https://www.youtube.com/watch?v=2V1shb3Mi4s&t=3s",
     poster:
       "https://i.ytimg.com/an_webp/2V1shb3Mi4s/mqdefault_6s.webp?du=3000&sqp=COefipMG&rs=AOn4CLBivXdo2uCrqkqqRXQhhLNnXCBzDA",
@@ -292,7 +292,7 @@ export const videos = [
     creator: "Zakir Khan",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     link: "https://www.youtube.com/watch?v=rEFfoWZG1Vg",
     poster:
       "https://i.ytimg.com/an_webp/rEFfoWZG1Vg/mqdefault_6s.webp?du=3000&sqp=CLifipMG&rs=AOn4CLBwqGKitji0yaZbSB9XtHOyhl8yKA",
