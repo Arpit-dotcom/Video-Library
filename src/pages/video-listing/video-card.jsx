@@ -2,17 +2,17 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAuth, usePlaylist, useWatchLater } from "contexts";
 import axios from "axios";
+import { isVideoInWatchLater } from "utils";
 
 export const VideoCard = ({ filtervideo }) => {
   const navigate = useNavigate();
   const { isLoggedIn, token } = useAuth();
   const [show, setShow] = useState(false);
-  const {
-    watchLaterState,
-    watchLaterDispatch,
-    addWatchLater,
-    setAddWatchLater,
-  } = useWatchLater();
+  const { watchLaterState, watchLaterDispatch } = useWatchLater();
+  const videoInWatchLater = isVideoInWatchLater(
+    filtervideo._id,
+    watchLaterState.watchLater
+  );
   const { playlistDispatch } = usePlaylist();
 
   const cardPopUp = () => {
@@ -23,7 +23,7 @@ export const VideoCard = ({ filtervideo }) => {
     if (!isLoggedIn) {
       navigate("/login");
     } else {
-      if (!addWatchLater) {
+      if (!videoInWatchLater) {
         try {
           const response = await axios.post(
             "/api/user/watchlater",
@@ -36,7 +36,6 @@ export const VideoCard = ({ filtervideo }) => {
             type: "ADD_TO_WATCH_LATER",
             payload: response.data.watchlater,
           });
-          setAddWatchLater(true);
         } catch (e) {
           console.log(e);
         }
@@ -52,7 +51,6 @@ export const VideoCard = ({ filtervideo }) => {
             type: "DELETE_FROM_WATCH_LATER",
             payload: response.data.watchlater,
           });
-          setAddWatchLater(false);
         } catch (e) {
           console.log(e);
         }
@@ -91,9 +89,7 @@ export const VideoCard = ({ filtervideo }) => {
             className="cursor-pointer watch"
             onClick={() => watchLaterHandler()}
           >
-            {watchLaterState.watchLater.find(
-              (video) => video._id === filtervideo._id
-            ) ? (
+            {videoInWatchLater ? (
               <i className="fas fa-check-circle"></i>
             ) : (
               <i className="far fa-clock"></i>

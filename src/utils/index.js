@@ -1,5 +1,5 @@
 import { getFilteredVideos } from "./video-listing";
-// import { addWatchLaterVideos, deleteWatchLaterVideos } from "./watch-later";
+import { isVideoInWatchLater } from "./watch-later";
 import { isVideoLiked } from "./liked-videos";
 import { addHistory, deleteHistory } from "./history";
 import { addPlaylist, deletePlaylist } from "./playlist";
@@ -9,8 +9,7 @@ import { useSignup } from "./signup";
 
 export {
   getFilteredVideos,
-  // addWatchLaterVideos,
-  // deleteWatchLaterVideos,
+  isVideoInWatchLater,
   isVideoLiked,
   addHistory,
   deleteHistory,

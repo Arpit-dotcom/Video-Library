@@ -10,21 +10,20 @@ import {
 } from "contexts";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { isVideoLiked } from "utils";
+import { isVideoInWatchLater, isVideoLiked } from "utils";
 
 export const Main = () => {
   const [video, setVideo] = useState({});
   const navigate = useNavigate();
   const { isLoggedIn, token } = useAuth();
   const { videoId } = useParams();
-  const {
-    watchLaterState,
-    watchLaterDispatch,
-    addWatchLater,
-    setAddWatchLater,
-  } = useWatchLater();
+  const { watchLaterState, watchLaterDispatch } = useWatchLater();
   const { likedVideoState, likedVideoDispatch } = useLikedVideo();
-  const like = isVideoLiked(videoId, likedVideoState.likedVideo);
+  const videoLiked = isVideoLiked(videoId, likedVideoState.likedVideo);
+  const videoInWatchLater = isVideoInWatchLater(
+    videoId,
+    watchLaterState.watchLater
+  );
   const { historyDispatch } = useHistory();
   const { playlistDispatch } = usePlaylist();
 
@@ -32,7 +31,7 @@ export const Main = () => {
     if (!isLoggedIn) {
       navigate("/login");
     } else {
-      if (!addWatchLater) {
+      if (!videoInWatchLater) {
         try {
           const response = await axios.post(
             "/api/user/watchlater",
@@ -41,12 +40,10 @@ export const Main = () => {
               headers: { authorization: token },
             }
           );
-          console.log(response);
           watchLaterDispatch({
             type: "ADD_TO_WATCH_LATER",
             payload: response.data.watchlater,
           });
-          setAddWatchLater(true);
         } catch (e) {
           console.log(e);
         }
@@ -62,7 +59,6 @@ export const Main = () => {
             type: "DELETE_FROM_WATCH_LATER",
             payload: response.data.watchlater,
           });
-          setAddWatchLater(false);
         } catch (e) {
           console.log(e);
         }
@@ -74,7 +70,7 @@ export const Main = () => {
     if (!isLoggedIn) {
       navigate("/login");
     } else {
-      if (!like) {
+      if (!videoLiked) {
         try {
           const response = await axios.post(
             "/api/user/likes",
@@ -154,7 +150,7 @@ export const Main = () => {
                 className="cursor-pointer margin-right-2"
                 onClick={() => likeHandler()}
               >
-                {like ? (
+                {videoLiked ? (
                   <i className="margin-right-0_5 margin-top-0 _2 fas fa-thumbs-up"></i>
                 ) : (
                   <i className="margin-right-0_5 margin-top-0_2 far fa-thumbs-up"></i>
@@ -174,10 +170,8 @@ export const Main = () => {
                 className="cursor-pointer"
                 onClick={() => watchLaterHandler()}
               >
-                {watchLaterState.watchLater.find(
-                  (video) => video._id === videoId
-                ) ? (
-                  <i class="margin-right-0_5 margin-top-0_2 fas fa-check-circle"></i>
+                {videoInWatchLater ? (
+                  <i className="margin-right-0_5 margin-top-0_2 fas fa-check-circle"></i>
                 ) : (
                   <i className="margin-right-0_5 margin-top-0_2 far fa-clock"></i>
                 )}
