@@ -1,17 +1,19 @@
-import { createContext, useContext, useReducer } from "react";
+import { useState, createContext, useContext, useReducer } from "react";
 import { likedVideoReducer } from "reducer";
 
 const LikedVideoContext = createContext();
 
 const LikedVideoProvider = ({ children }) => {
-  
+  const [liked, setLiked] = useState(false);
 
   const [likedVideoState, likedVideoDispatch] = useReducer(likedVideoReducer, {
     likedVideo: [],
   });
 
   return (
-    <LikedVideoContext.Provider value={{ likedVideoDispatch, likedVideoState }}>
+    <LikedVideoContext.Provider
+      value={{ likedVideoDispatch, likedVideoState, setLiked, liked }}
+    >
       {children}
     </LikedVideoContext.Provider>
   );
