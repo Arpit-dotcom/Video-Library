@@ -10,6 +10,7 @@ import {
 } from "contexts";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { isVideoLiked } from "utils";
 
 export const Main = () => {
   const [video, setVideo] = useState({});
@@ -22,8 +23,8 @@ export const Main = () => {
     addWatchLater,
     setAddWatchLater,
   } = useWatchLater();
-  const { likedVideoState, likedVideoDispatch, liked, setLiked } =
-    useLikedVideo();
+  const { likedVideoState, likedVideoDispatch } = useLikedVideo();
+  const like = isVideoLiked(videoId, likedVideoState.likedVideo);
   const { historyDispatch } = useHistory();
   const { playlistDispatch } = usePlaylist();
 
@@ -73,7 +74,7 @@ export const Main = () => {
     if (!isLoggedIn) {
       navigate("/login");
     } else {
-      if (!liked) {
+      if (!like) {
         try {
           const response = await axios.post(
             "/api/user/likes",
@@ -86,7 +87,6 @@ export const Main = () => {
             type: "ADD_TO_LIKED_VIDEO",
             payload: response.data.likes,
           });
-          setLiked(true);
         } catch (e) {
           console.log(e);
         }
@@ -99,7 +99,6 @@ export const Main = () => {
             type: "DELETE_FROM_LIKED_VIDEO",
             payload: response.data.likes,
           });
-          setLiked(false);
         } catch (e) {
           console.log(e);
         }
@@ -155,9 +154,7 @@ export const Main = () => {
                 className="cursor-pointer margin-right-2"
                 onClick={() => likeHandler()}
               >
-                {likedVideoState.likedVideo.find(
-                  (video) => video._id === videoId
-                ) ? (
+                {like ? (
                   <i className="margin-right-0_5 margin-top-0 _2 fas fa-thumbs-up"></i>
                 ) : (
                   <i className="margin-right-0_5 margin-top-0_2 far fa-thumbs-up"></i>

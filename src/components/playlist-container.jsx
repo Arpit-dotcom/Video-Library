@@ -55,8 +55,6 @@ export const PlaylistContainer = ({ video }) => {
     playlistDispatch({ type: "DELETE_FROM_PLAYLIST", payload: video });
   };
 
-  console.log(video);
-
   return (
     <section className="card horizontal">
       <div className="container1">

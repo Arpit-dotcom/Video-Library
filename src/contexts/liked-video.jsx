@@ -4,7 +4,6 @@ import { likedVideoReducer } from "reducer";
 const LikedVideoContext = createContext();
 
 const LikedVideoProvider = ({ children }) => {
-  const [liked, setLiked] = useState(false);
 
   const [likedVideoState, likedVideoDispatch] = useReducer(likedVideoReducer, {
     likedVideo: [],
@@ -12,7 +11,7 @@ const LikedVideoProvider = ({ children }) => {
 
   return (
     <LikedVideoContext.Provider
-      value={{ likedVideoDispatch, likedVideoState, setLiked, liked }}
+      value={{ likedVideoDispatch, likedVideoState }}
     >
       {children}
     </LikedVideoContext.Provider>

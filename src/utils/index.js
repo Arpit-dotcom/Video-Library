@@ -1,6 +1,6 @@
 import { getFilteredVideos } from "./video-listing";
 // import { addWatchLaterVideos, deleteWatchLaterVideos } from "./watch-later";
-// import { addLikedVideo, deleteLikedVideo } from "./liked-videos";
+import { isVideoLiked } from "./liked-videos";
 import { addHistory, deleteHistory } from "./history";
 import { addPlaylist, deletePlaylist } from "./playlist";
 import { useLogin } from "./login";
@@ -11,8 +11,7 @@ export {
   getFilteredVideos,
   // addWatchLaterVideos,
   // deleteWatchLaterVideos,
-  // addLikedVideo,
-  // deleteLikedVideo,
+  isVideoLiked,
   addHistory,
   deleteHistory,
   addPlaylist,
