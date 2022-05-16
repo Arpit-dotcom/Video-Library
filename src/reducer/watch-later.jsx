@@ -5,18 +5,12 @@ export const watchLaterReducer = (watchLaterState, watchLaterAction) => {
     case "ADD_TO_WATCH_LATER":
       return {
         ...watchLaterState,
-        watchLater: addWatchLaterVideos(
-          watchLaterState.watchLater,
-          watchLaterAction.payload
-        ),
+        watchLater: watchLaterAction.payload,
       };
     case "DELETE_FROM_WATCH_LATER":
       return {
         ...watchLaterState,
-        watchLater: deleteWatchLaterVideos(
-          watchLaterState.watchLater,
-          watchLaterAction.payload
-        ),
+        watchLater: watchLaterAction.payload,
       };
     default:
       return watchLaterState;

@@ -16,15 +16,57 @@ export const Main = () => {
   const navigate = useNavigate();
   const { isLoggedIn, token } = useAuth();
   const { videoId } = useParams();
-  const { watchLaterDispatch } = useWatchLater();
-  const { likedVideoState,likedVideoDispatch, liked, setLiked } = useLikedVideo();
+  const {
+    watchLaterState,
+    watchLaterDispatch,
+    addWatchLater,
+    setAddWatchLater,
+  } = useWatchLater();
+  const { likedVideoState, likedVideoDispatch, liked, setLiked } =
+    useLikedVideo();
   const { historyDispatch } = useHistory();
   const { playlistDispatch } = usePlaylist();
 
-  const watchLaterHandler = (videoId) => {
-    !isLoggedIn
-      ? navigate("/login")
-      : watchLaterDispatch({ type: "ADD_TO_WATCH_LATER", payload: videoId });
+  const watchLaterHandler = async () => {
+    if (!isLoggedIn) {
+      navigate("/login");
+    } else {
+      if (!addWatchLater) {
+        try {
+          const response = await axios.post(
+            "/api/user/watchlater",
+            { video },
+            {
+              headers: { authorization: token },
+            }
+          );
+          console.log(response);
+          watchLaterDispatch({
+            type: "ADD_TO_WATCH_LATER",
+            payload: response.data.watchlater,
+          });
+          setAddWatchLater(true);
+        } catch (e) {
+          console.log(e);
+        }
+      } else {
+        try {
+          const response = await axios.delete(
+            `/api/user/watchlater/${videoId}`,
+            {
+              headers: { authorization: token },
+            }
+          );
+          watchLaterDispatch({
+            type: "DELETE_FROM_WATCH_LATER",
+            payload: response.data.watchlater,
+          });
+          setAddWatchLater(false);
+        } catch (e) {
+          console.log(e);
+        }
+      }
+    }
   };
 
   const likeHandler = async () => {
@@ -116,16 +158,11 @@ export const Main = () => {
                 {likedVideoState.likedVideo.find(
                   (video) => video._id === videoId
                 ) ? (
-                  <>
-                    <i className="margin-right-0_5 margin-top-0 _2 fas fa-thumbs-up"></i>
-                    Liked
-                  </>
+                  <i className="margin-right-0_5 margin-top-0 _2 fas fa-thumbs-up"></i>
                 ) : (
-                  <>
                   <i className="margin-right-0_5 margin-top-0_2 far fa-thumbs-up"></i>
-                  Like
-                  </>
                 )}
+                Like
               </span>
 
               <span
@@ -140,7 +177,13 @@ export const Main = () => {
                 className="cursor-pointer"
                 onClick={() => watchLaterHandler()}
               >
-                <i className="margin-right-0_5 margin-top-0_2 far fa-clock"></i>
+                {watchLaterState.watchLater.find(
+                  (video) => video._id === videoId
+                ) ? (
+                  <i class="margin-right-0_5 margin-top-0_2 fas fa-check-circle"></i>
+                ) : (
+                  <i className="margin-right-0_5 margin-top-0_2 far fa-clock"></i>
+                )}
                 Watch later
               </span>
             </span>

@@ -1,21 +1,63 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAuth, usePlaylist, useWatchLater } from "contexts";
+import axios from "axios";
 
 export const VideoCard = ({ filtervideo }) => {
   const navigate = useNavigate();
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, token } = useAuth();
   const [show, setShow] = useState(false);
-  const { watchLaterDispatch } = useWatchLater();
+  const {
+    watchLaterState,
+    watchLaterDispatch,
+    addWatchLater,
+    setAddWatchLater,
+  } = useWatchLater();
   const { playlistDispatch } = usePlaylist();
 
   const cardPopUp = () => {
-    !isLoggedIn ? navigate("/login") : setShow((prev) => !prev);
+    setShow((prev) => !prev);
   };
 
-  const addWatchLater = (video) => {
-    watchLaterDispatch({ type: "ADD_TO_WATCH_LATER", payload: video });
-    setShow(false);
+  const watchLaterHandler = async () => {
+    if (!isLoggedIn) {
+      navigate("/login");
+    } else {
+      if (!addWatchLater) {
+        try {
+          const response = await axios.post(
+            "/api/user/watchlater",
+            { video: filtervideo },
+            {
+              headers: { authorization: token },
+            }
+          );
+          watchLaterDispatch({
+            type: "ADD_TO_WATCH_LATER",
+            payload: response.data.watchlater,
+          });
+          setAddWatchLater(true);
+        } catch (e) {
+          console.log(e);
+        }
+      } else {
+        try {
+          const response = await axios.delete(
+            `/api/user/watchlater/${filtervideo._id}`,
+            {
+              headers: { authorization: token },
+            }
+          );
+          watchLaterDispatch({
+            type: "DELETE_FROM_WATCH_LATER",
+            payload: response.data.watchlater,
+          });
+          setAddWatchLater(false);
+        } catch (e) {
+          console.log(e);
+        }
+      }
+    }
   };
 
   const addPlaylist = (video) => {
@@ -47,9 +89,16 @@ export const VideoCard = ({ filtervideo }) => {
           </p>
           <p
             className="cursor-pointer watch"
-            onClick={() => addWatchLater(filtervideo)}
+            onClick={() => watchLaterHandler()}
           >
-            <i className="far fa-clock"></i>Watch Later
+            {watchLaterState.watchLater.find(
+              (video) => video._id === filtervideo._id
+            ) ? (
+              <i className="fas fa-check-circle"></i>
+            ) : (
+              <i className="far fa-clock"></i>
+            )}
+            Watch Later
           </p>
           <i
             className="cursor-pointer fas fa-times"

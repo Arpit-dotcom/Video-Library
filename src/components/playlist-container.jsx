@@ -12,13 +12,24 @@ import "styles/playlist-container.css";
 export const PlaylistContainer = ({ video }) => {
   const { pathname } = useLocation();
   const { historyDispatch } = useHistory();
-  const { watchLaterDispatch } = useWatchLater();
+  const { watchLaterDispatch, setAddWatchLater } = useWatchLater();
   const { likedVideoDispatch, setLiked } = useLikedVideo();
   const { playlistDispatch } = usePlaylist();
   const { token } = useAuth();
 
-  const deleteWatchLater = () => {
-    watchLaterDispatch({ type: "DELETE_FROM_WATCH_LATER", payload: video });
+  const deleteWatchLater = async () => {
+    try {
+      const response = await axios.delete(`/api/user/watchlater/${video._id}`, {
+        headers: { authorization: token },
+      });
+      watchLaterDispatch({
+        type: "DELETE_FROM_WATCH_LATER",
+        payload: response.data.watchlater,
+      });
+      setAddWatchLater(false);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   const deleteLikedVideo = async () => {
@@ -43,6 +54,8 @@ export const PlaylistContainer = ({ video }) => {
   const deletePlaylist = () => {
     playlistDispatch({ type: "DELETE_FROM_PLAYLIST", payload: video });
   };
+
+  console.log(video);
 
   return (
     <section className="card horizontal">
@@ -93,7 +106,7 @@ export const PlaylistContainer = ({ video }) => {
           ></i>
         )}
 
-        <Link to={`/videoPlayer/${video.id}`}>
+        <Link to={`/videoPlayer/${video._id}`}>
           <img
             className="img"
             src="https://media.istockphoto.com/photos/play-icon-youtube-picture-id1344290509?b=1&k=20&m=1344290509&s=170667a&w=0&h=nsr6-eek2_1H4OqmX5tdJE9LFVn20puWnO4xXx9j18g="

@@ -123,7 +123,7 @@
 }
 
 .videoContainer .fa-list,
-.fa-clock {
+.fa-clock, .fa-check-circle {
   margin: 0 0.5rem;
 }
 
