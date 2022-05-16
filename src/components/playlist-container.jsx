@@ -1,4 +1,6 @@
+import axios from "axios";
 import {
+  useAuth,
   useHistory,
   useLikedVideo,
   usePlaylist,
@@ -11,22 +13,34 @@ export const PlaylistContainer = ({ video }) => {
   const { pathname } = useLocation();
   const { historyDispatch } = useHistory();
   const { watchLaterDispatch } = useWatchLater();
-  const { likedVideoDispatch } = useLikedVideo();
+  const { likedVideoDispatch, setLiked } = useLikedVideo();
   const { playlistDispatch } = usePlaylist();
+  const { token } = useAuth();
 
-  const deleteWatchLater = (video) => {
+  const deleteWatchLater = () => {
     watchLaterDispatch({ type: "DELETE_FROM_WATCH_LATER", payload: video });
   };
 
-  const deleteLikedVideo = (video) => {
-    likedVideoDispatch({ type: "DELETE_FROM_LIKED_VIDEO", payload: video });
+  const deleteLikedVideo = async () => {
+    try {
+      const response = await axios.delete(`/api/user/likes/${video._id}`, {
+        headers: { authorization: token },
+      });
+      likedVideoDispatch({
+        type: "DELETE_FROM_LIKED_VIDEO",
+        payload: response.data.likes,
+      });
+      setLiked(false);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
-  const deleteHistory = (video) => {
+  const deleteHistory = () => {
     historyDispatch({ type: "DELETE_FROM_HISTORY", payload: video });
   };
 
-  const deletePlaylist = (video) => {
+  const deletePlaylist = () => {
     playlistDispatch({ type: "DELETE_FROM_PLAYLIST", payload: video });
   };
 
@@ -54,28 +68,28 @@ export const PlaylistContainer = ({ video }) => {
         {pathname === "/watchLater" && (
           <i
             className="cursor-pointer fas fa-times"
-            onClick={() => deleteWatchLater(video)}
+            onClick={() => deleteWatchLater()}
           ></i>
         )}
 
         {pathname === "/likedVideos" && (
           <i
             className="cursor-pointer fas fa-times"
-            onClick={() => deleteLikedVideo(video)}
+            onClick={() => deleteLikedVideo()}
           ></i>
         )}
 
         {pathname === "/history" && (
           <i
             className="cursor-pointer fas fa-times"
-            onClick={() => deleteHistory(video)}
+            onClick={() => deleteHistory()}
           ></i>
         )}
 
         {pathname === "/playlist" && (
           <i
             className="cursor-pointer fas fa-times"
-            onClick={() => deletePlaylist(video)}
+            onClick={() => deletePlaylist()}
           ></i>
         )}
 

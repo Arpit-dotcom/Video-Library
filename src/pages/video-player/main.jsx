@@ -17,7 +17,7 @@ export const Main = () => {
   const { isLoggedIn, token } = useAuth();
   const { videoId } = useParams();
   const { watchLaterDispatch } = useWatchLater();
-  const { likedVideoDispatch, liked, setLiked } = useLikedVideo();
+  const { likedVideoState,likedVideoDispatch, liked, setLiked } = useLikedVideo();
   const { historyDispatch } = useHistory();
   const { playlistDispatch } = usePlaylist();
 
@@ -113,12 +113,19 @@ export const Main = () => {
                 className="cursor-pointer margin-right-2"
                 onClick={() => likeHandler()}
               >
-                {!liked ? (
-                  <i className="margin-right-0_5 margin-top-0_2 far fa-thumbs-up"></i>
+                {likedVideoState.likedVideo.find(
+                  (video) => video._id === videoId
+                ) ? (
+                  <>
+                    <i className="margin-right-0_5 margin-top-0 _2 fas fa-thumbs-up"></i>
+                    Liked
+                  </>
                 ) : (
-                  <i className="margin-right-0_5 margin-top-0_2 fas fa-thumbs-up"></i>
+                  <>
+                  <i className="margin-right-0_5 margin-top-0_2 far fa-thumbs-up"></i>
+                  Like
+                  </>
                 )}
-                {!liked ? "Like" : "Liked"}
               </span>
 
               <span
