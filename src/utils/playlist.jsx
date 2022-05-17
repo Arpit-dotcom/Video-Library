@@ -1,11 +1,3 @@
-const addPlaylist = (playlist, payload) => {
-  return playlist.find((video) => video.id === payload.id)
-    ? playlist
-    : [...playlist, payload];
+export const isNewPlaylist = (newInput, playlists) => {
+  return playlists.find(playlist => playlist.title === newInput)
 };
-
-const deletePlaylist = (playlist, payload) => {
-  return playlist.filter((video) => video.id !== payload.id);
-};
-
-export { addPlaylist, deletePlaylist };

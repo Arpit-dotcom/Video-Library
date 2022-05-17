@@ -1,16 +1,25 @@
 import { createContext, useContext, useReducer } from "react";
+import { useState } from "react";
 import { playlistReducer } from "reducer";
 
 const PlaylistContext = createContext();
 
 const PlaylistProvider = ({ children }) => {
+  const [showPlaylistModal, setShowPlaylistModal] = useState(false);
 
   const [playlistState, playlistDispatch] = useReducer(playlistReducer, {
-    playlist: [],
+    playlists: [],
   });
 
   return (
-    <PlaylistContext.Provider value={{ playlistDispatch, playlistState }}>
+    <PlaylistContext.Provider
+      value={{
+        playlistDispatch,
+        playlistState,
+        showPlaylistModal,
+        setShowPlaylistModal,
+      }}
+    >
       {children}
     </PlaylistContext.Provider>
   );

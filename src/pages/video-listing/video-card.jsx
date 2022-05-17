@@ -4,10 +4,10 @@ import { useAuth, usePlaylist, useWatchLater } from "contexts";
 import axios from "axios";
 import { isVideoInWatchLater } from "utils";
 
-export const VideoCard = ({ filtervideo }) => {
+export const VideoCard = ({ filtervideo, setShowPlaylistModal }) => {
   const navigate = useNavigate();
   const { isLoggedIn, token } = useAuth();
-  const [show, setShow] = useState(false);
+  const [card, setCard] = useState(false);
   const { watchLaterState, watchLaterDispatch } = useWatchLater();
   const videoInWatchLater = isVideoInWatchLater(
     filtervideo._id,
@@ -16,7 +16,7 @@ export const VideoCard = ({ filtervideo }) => {
   const { playlistDispatch } = usePlaylist();
 
   const cardPopUp = () => {
-    setShow((prev) => !prev);
+    setCard((prev) => !prev);
   };
 
   const watchLaterHandler = async () => {
@@ -58,9 +58,13 @@ export const VideoCard = ({ filtervideo }) => {
     }
   };
 
-  const addPlaylist = (video) => {
-    playlistDispatch({ type: "ADD_TO_PLAYLIST", payload: video });
-    setShow(false);
+  const addPlaylist = () => {
+    if (!isLoggedIn) {
+      navigate("/login");
+    } else {
+      setShowPlaylistModal(true);
+    }
+    // playlistDispatch({ type: "ADD_TO_PLAYLIST", payload: video });
   };
 
   return (
@@ -77,11 +81,11 @@ export const VideoCard = ({ filtervideo }) => {
         className="cursor-pointer fas fa-ellipsis-v"
         onClick={() => cardPopUp()}
       ></i>
-      {show && (
+      {card && (
         <div className="card-pop-up">
           <p
             className="cursor-pointer playlist"
-            onClick={() => addPlaylist(filtervideo)}
+            onClick={() => addPlaylist()}
           >
             <i className="fas fa-list"></i>Save to Playlist
           </p>

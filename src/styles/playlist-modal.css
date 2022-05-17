@@ -1,0 +1,67 @@
+@import "./common.css";
+
+.playlist-modal {
+  z-index: 50;
+  position: absolute;
+  left: calc(100vw - 50vw);
+  top: calc(100vh - 50vh - 72px);
+  background-color: var(--bg-color);
+  padding: 1rem;
+  width: 18rem;
+}
+
+.playlist-modal .head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.playlist-modal .close {
+  margin-top: 0.3rem;
+}
+
+.playlist-modal .plus {
+  margin-right: 1rem;
+}
+
+.playlist-modal .head > span {
+  font-size: 1.2rem;
+}
+
+.playlist-modal .btn {
+  padding: 0;
+  margin: 0;
+  border: none;
+  font-size: 1.2rem;
+  background-color: var(--bg-color);
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.playlist-modal .label {
+  display: block !important;
+  color: var(--default);
+  font-weight: normal;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.playlist-modal .input {
+  margin-right: 1rem;
+}
+
+.playlist-modal .add-inp {
+  width: 80%;
+  margin: 0 0.5rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
+}
+
+.playlist-modal .divider {
+  margin: 0.5rem 0;
+  border-bottom: 1px solid var(--default);
+}
+
+.playlist-modal .add-btn {
+  padding: 0.2rem;
+  cursor: pointer;
+}

@@ -1,5 +1,5 @@
 import ReactPlayer from "react-player";
-import { Sidebar } from "components";
+import { PlaylistModal, Sidebar } from "components";
 import { useParams, useNavigate } from "react-router-dom";
 import {
   useWatchLater,
@@ -26,7 +26,7 @@ export const Main = () => {
     watchLaterState.watchLater
   );
   const videoInHistory = isVideoInHistory(videoId, historyState.history);
-  const { playlistDispatch } = usePlaylist();
+   const { showPlaylistModal, setShowPlaylistModal } = usePlaylist();
 
   useEffect(() => {
     (async () => {
@@ -141,9 +141,11 @@ export const Main = () => {
   };
 
   const playlistHandler = (videoId) => {
-    !isLoggedIn
-      ? navigate("/login")
-      : playlistDispatch({ type: "ADD_TO_PLAYLIST", payload: videoId });
+    if(!isLoggedIn){
+      navigate("/login")
+    }else{
+      setShowPlaylistModal(true);
+    }
   };
 
   return (
@@ -153,6 +155,7 @@ export const Main = () => {
           <Sidebar />
 
           <main className="main-content">
+            {showPlaylistModal && <PlaylistModal />}
             <div className="video">
               <ReactPlayer className="video-player" url={video.link} controls />
             </div>

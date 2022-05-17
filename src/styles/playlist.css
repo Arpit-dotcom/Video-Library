@@ -7,17 +7,17 @@
   height: 100vh;
 }
 
-.playlistContainer .main-content .heading{
+.playlistContainer .main-content .heading {
   width: 100%;
   margin: 1rem 0;
 }
 
-.playlistContainer .normal-list{
+.playlistContainer .normal-list {
   display: flex;
   flex-wrap: wrap;
 }
 
-.playlistContainer .normal-list-item{
+.playlistContainer .normal-list-item {
   background-color: var(--bg-color);
   margin: 1rem;
   padding: 1rem;
@@ -26,7 +26,7 @@
   justify-content: space-between;
 }
 
-.playlistContainer .normal-list-item > div{
+.playlistContainer .normal-list-item > div {
   display: flex;
   align-items: center;
 }
@@ -37,3 +37,4 @@
   justify-content: center;
   margin-top: 8rem;
 }
+

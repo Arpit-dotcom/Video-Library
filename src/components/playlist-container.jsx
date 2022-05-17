@@ -3,7 +3,7 @@ import {
   useAuth,
   useHistory,
   useLikedVideo,
-  usePlaylist,
+  // usePlaylist,
   useWatchLater,
 } from "contexts";
 import { Link, useLocation } from "react-router-dom";
@@ -14,7 +14,7 @@ export const PlaylistContainer = ({ video }) => {
   const { historyDispatch } = useHistory();
   const { watchLaterDispatch, setAddWatchLater } = useWatchLater();
   const { likedVideoDispatch, setLiked } = useLikedVideo();
-  const { playlistDispatch } = usePlaylist();
+  // const { playlistDispatch } = usePlaylist();
   const { token } = useAuth();
 
   const deleteWatchLater = async () => {
@@ -58,9 +58,9 @@ export const PlaylistContainer = ({ video }) => {
     }
   };
 
-  const deletePlaylist = () => {
-    playlistDispatch({ type: "DELETE_FROM_PLAYLIST", payload: video });
-  };
+  // const deletePlaylist = () => {
+  //   playlistDispatch({ type: "DELETE_FROM_PLAYLIST", payload: video });
+  // };
 
   return (
     <section className="card horizontal">
@@ -104,12 +104,12 @@ export const PlaylistContainer = ({ video }) => {
           ></i>
         )}
 
-        {pathname === "/playlist" && (
+        {/* {pathname === "/playlist" && (
           <i
             className="cursor-pointer fas fa-times"
             onClick={() => deletePlaylist()}
           ></i>
-        )}
+        )} */}
 
         <Link to={`/videoPlayer/${video._id}`}>
           <img
