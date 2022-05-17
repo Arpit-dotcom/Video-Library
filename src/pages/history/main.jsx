@@ -1,16 +1,25 @@
+import axios from "axios";
 import { PlaylistContainer, Sidebar } from "components";
-import { useHistory } from "contexts";
+import { useAuth, useHistory } from "contexts";
 
 export const Main = () => {
   const { historyState, historyDispatch } = useHistory();
+  const {token} =useAuth();
 
-  const deleteAllHistory = () => {
-    historyDispatch({ type: "DELETE_ALL__HISTORY" });
+  const deleteAllHistory = async() => {
+    try{
+      const response = await axios.delete("/api/user/history/all", {
+        headers: { authorization: token },
+      });
+      historyDispatch({ type: "DELETE_ALL_HISTORY", payload: response.data.history });
+    }catch(e){
+      console.log(e);
+    }
   };
 
   return (
     <>
-      <section className="watchLaterContainer">
+      <section className="main">
         <Sidebar />
 
         <main className="main-content">
@@ -27,8 +36,8 @@ export const Main = () => {
             </span>
           </div>
 
-          {historyState.history.map((video) => {
-            return <PlaylistContainer video={video} />;
+          {historyState.history.map((video, index) => {
+            return <PlaylistContainer video={video} key={index} />;
           })}
         </main>
       </section>

@@ -47,8 +47,15 @@ export const PlaylistContainer = ({ video }) => {
     }
   };
 
-  const deleteHistory = () => {
-    historyDispatch({ type: "DELETE_FROM_HISTORY", payload: video });
+  const deleteHistory = async () => {
+    try{
+      const response = await axios.delete(`/api/user/history/${video._id}`, {
+        headers: { authorization: token },
+      })
+      historyDispatch({ type: "DELETE_FROM_HISTORY", payload: response.data.history });
+    }catch(e){
+      console.log(e);
+    }
   };
 
   const deletePlaylist = () => {
