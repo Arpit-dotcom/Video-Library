@@ -3,8 +3,10 @@ import { VideoCard } from "./video-card";
 import { Link } from "react-router-dom";
 import { usePlaylist, useVideoListing } from "contexts";
 import { PlaylistModal } from "components";
+import { useState } from "react";
 
 export const Main = ({ categories }) => {
+  const [playlistVideo, setPlaylistVideo] = useState(null);
   const { videoDispatch, filteredVideos } = useVideoListing();
   const { showPlaylistModal, setShowPlaylistModal } = usePlaylist();
 
@@ -14,7 +16,7 @@ export const Main = ({ categories }) => {
         <Sidebar />
 
         <main className="main-content">
-          {showPlaylistModal && <PlaylistModal />}
+          {showPlaylistModal && <PlaylistModal video={playlistVideo} />}
           <ul className="filter-list">
             <Link
               to="/videoListing"
@@ -45,6 +47,7 @@ export const Main = ({ categories }) => {
                   filtervideo={filtervideo}
                   key={index}
                   setShowPlaylistModal={setShowPlaylistModal}
+                  setPlaylistVideo={setPlaylistVideo}
                 />
               ))}
             </>

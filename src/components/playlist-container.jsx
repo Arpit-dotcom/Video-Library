@@ -48,12 +48,15 @@ export const PlaylistContainer = ({ video }) => {
   };
 
   const deleteHistory = async () => {
-    try{
+    try {
       const response = await axios.delete(`/api/user/history/${video._id}`, {
         headers: { authorization: token },
-      })
-      historyDispatch({ type: "DELETE_FROM_HISTORY", payload: response.data.history });
-    }catch(e){
+      });
+      historyDispatch({
+        type: "DELETE_FROM_HISTORY",
+        payload: response.data.history,
+      });
+    } catch (e) {
       console.log(e);
     }
   };
@@ -61,6 +64,8 @@ export const PlaylistContainer = ({ video }) => {
   // const deletePlaylist = () => {
   //   playlistDispatch({ type: "DELETE_FROM_PLAYLIST", payload: video });
   // };
+
+  console.log(pathname);
 
   return (
     <section className="card horizontal">

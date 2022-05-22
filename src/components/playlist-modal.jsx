@@ -4,12 +4,10 @@ import { BsPlusLg } from "react-icons/bs";
 import { useState } from "react";
 import { useAuth, usePlaylist } from "contexts";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { isNewPlaylist } from "utils";
+import { isNewPlaylist, isNewPlaylistVideo } from "utils";
 
-export const PlaylistModal = () => {
-  const navigate = useNavigate();
-  const { token, isLoggedIn } = useAuth();
+export const PlaylistModal = ({ video }) => {
+  const { token } = useAuth();
   const [input, setInput] = useState(false);
   const [newInput, setNewInput] = useState("");
   const { playlistDispatch, playlistState, setShowPlaylistModal } =
@@ -20,31 +18,64 @@ export const PlaylistModal = () => {
     setInput((prev) => !prev);
   };
 
-  const addBtnHandler = async () => {
-    if (!isLoggedIn) {
-      navigate("/login");
-    } else {
-      if (!newPlaylist) {
-        try {
-          const response = await axios.post(
-            "/api/user/playlists",
-            {
-              playlist: { title: newInput },
-            },
-            {
-              headers: { authorization: token },
-            }
-          );
-          playlistDispatch({
-            type: "ADD_NEW_PLAYLIST",
-            payload: response.data.playlists,
-          });
-        } catch (e) {
-          console.log(e);
-        }
-      } else {
-        console.log("playlist already exists");
+  const playlistVideosHandler = async (e, playlistId) => {
+    if (e.target.checked) {
+      try {
+        const response = await axios.post(
+          `/api/user/playlists/${playlistId}`,
+          { video },
+          {
+            headers: { authorization: token },
+          }
+        );
+        playlistDispatch({
+          type: "ADD_VIDEO_TO_PLAYLIST",
+          payload: { video, playlistId },
+        });
+      } catch (e) {
+        console.log(e);
       }
+    } else {
+       try {
+         const videoId = video._id;
+         const response = await axios.delete(
+           `/api/user/playlists/${playlistId}/${video._id}`,
+           {
+             headers: { authorization: token },
+           }
+         );
+          playlistDispatch({
+            type: "DELETE_VIDEO_TO_PLAYLIST",
+            payload: { videoId, playlistId },
+          });
+       } catch (e) {
+         console.log(e);
+       }
+    }
+  };
+
+  const addNewPlaylist = async () => {
+    if (!newPlaylist) {
+      console.log({ input }, { newInput });
+      try {
+        const response = await axios.post(
+          "/api/user/playlists",
+          {
+            playlist: { title: newInput },
+          },
+          {
+            headers: { authorization: token },
+          }
+        );
+        playlistDispatch({
+          type: "ADD_NEW_PLAYLIST",
+          payload: response.data.playlists,
+        });
+      } catch (e) {
+        console.log(e);
+      }
+    } else {
+      console.log("playlist already exists");
     }
     setNewInput("");
     setInput(false);
@@ -63,7 +94,12 @@ export const PlaylistModal = () => {
       {playlistState.playlists.length !== 0 &&
         playlistState.playlists.map((playlist, index) => (
           <label className="label" key={index}>
-            <input className="input" type="checkbox" name={playlist.title} />
+            <input
+              className="input"
+              type="checkbox"
+              checked={isNewPlaylistVideo(video._id, playlist.videos)}
+              onChange={(e) => playlistVideosHandler(e, playlist._id)}
+            />
             {playlist.title}
           </label>
         ))}
@@ -74,7 +110,7 @@ export const PlaylistModal = () => {
             value={newInput}
             onChange={(e) => setNewInput(e.target.value)}
           />
-          <button className="add-btn" onClick={() => addBtnHandler()}>
+          <button className="add-btn" onClick={() => addNewPlaylist()}>
             Add
           </button>
         </>

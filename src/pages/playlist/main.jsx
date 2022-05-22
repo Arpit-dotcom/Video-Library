@@ -1,5 +1,6 @@
 import { Sidebar } from "components";
 import { usePlaylist } from "contexts";
+import { Link } from "react-router-dom";
 import "styles/header.css";
 
 export const Main = () => {
@@ -17,9 +18,11 @@ export const Main = () => {
               return (
                 <li className="normal-list-item" key={index}>
                   <div>
-                    <strong>{playlist.title}</strong>.<span>0 videos</span>
+                    <strong>{playlist.title}</strong>.<span>{playlist.videos.length} videos</span>
                   </div>
-                  <i className="fa fa-external-link"></i>
+                  <Link to={`/playlist/${playlist._id}`}>
+                    <i className="fa fa-external-link"></i>
+                  </Link>
                 </li>
               );
             })}

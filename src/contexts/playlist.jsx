@@ -9,6 +9,7 @@ const PlaylistProvider = ({ children }) => {
 
   const [playlistState, playlistDispatch] = useReducer(playlistReducer, {
     playlists: [],
+    playlistVideos: []
   });
 
   return (

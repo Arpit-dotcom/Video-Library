@@ -2,7 +2,7 @@
 
 .playlist-modal {
   z-index: 50;
-  position: absolute;
+  position: fixed;
   left: calc(100vw - 50vw);
   top: calc(100vh - 50vh - 72px);
   background-color: var(--bg-color);

@@ -4,7 +4,11 @@ import { useAuth, usePlaylist, useWatchLater } from "contexts";
 import axios from "axios";
 import { isVideoInWatchLater } from "utils";
 
-export const VideoCard = ({ filtervideo, setShowPlaylistModal }) => {
+export const VideoCard = ({
+  filtervideo,
+  setShowPlaylistModal,
+  setPlaylistVideo,
+}) => {
   const navigate = useNavigate();
   const { isLoggedIn, token } = useAuth();
   const [card, setCard] = useState(false);
@@ -63,8 +67,8 @@ export const VideoCard = ({ filtervideo, setShowPlaylistModal }) => {
       navigate("/login");
     } else {
       setShowPlaylistModal(true);
+      setPlaylistVideo(filtervideo);
     }
-    // playlistDispatch({ type: "ADD_TO_PLAYLIST", payload: video });
   };
 
   return (
@@ -83,10 +87,7 @@ export const VideoCard = ({ filtervideo, setShowPlaylistModal }) => {
       ></i>
       {card && (
         <div className="card-pop-up">
-          <p
-            className="cursor-pointer playlist"
-            onClick={() => addPlaylist()}
-          >
+          <p className="cursor-pointer playlist" onClick={() => addPlaylist()}>
             <i className="fas fa-list"></i>Save to Playlist
           </p>
           <p

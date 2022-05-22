@@ -1,4 +1,4 @@
-import { Navbar } from "components";
+import { Navbar, PlaylistContainer } from "components";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import {
@@ -35,7 +35,8 @@ function App() {
               <Playlist />
             </RequiredAuth>
           }
-        />
+        ></Route>
+        <Route path="/playlist/:playlistId" element={<PlaylistContainer />}></Route>
         <Route
           path="/watchLater"
           element={
