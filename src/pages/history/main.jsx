@@ -1,5 +1,5 @@
 import axios from "axios";
-import { PlaylistContainer, Sidebar } from "components";
+import { VideoContainer, Sidebar } from "components";
 import { useAuth, useHistory } from "contexts";
 
 export const Main = () => {
@@ -25,7 +25,7 @@ export const Main = () => {
         <main className="main-content">
           <div className="top-header">
             <span className="heading">
-              <h2>History.</h2>
+              <h1>History.</h1>
               <p>{historyState.history.length} videos</p>
             </span>
             <span>
@@ -37,7 +37,7 @@ export const Main = () => {
           </div>
 
           {historyState.history.map((video, index) => {
-            return <PlaylistContainer video={video} key={index} />;
+            return <VideoContainer video={video} key={index} />;
           })}
         </main>
       </section>

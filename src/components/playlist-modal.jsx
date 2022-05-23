@@ -21,7 +21,7 @@ export const PlaylistModal = ({ video }) => {
   const playlistVideosHandler = async (e, playlistId) => {
     if (e.target.checked) {
       try {
-        const response = await axios.post(
+        await axios.post(
           `/api/user/playlists/${playlistId}`,
           { video },
           {
@@ -38,7 +38,7 @@ export const PlaylistModal = ({ video }) => {
     } else {
        try {
          const videoId = video._id;
-         const response = await axios.delete(
+         await axios.delete(
            `/api/user/playlists/${playlistId}/${video._id}`,
            {
              headers: { authorization: token },
@@ -56,7 +56,6 @@ export const PlaylistModal = ({ video }) => {
 
   const addNewPlaylist = async () => {
     if (!newPlaylist) {
-      console.log({ input }, { newInput });
       try {
         const response = await axios.post(
           "/api/user/playlists",
@@ -97,7 +96,7 @@ export const PlaylistModal = ({ video }) => {
             <input
               className="input"
               type="checkbox"
-              checked={isNewPlaylistVideo(video._id, playlist.videos)}
+              checked={isNewPlaylistVideo(video?._id, playlist.videos)}
               onChange={(e) => playlistVideosHandler(e, playlist._id)}
             />
             {playlist.title}

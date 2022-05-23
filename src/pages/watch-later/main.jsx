@@ -1,4 +1,4 @@
-import { Sidebar, PlaylistContainer } from "components";
+import { Sidebar, VideoContainer } from "components";
 import { useWatchLater } from "contexts";
 
 export const Main = () => {
@@ -15,7 +15,7 @@ export const Main = () => {
           </div>
 
           {watchLaterState.watchLater.map((video,index ) => {
-            return <PlaylistContainer video={video} key={index}/>;
+            return <VideoContainer video={video} key={index}/>;
           })}
         </main>
       </section>

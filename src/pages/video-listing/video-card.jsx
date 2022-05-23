@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { useAuth, usePlaylist, useWatchLater } from "contexts";
+import { useAuth, useWatchLater } from "contexts";
 import axios from "axios";
 import { isVideoInWatchLater } from "utils";
 
@@ -17,7 +17,6 @@ export const VideoCard = ({
     filtervideo._id,
     watchLaterState.watchLater
   );
-  const { playlistDispatch } = usePlaylist();
 
   const cardPopUp = () => {
     setCard((prev) => !prev);
@@ -60,6 +59,7 @@ export const VideoCard = ({
         }
       }
     }
+    setCard(false);
   };
 
   const addPlaylist = () => {
@@ -68,6 +68,7 @@ export const VideoCard = ({
     } else {
       setShowPlaylistModal(true);
       setPlaylistVideo(filtervideo);
+      setCard(false);
     }
   };
 

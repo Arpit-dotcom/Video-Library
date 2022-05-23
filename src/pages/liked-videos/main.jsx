@@ -1,4 +1,4 @@
-import { Sidebar, PlaylistContainer } from "components";
+import { Sidebar, VideoContainer } from "components";
 import { useLikedVideo } from "contexts";
 
 export const Main = () => {
@@ -15,7 +15,7 @@ export const Main = () => {
           </div>
 
           {likedVideoState.likedVideo.map((video, index) => {
-            return <PlaylistContainer video={video} key={index} />;
+            return <VideoContainer video={video} key={index} />;
           })}
         </main>
       </section>

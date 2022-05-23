@@ -5,6 +5,8 @@ export const playlistReducer = (playlistState, playlistAction) => {
         ...playlistState,
         playlists: playlistAction.payload,
       };
+    case "DELETE_PLAYLIST":
+      return {...playlistState, playlists: playlistAction.payload};
     case "ADD_VIDEO_TO_PLAYLIST":
       return {
         ...playlistState,
