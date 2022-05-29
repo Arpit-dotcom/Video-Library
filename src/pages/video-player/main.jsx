@@ -26,7 +26,7 @@ export const Main = () => {
     watchLaterState.watchLater
   );
   const videoInHistory = isVideoInHistory(videoId, historyState.history);
-   const { showPlaylistModal, setShowPlaylistModal } = usePlaylist();
+  const { showPlaylistModal, setShowPlaylistModal } = usePlaylist();
 
   useEffect(() => {
     (async () => {
@@ -141,9 +141,9 @@ export const Main = () => {
   };
 
   const playlistHandler = (videoId) => {
-    if(!isLoggedIn){
-      navigate("/login")
-    }else{
+    if (!isLoggedIn) {
+      navigate("/login");
+    } else {
       setShowPlaylistModal(true);
     }
   };
@@ -155,9 +155,13 @@ export const Main = () => {
           <Sidebar />
 
           <main className="main-content">
-            {showPlaylistModal && <PlaylistModal />}
+            {showPlaylistModal && <PlaylistModal video={video}/>}
             <div className="video">
-              <ReactPlayer className="video-player" url={video.link} controls />
+              <ReactPlayer
+                className="video-player"
+                url={`https://www.youtube.com/watch?v=${video.link}`}
+                controls
+              />
             </div>
 
             <h2 className="margin-top-1 title">{video.title}</h2>
@@ -166,8 +170,8 @@ export const Main = () => {
               <span className="sub-container1">
                 <img
                   className="round sm"
-                  src={video.image}
-                  alt="video-avatar"
+                  src={video.avatar}
+                  alt="avatar-image"
                 />
                 <span className="margin-top-0_5 left-sub-container">
                   <p style={{ textAlign: "left" }}>{video.creator}</p>

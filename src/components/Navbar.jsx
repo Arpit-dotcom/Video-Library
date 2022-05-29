@@ -21,11 +21,11 @@ const Navbar = () => {
           </div>
         </span>
 
-          <input
-            className="nav-search"
-            type="text"
-            placeholder="Search for product, brands and more"
-          />
+        {/* <input
+          className="nav-search"
+          type="text"
+          placeholder="Search for product, brands and more"
+        /> */}
 
         <div className="nav-list">
           <div className="list-item icons">
