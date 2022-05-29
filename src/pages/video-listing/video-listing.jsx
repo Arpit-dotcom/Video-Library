@@ -32,7 +32,6 @@ export const VideoListing = () =>{
   }
 
   useEffect(() =>{
-    document.title = "VideoListing | Laugh Factory";
     getVideoListing(category, videoDispatch);
      (async () => {
        const response = await axios("/api/categories");
