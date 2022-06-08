@@ -1,6 +1,5 @@
 import { Sidebar } from "components";
 import { VideoCard } from "./video-card";
-import { Link } from "react-router-dom";
 import { usePlaylist, useVideoListing } from "contexts";
 import { PlaylistModal } from "components";
 import { useState } from "react";
@@ -18,26 +17,27 @@ export const Main = ({ categories }) => {
         <main className="main-content">
           {showPlaylistModal && <PlaylistModal video={playlistVideo} />}
           <ul className="filter-list">
-            <Link
-              to="/videoListing"
+            <li
               className="cursor-pointer filter-list-item"
               onClick={() =>
-                videoDispatch({ type: "category", payload: "all" })
+                videoDispatch({ type: "FILTER_CATEGORY", payload: "all" })
               }
             >
               All
-            </Link>
-            {categories.map(({ title }, index) => (
-              <Link
-                to={`/videoListing/${title}`}
+            </li>
+            {categories.map(({ categoryName }, index) => (
+              <li
                 className="cursor-pointer filter-list-item"
                 key={index}
                 onClick={() =>
-                  videoDispatch({ type: "category", payload: title })
+                  videoDispatch({
+                    type: "FILTER_CATEGORY",
+                    payload: categoryName,
+                  })
                 }
               >
-                {title}
-              </Link>
+                {categoryName}
+              </li>
             ))}
           </ul>
           {filteredVideos && (

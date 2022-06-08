@@ -6,13 +6,13 @@ export const useLogout = () => {
   const navigate = useNavigate();
 
   const notLogOutHandler = () => {
-    navigate("/videoListing");
+    navigate("/explore");
   };
 
   const logOutHandler = () => {
     setToken("");
     setIsLoggedIn(false);
-    navigate("/videoListing");
+    navigate("/explore");
   };
   return { notLogOutHandler, logOutHandler };
 };

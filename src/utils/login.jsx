@@ -19,7 +19,7 @@ export const useLogin = () => {
       });
       setToken(response.data.encodedToken);
       setIsLoggedIn(true);
-      navigate(location.state?.from?.pathname || "/videoListing", {
+      navigate(location.state?.from?.pathname || "/explore", {
         replace: true,
       });
     } catch (e) {

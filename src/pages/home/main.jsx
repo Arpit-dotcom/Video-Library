@@ -1,6 +1,15 @@
-import { Link } from "react-router-dom";
+import { useVideoListing } from "contexts";
+import { useNavigate } from "react-router-dom";
 
 const Main = ({ categories }) => {
+  const navigate = useNavigate();
+  const { videoDispatch } = useVideoListing();
+
+  const categoryHandler = async (category) => {
+    videoDispatch({ type: "FILTER_CATEGORY", payload: category });
+    navigate("/explore");
+  };
+
   return (
     <>
       <main className="container">
@@ -13,17 +22,22 @@ const Main = ({ categories }) => {
         </div>
         <h1 className="home-heading">Sort By Categories</h1>
         <section className="sub-container">
-          {categories.map((item, index) => (
-            <Link
-              to={`/videoListing/${item.title}`}
-              key={index}
+          {categories.map(({ categoryName, src, _id }) => (
+            <span
+              // to={`/videoListing/${categoryName}`}
+              key={_id}
               style={{ cursor: "pointer" }}
+              onClick={() => categoryHandler(categoryName)}
             >
               <div className="retina">
-                <h1 className="banner">{item.title}</h1>
-                <img className="img-size" src={item.src} alt="card-image" />
+                <h1 className="banner">{categoryName}</h1>
+                <img
+                  className="img-size"
+                  src={`https://yt3.ggpht.com/${src}=s176-c-k-c0x00ffffff-no-rj-mo`}
+                  alt="card-image"
+                />
               </div>
-            </Link>
+            </span>
           ))}
         </section>
       </main>

@@ -22,8 +22,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/videoListing" element={<VideoListing />}>
-          <Route path=":category" element={<VideoListing />} />
+        <Route path="/explore" element={<VideoListing />}>
+          {/* <Route path=":category" element={<VideoListing />} /> */}
         </Route>
         <Route path="/videoPlayer" element={<VideoPlayer />}>
           <Route path=":videoId" element={<VideoPlayer />} />
@@ -36,7 +36,10 @@ function App() {
             </RequiredAuth>
           }
         ></Route>
-        <Route path="/playlist/:playlistId" element={<PlaylistContainer />}></Route>
+        <Route
+          path="/playlist/:playlistId"
+          element={<PlaylistContainer />}
+        ></Route>
         <Route
           path="/watchLater"
           element={

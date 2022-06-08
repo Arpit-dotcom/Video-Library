@@ -1,6 +1,6 @@
 export const videoReducer = (videoState, videoAction) => {
   switch (videoAction.type) {
-    case "category":
+    case "FILTER_CATEGORY":
       return { ...videoState, category: videoAction.payload };
     default:
       return videoState;
