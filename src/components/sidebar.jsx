@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "styles/sidebar.css";
 
 export const Sidebar = () => {
@@ -11,15 +11,23 @@ export const Sidebar = () => {
     { icons: "fas fa-history", text: "History", path: "/history" },
   ];
 
+  const activeStyle = {
+    textDecoration: "underline",
+  };
+
   return (
     <aside className="drawer">
       <ul className="sub-drawer stacked-list">
         {categories.map((category, index) => (
           <li className="list-item" key={index}>
-            <Link className="link" to={category.path}>
+            <NavLink
+              className="link"
+              to={category.path}
+              style={({ isActive }) => (isActive ? activeStyle : undefined)}
+            >
               <i className={category.icons}></i>
               <span>{category.text}</span>
-            </Link>
+            </NavLink>
           </li>
         ))}
       </ul>
