@@ -13,7 +13,9 @@ const VideoListingContext = createContext();
 
 const VideoListingProvider = ({ children }) => {
   const [videos, setVideos] = useState([]);
-  const [videoState, videoDispatch] = useReducer(videoReducer, { category: "" });
+  const [videoState, videoDispatch] = useReducer(videoReducer, {
+    category: "",
+  });
 
   useEffect(() => {
     (async () => {
@@ -28,7 +30,9 @@ const VideoListingProvider = ({ children }) => {
 
   const filteredVideos = getFilteredVideos(videos, videoState.category);
   return (
-    <VideoListingContext.Provider value={{ videoDispatch, filteredVideos }}>
+    <VideoListingContext.Provider
+      value={{ videoState, videoDispatch, filteredVideos }}
+    >
       {children}
     </VideoListingContext.Provider>
   );

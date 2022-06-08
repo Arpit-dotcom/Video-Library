@@ -69,7 +69,6 @@
   border: 1px solid var(--default);
   padding: 0.5rem 1rem;
   margin: 0.5rem;
-  background-color: var(--bg-color);
   border-radius: 5rem;
 }
 
@@ -131,4 +130,8 @@
   position: absolute;
   top: 7px;
   right: 9px;
+}
+
+.active{
+  background-color: var(--bg-color) !important;
 }

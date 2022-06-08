@@ -6,9 +6,10 @@ import { useState } from "react";
 
 export const Main = ({ categories }) => {
   const [playlistVideo, setPlaylistVideo] = useState(null);
-  const { videoDispatch, filteredVideos } = useVideoListing();
+  const { videoState, videoDispatch, filteredVideos } = useVideoListing();
   const { showPlaylistModal, setShowPlaylistModal } = usePlaylist();
 
+  console.log(videoState.category);
   return (
     <>
       <section className="videoContainer">
@@ -17,17 +18,21 @@ export const Main = ({ categories }) => {
         <main className="main-content">
           {showPlaylistModal && <PlaylistModal video={playlistVideo} />}
           <ul className="filter-list">
-            <li
-              className="cursor-pointer filter-list-item"
+            {/* <li
+              className={`cursor-pointer filter-list-item ${
+                videoState.category === "" || "all" ? "active" : ""
+              }`}
               onClick={() =>
                 videoDispatch({ type: "FILTER_CATEGORY", payload: "all" })
               }
             >
               All
-            </li>
+            </li> */}
             {categories.map(({ categoryName }, index) => (
               <li
-                className="cursor-pointer filter-list-item"
+                className={`cursor-pointer filter-list-item ${
+                  videoState.category === categoryName ? "active" : ""
+                }`}
                 key={index}
                 onClick={() =>
                   videoDispatch({
