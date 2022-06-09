@@ -34,7 +34,8 @@ export const useSignup = () => {
         replace: true,
       });
     } catch (e) {
-      console.log(e);
+      alert(e);
+      alert("Enter correct details");
     }
   };
   return { submitHandler, signUpDispatch, signUpState };

@@ -23,7 +23,8 @@ export const useLogin = () => {
         replace: true,
       });
     } catch (e) {
-      console.log(e);
+      alert(e);
+      alert("Enter correct details");
     }
   };
 
