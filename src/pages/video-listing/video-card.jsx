@@ -59,7 +59,6 @@ export const VideoCard = ({
         }
       }
     }
-    setCard(false);
   };
 
   const addPlaylist = () => {

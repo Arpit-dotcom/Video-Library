@@ -113,7 +113,7 @@
   top: 14rem;
   right: 0.5rem;
   text-align: left;
-  background-color: var(--white-section);
+  background-color: var(--bg-color);
 }
 
 .videoContainer .card-pop-up > p {
@@ -122,7 +122,8 @@
 }
 
 .videoContainer .fa-list,
-.fa-clock, .fa-check-circle {
+.fa-clock,
+.fa-check-circle {
   margin: 0 0.5rem;
 }
 
@@ -132,6 +133,6 @@
   right: 9px;
 }
 
-.active{
+.active {
   background-color: var(--bg-color) !important;
 }

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { VideoContainer, Sidebar } from "components";
 import { useAuth, useHistory } from "contexts";
+import { Link } from "react-router-dom";
 
 export const Main = () => {
   const { historyState, historyDispatch } = useHistory();
@@ -23,18 +24,25 @@ export const Main = () => {
         <Sidebar />
 
         <main className="main-content">
-          <div className="top-header">
-            <span className="heading">
-              <h1>History.</h1>
-              <p>{historyState.history.length} videos</p>
+          {historyState.history.length ? (
+            <div className="top-header">
+              <span className="heading">
+                <h1>History.</h1>
+                <p>{historyState.history.length} videos</p>
+              </span>
+              <span>
+                <i
+                  className="cursor-pointer fas fa-trash"
+                  onClick={() => deleteAllHistory()}
+                ></i>
+              </span>
+            </div>
+          ) : (
+            <span className="empty-liked">
+              There is no history yet,{" "}
+              <Link to="/explore">explore more</Link>
             </span>
-            <span>
-              <i
-                className="cursor-pointer fas fa-trash"
-                onClick={() => deleteAllHistory()}
-              ></i>
-            </span>
-          </div>
+          )}
 
           {historyState.history.map((video, index) => {
             return <VideoContainer video={video} key={index} />;

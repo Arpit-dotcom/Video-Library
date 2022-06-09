@@ -12,13 +12,21 @@ export const Main = () => {
         <Sidebar />
 
         <main className="main-content">
-          <h1 className="heading">All Playlist</h1>
+          {playlistState.playlists.length ? (
+            <h1 className="heading">All Playlist</h1>
+          ) : (
+            <span className="empty-liked">
+              There is no playlist yet,{" "}
+              <Link to="/explore">explore more</Link>
+            </span>
+          )}
           <ul className="normal-list">
             {playlistState.playlists.map((playlist, index) => {
               return (
                 <li className="normal-list-item" key={index}>
                   <div>
-                    <strong>{playlist.title}</strong>.<span>{playlist.videos.length} videos</span>
+                    <strong>{playlist.title}</strong>.
+                    <span>{playlist.videos.length} videos</span>
                   </div>
                   <Link to={`/playlist/${playlist._id}`}>
                     <i className="fa fa-external-link"></i>

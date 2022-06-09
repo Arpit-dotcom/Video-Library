@@ -27,3 +27,7 @@
 .main .main-footer {
   margin: 1rem;
 }
+
+.main-content .empty-liked {
+  margin-left: 40%;
+}
