@@ -8,10 +8,6 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "All",
-  },
-  {
-    _id: uuid(),
     src: "ytc/AKedOLQ-IPFEzpiA0AqSSeK7ZiBWUfrG4a3OZar2p3tXNQ",
     categoryName: "Zakir Khan",
   },

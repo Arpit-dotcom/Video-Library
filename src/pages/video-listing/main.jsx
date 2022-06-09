@@ -9,7 +9,6 @@ export const Main = ({ categories }) => {
   const { videoState, videoDispatch, filteredVideos } = useVideoListing();
   const { showPlaylistModal, setShowPlaylistModal } = usePlaylist();
 
-  console.log(videoState.category);
   return (
     <>
       <section className="videoContainer">
@@ -18,16 +17,18 @@ export const Main = ({ categories }) => {
         <main className="main-content">
           {showPlaylistModal && <PlaylistModal video={playlistVideo} />}
           <ul className="filter-list">
-            {/* <li
+            <li
               className={`cursor-pointer filter-list-item ${
-                videoState.category === "" || "all" ? "active" : ""
+                videoState.category === "" || videoState.category === "All"
+                  ? "active"
+                  : ""
               }`}
               onClick={() =>
-                videoDispatch({ type: "FILTER_CATEGORY", payload: "all" })
+                videoDispatch({ type: "FILTER_CATEGORY", payload: "All" })
               }
             >
               All
-            </li> */}
+            </li>
             {categories.map(({ categoryName }, index) => (
               <li
                 className={`cursor-pointer filter-list-item ${
