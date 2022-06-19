@@ -5,7 +5,7 @@
   margin-bottom: 10rem;
   padding: 2rem;
   background-color: var(--secondary-color);
-  width: 25rem;
+  width: 20rem;
   border: 1px solid var(--default);
   height: 14.5rem;
 }
@@ -16,7 +16,7 @@
   background-color: var(--bg-color);
   padding: 1rem;
   border-radius: 1rem;
-  margin: 2rem 1.7rem;
+  margin: 2rem 0.5rem;
 }
 
 .logoutContainer .logout .secondary {
@@ -24,6 +24,6 @@
   color: var(--default);
   border: 1px solid;
   padding: 1rem;
-  margin: 2rem 1.7rem;
+  margin: 2rem 0.5rem;
   border-radius: 1rem;
 }

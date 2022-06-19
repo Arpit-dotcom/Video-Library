@@ -6,9 +6,9 @@
   margin: auto;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  padding: 2rem;
+  padding: 1rem;
   background-color: var(--secondary-color);
-  width: 25rem;
+  width: 20rem;
   height: 67.5vh;
   border: 1px solid var(--default);
 }
