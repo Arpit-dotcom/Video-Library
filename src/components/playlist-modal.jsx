@@ -82,42 +82,44 @@ export const PlaylistModal = ({ video }) => {
 
   return (
     <section className="playlist-modal">
-      <div className="head">
-        <span>Save to playlist</span>
-        <AiOutlineClose
-          className="cursor-pointer close"
-          onClick={() => setShowPlaylistModal(false)}
-        />
-      </div>
-      <div className="divider"></div>
-      {playlistState.playlists.length !== 0 &&
-        playlistState.playlists.map((playlist, index) => (
-          <label className="label" key={index}>
-            <input
-              className="input"
-              type="checkbox"
-              checked={isNewPlaylistVideo(video?._id, playlist.videos)}
-              onChange={(e) => playlistVideosHandler(e, playlist._id)}
-            />
-            {playlist.title}
-          </label>
-        ))}
-      {input && (
-        <>
-          <input
-            className="add-inp"
-            value={newInput}
-            onChange={(e) => setNewInput(e.target.value)}
+      <div className="playlist-modal-container">
+        <div className="head">
+          <span>Save to playlist</span>
+          <AiOutlineClose
+            className="cursor-pointer close"
+            onClick={() => setShowPlaylistModal(false)}
           />
-          <button className="add-btn" onClick={() => addNewPlaylist()}>
-            Add
-          </button>
-        </>
-      )}
-      <button className="btn" onClick={() => addPlaylistHandler()}>
-        <BsPlusLg className="plus" />
-        Create playlist
-      </button>
+        </div>
+        <div className="divider"></div>
+        {playlistState.playlists.length !== 0 &&
+          playlistState.playlists.map((playlist, index) => (
+            <label className="label" key={index}>
+              <input
+                className="input"
+                type="checkbox"
+                checked={isNewPlaylistVideo(video?._id, playlist.videos)}
+                onChange={(e) => playlistVideosHandler(e, playlist._id)}
+              />
+              {playlist.title}
+            </label>
+          ))}
+        {input && (
+          <>
+            <input
+              className="add-inp"
+              value={newInput}
+              onChange={(e) => setNewInput(e.target.value)}
+            />
+            <button className="add-btn" onClick={() => addNewPlaylist()}>
+              Add
+            </button>
+          </>
+        )}
+        <button className="btn" onClick={() => addPlaylistHandler()}>
+          <BsPlusLg className="plus" />
+          Create playlist
+        </button>
+      </div>
     </section>
   );
 };

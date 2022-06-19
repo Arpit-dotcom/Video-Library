@@ -74,7 +74,7 @@ export const PlaylistContainer = () => {
                     <div className="margin-top-2 footer">
                       <span className="view">
                         <i className="fas fa-eye"></i>
-                        <span>{video.views}</span>
+                        <span>{video.views} views</span>
                       </span>
                       <span className="time">
                         <i className="fas fa-clock"></i>

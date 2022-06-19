@@ -1,5 +1,3 @@
-@import "./common.css";
-
 .videoPlayerContainer {
   font-size: 1rem;
   display: grid;
@@ -7,34 +5,36 @@
   height: 100vh;
 }
 
-.videoPlayerContainer .main-content{
-    padding: 1rem 2rem 1rem 1rem;
+.videoPlayerContainer .main-content {
+  padding: 1rem;
 }
 
-.videoPlayerContainer .title, .description{
-    text-align: left;
+.videoPlayerContainer .title,
+.description {
+  text-align: left;
 }
 
-.videoPlayerContainer .footer{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.videoPlayerContainer .footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.videoPlayerContainer .sub-container1, .sub-container2{
-    display: flex;
+.videoPlayerContainer .sub-container1,
+.sub-container2 {
+  display: flex;
 }
 
-.videoPlayerContainer .video{
-    width: 100%;
+.videoPlayerContainer .video {
+  width: 100%;
 }
 
-.videoPlayerContainer .fa-clock{
-    margin-top: 0.2rem;
+.videoPlayerContainer .fa-clock {
+  margin-top: 0.2rem;
 }
 
-.videoPlayerContainer .video-player{
-    width: 100% !important;
-    object-fit: cover;
-    height: 55vh !important;
+.videoPlayerContainer .video-player {
+  width: 100% !important;
+  object-fit: cover;
+  height: 55vh !important;
 }

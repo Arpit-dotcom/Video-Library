@@ -1,7 +1,16 @@
-@import "./common.css";
-
 .playlist-modal {
   z-index: 50;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--blur);
+}
+
+.playlist-modal-container {
   position: fixed;
   left: calc(100vw - 50vw);
   top: calc(100vh - 50vh - 72px);

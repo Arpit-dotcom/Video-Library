@@ -112,7 +112,7 @@ export const VideoCard = ({
           <span className="round-avatar">
             <img
               className="round sm"
-              src={filtervideo.avatar}
+              src={`https://yt3.ggpht.com/${filtervideo.avatar}=s176-c-k-c0x00ffffff-no-rj-mo`}
               alt="avatar-image"
             />
           </span>
@@ -122,7 +122,7 @@ export const VideoCard = ({
             <div>
               <small className="card-view">
                 <i className="fas fa-eye"></i>
-                {filtervideo.views}
+                {filtervideo.views} views
               </small>
               <small>
                 <i className="far fa-dot-circle"></i>

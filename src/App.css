@@ -1,51 +1,99 @@
-/* .App {
-  text-align: center;
-} */
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --bg-color: #e2e8f0;
+  --blur: rgba(0, 0, 0, 0.27);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.margin-top-0_5 {
+  margin-top: 0.5rem;
+}
+
+.margin-top-1 {
+  margin-top: 1rem;
+}
+
+.margin-top-0_2 {
+  margin-top: 0.2rem;
+}
+
+.margin-right-0_5 {
+  margin-right: 0.5rem;
+}
+
+.margin-right-2 {
+  margin-right: 2rem;
+}
+
+.margin-top-2 {
+  margin-top: 2rem;
+}
+
+.margin-1 {
+  margin: 1rem;
+}
+
+.margin-2 {
+  margin: 2rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Media Queries  */
+
+@media screen and (max-width: 1024px) {
+  .hamburger-icon {
+    display: inline !important;
+  }
+  .simple-navigation .nav-link,
+  .drawer,
+  .simple-navigation .profile {
+    display: none;
+  }
+  .videoContainer,
+  .videoPlayerContainer,
+  .playlistContainer,
+  .main {
+    grid-template-columns: 1fr !important;
+  }
+  .videoPlayerContainer .main-content {
+    padding: 0.5rem !important;
+  }
+  .playlist-modal-container{
+    left: calc(100vw - 60vw);
   }
 }
 
-.App-header {
-  background-color: #22201c;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
+@media screen and (max-width: 786px) {
+  .nav-list {
+    position: static;
+    border: none;
+    background-color: var(--bg-color);
+  }
+  .nav-search {
+    position: fixed;
+    top: 74.4px;
+    left: 0;
+    width: 100vw;
+  }
+  .videoContainer .main-content {
+    margin-top: 2rem;
+  }
+  .videoContainer .filter-list-item {
+    margin: 0.1rem !important;
+  }
+  .videoPlayerContainer .footer {
+    flex-direction: column;
+    justify-content: flex-start !important;
+    align-items: start !important;
+  }
+  .playlist-modal-container{
+    left: calc(100vw - 70vw);
+  }
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-.brand-title {
-  font-size: 3rem;
-  color: #d9d9d9;
-}
-
-.brand-title span {
-  color: #ffde59;
-}
-
-.brand-description {
-  font-size: 1.4rem;
-}
-
-.links {
-  display: flex;
-}
-
-.links a {
-  color: #d9d9d9;
-  font-size: 1.2rem;
-  margin: 1rem;
+@media screen and (max-width: 480px) {
+  .playlist-modal-container{
+    left: calc(100vw - 85vw);
+  }
 }

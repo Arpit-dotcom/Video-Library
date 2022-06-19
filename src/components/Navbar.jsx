@@ -1,15 +1,23 @@
 import { useAuth } from "contexts";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "styles/Navbar.css";
+import { FaBars } from "react-icons/fa";
+import { MobileSidebar } from "components";
 
 const Navbar = () => {
+  const [mobileSidebar, setMobileSidebar] = useState(false);
   const { isLoggedIn } = useAuth();
 
   return (
     <>
       <nav className="simple-navigation">
+        {mobileSidebar && <MobileSidebar setMobileSidebar={setMobileSidebar} />}
         <span className="nav-list">
+          <FaBars
+            className="hamburger-icon"
+            onClick={() => setMobileSidebar((prev) => !prev)}
+          />
           <h1 className="text">Laugh Factory</h1>
           <div className="nav-list-link">
             <Link to="/" className="nav-link">

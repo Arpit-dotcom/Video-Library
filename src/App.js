@@ -22,9 +22,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/explore" element={<VideoListing />}>
-          {/* <Route path=":category" element={<VideoListing />} /> */}
-        </Route>
+        <Route path="/explore" element={<VideoListing />} />
         <Route path="/videoPlayer" element={<VideoPlayer />}>
           <Route path=":videoId" element={<VideoPlayer />} />
         </Route>

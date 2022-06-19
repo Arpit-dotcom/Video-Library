@@ -13,7 +13,9 @@ import axios from "axios";
 import { isVideoInHistory, isVideoInWatchLater, isVideoLiked } from "utils";
 
 export const Main = () => {
-  const [video, setVideo] = useState(null);
+  const [video, setVideo] = useState(
+    JSON.parse(localStorage.getItem("videoPlayer")) ?? null
+  );
   const navigate = useNavigate();
   const { isLoggedIn, token } = useAuth();
   const { videoId } = useParams();
@@ -32,7 +34,9 @@ export const Main = () => {
     (async () => {
       try {
         const response = await axios.get(`/api/video/${videoId}`);
-        setVideo(response.data.video);
+        const video = response.data.video;
+        setVideo(video);
+        localStorage.setItem("videoPlayer", JSON.stringify(video));
       } catch (e) {
         console.log(e);
       }
@@ -148,6 +152,8 @@ export const Main = () => {
     }
   };
 
+  console.log(video);
+
   return (
     <>
       {video && (
@@ -155,7 +161,7 @@ export const Main = () => {
           <Sidebar />
 
           <main className="main-content">
-            {showPlaylistModal && <PlaylistModal video={video}/>}
+            {showPlaylistModal && <PlaylistModal video={video} />}
             <div className="video">
               <ReactPlayer
                 className="video-player"
@@ -170,16 +176,16 @@ export const Main = () => {
               <span className="sub-container1">
                 <img
                   className="round sm"
-                  src={video.avatar}
+                  src={`https://yt3.ggpht.com/${video.avatar}=s176-c-k-c0x00ffffff-no-rj-mo`}
                   alt="avatar-image"
                 />
                 <span className="margin-top-0_5 left-sub-container">
                   <p style={{ textAlign: "left" }}>{video.creator}</p>
                   <div className="margin-top-0_5 left-mini-container">
                     <i className="margin-right-0_5 fas fa-eye"></i>
-                    <span className="margin-right-2">{video.views}</span>
-                    <i className="margin-right-0_5 far fa-dot-circle"></i>
-                    <span>{video.days}</span>
+                    <span className="margin-right-2">{video.views} views</span>
+                    <i className="fas fa-clock"></i>
+                    <span>{video.time}</span>
                   </div>
                 </span>
               </span>

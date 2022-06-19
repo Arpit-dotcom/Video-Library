@@ -4,6 +4,7 @@ import { Sidebar } from "./sidebar";
 import { PlaylistContainer } from "./playlist-container";
 import { PlaylistModal } from "./playlist-modal";
 import { VideoContainer } from "./video-container";
+import { MobileSidebar } from "./mobileSidebar";
 
 export {
   Footer,
@@ -12,4 +13,5 @@ export {
   PlaylistContainer,
   PlaylistModal,
   VideoContainer,
+  MobileSidebar,
 };

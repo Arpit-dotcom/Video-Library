@@ -4,7 +4,7 @@ import "styles/sidebar.css";
 export const Sidebar = () => {
   const categories = [
     { icons: "fas fa-home", text: "Home", path: "/" },
-    { icons: "fas fa-compass", text: "Explore", path: "/videoListing" },
+    { icons: "fas fa-compass", text: "Explore", path: "/explore" },
     { icons: "fas fa-list", text: "Playlist", path: "/playlist" },
     { icons: "far fa-clock", text: "Watch Later", path: "/watchLater" },
     { icons: "fas fa-thumbs-up", text: "Liked Videos", path: "/likedVideos" },
