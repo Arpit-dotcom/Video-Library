@@ -19,23 +19,26 @@ export const useSignup = () => {
 
   const submitHandler = async (event) => {
     event.preventDefault();
-    try {
-      const response = await axios.post(`/api/auth/signup`, {
-        firstName: signUpState.firstName,
-        lastName: signUpState.lastName,
-        email: signUpState.email,
-        password: signUpState.password,
-        confirmPassword: signUpState.confirmPassword,
-      });
-      console.log(response);
-      setToken(response.data.encodedToken);
-      setIsLoggedIn(true);
-      navigate(location.state?.from?.pathname || "/explore", {
-        replace: true,
-      });
-    } catch (e) {
-      alert(e);
-      alert("Enter correct details");
+    if (signUpState.password === signUpState.confirmPassword) {
+      try {
+        const response = await axios.post(`/api/auth/signup`, {
+          firstName: signUpState.firstName,
+          lastName: signUpState.lastName,
+          email: signUpState.email,
+          password: signUpState.password,
+          confirmPassword: signUpState.confirmPassword,
+        });
+        console.log(response);
+        setToken(response.data.encodedToken);
+        setIsLoggedIn(true);
+        navigate(location.state?.from?.pathname || "/explore", {
+          replace: true,
+        });
+      } catch (e) {
+        console.log(e);
+      }
+    } else {
+      console.log("Password doesnot match");
     }
   };
   return { submitHandler, signUpDispatch, signUpState };

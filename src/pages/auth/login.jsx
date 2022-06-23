@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import "styles/auth/login.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLogin } from "utils";
+import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 
 export const Login = () => {
   const {
@@ -13,6 +14,8 @@ export const Login = () => {
     setPassword,
   } = useLogin();
 
+  const [showPassword, setShowPassword] = useState(false);
+
   useEffect(() => {
     document.title = "Login | Laugh Factory";
   }, []);
@@ -23,7 +26,6 @@ export const Login = () => {
         <h1>
           <strong>LOGIN</strong>
         </h1>
-        <small>See your growth and consulting support</small>
       </div>
 
       <form className="margin-2" action="login">
@@ -42,12 +44,18 @@ export const Login = () => {
           Password
           <input
             className="inp"
-            type="password"
+            type={showPassword ? "text" : "password"}
             placeholder="Password"
             value={_password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+          <span
+            className="password-icon"
+            onClick={() => setShowPassword((prev) => !prev)}
+          >
+            {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
+          </span>
         </label>
         <input
           className="submit"
@@ -59,7 +67,7 @@ export const Login = () => {
           className="submit"
           type="submit"
           onClick={(event) => dummyHandler(event)}
-          value="Login as Test Credential"
+          value="Login as a Guest"
         />
       </form>
       <p>

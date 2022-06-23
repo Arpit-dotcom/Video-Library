@@ -1,48 +1,95 @@
-.sub-container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+.sub-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
-.deals{
-    width: 100%;
+.banner {
+  width: 100%;
+  height: 60vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://media.istockphoto.com/photos/rendered-laughing-tears-emoji-faces-stock-photo-picture-id1294429156?b=1&k=20&m=1294429156&s=170667a&w=0&h=IBsUjI6TkvtIgRKE5tvwfEyCINNV-VTPdaDaz5oXAmo=");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.home-heading{
-    margin: 1rem 0;
-    width: 100%;
-    text-align: center;
+.home-heading {
+  margin: 1rem 0;
+  width: 100%;
+  text-align: center;
 }
 
-.carousal{
-    width: 100%;
-    height: 50vh;
-    object-fit: cover;
+.banner-text {
+  width: 21rem;
 }
 
-.retina{
-    position: relative;
+.banner-text-heading {
+  text-align: center;
+  font-size: 3rem;
+  color: var(--white-section);
 }
 
-.banner{
-    color: var(--default);
-    position: absolute;
-    top: 6rem;
-    background-color: var(--bg-color);
-    width: 100%;
+.banner-text-button {
+  width: 14rem;
+  text-decoration: none;
+  color: var(--default);
+  cursor: pointer;
+  background-color: var(--bg-color);
+  border: none;
+  padding: 1.5rem;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  margin-top: 2rem;
 }
 
-.img-size{
-    margin: 0;
-    border-radius: 1rem;
-    object-fit: cover;
-    height: 15rem;
-    width: 25rem;
-    height: 15rem;
+.banner-text-button:hover {
+  opacity: 0.8;
+}
+
+.banner-arrow {
+  margin-left: 0.5rem;
+  font-weight: bolder;
+}
+
+.retina {
+  position: relative;
+}
+
+.retina:hover {
+  transform: scale(1.1);
+  transition: all 0.7s;
+}
+
+.text-overlay {
+  border-radius: 0 0 1rem 1rem;
+  color: var(--default);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 8.9rem;
+  background-color: var(--bg-color);
+  width: 100%;
+  height: 40%;
+}
+
+.img-size {
+  margin: 0;
+  border-radius: 1rem;
+  object-fit: cover;
+  height: 15rem;
+  width: 25rem;
+  height: 15rem;
 }
 
 @media screen and (max-width: 480px) {
-    .img-size{
-        width: 15rem;
-    }
+  .img-size {
+    width: 15rem;
+  }
 }

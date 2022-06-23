@@ -23,6 +23,14 @@
   color: var(--default);
 }
 
+.loginContainer .password-icon {
+  margin: 1rem;
+  position: relative;
+  top: -2.7rem;
+  left: 11rem;
+  cursor: pointer;
+}
+
 .loginContainer .submit {
   padding: 0.5rem;
   border-radius: 1rem;
@@ -32,7 +40,11 @@
   color: var(--secondary-color);
   cursor: pointer;
   text-decoration: none;
-  margin: .5rem 0;
+  margin: 0.5rem 0;
+}
+
+.loginContainer .submit:hover {
+  opacity: 0.5;
 }
 
 .loginContainer .material-icons-outlined {
@@ -41,6 +53,6 @@
   color: var(--primary-color);
 }
 
-.loginContainer .signup-link{
+.loginContainer .signup-link {
   color: var(--primary-color);
 }

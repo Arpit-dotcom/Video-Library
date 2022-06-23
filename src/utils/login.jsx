@@ -1,6 +1,6 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "contexts";
 
 export const useLogin = () => {
@@ -23,8 +23,7 @@ export const useLogin = () => {
         replace: true,
       });
     } catch (e) {
-      alert(e);
-      alert("Enter correct details");
+      console.log(e);
     }
   };
 
@@ -33,6 +32,25 @@ export const useLogin = () => {
     setEmail("arpitkumar@gmail.com");
     setPassword("arpit1234");
   };
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await axios.post("/api/auth/login", {
+          email: _email,
+          password: _password,
+        });
+        setToken(response.data.encodedToken);
+        setIsLoggedIn(true);
+        navigate(location.state?.from?.pathname || "/explore", {
+          replace: true,
+        });
+      } catch (e) {
+        console.log(e);
+      }
+    })();
+  }, [_password, _email]);
+
   return {
     loginHandler,
     dummyHandler,

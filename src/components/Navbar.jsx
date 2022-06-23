@@ -18,7 +18,9 @@ const Navbar = () => {
             className="hamburger-icon"
             onClick={() => setMobileSidebar((prev) => !prev)}
           />
-          <h1 className="text">Laugh Factory</h1>
+          <Link to="/" className="text">
+            Laugh Factory
+          </Link>
           <div className="nav-list-link">
             <Link to="/" className="nav-link">
               Home
