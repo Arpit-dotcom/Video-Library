@@ -1,6 +1,7 @@
 import { Sidebar, VideoContainer } from "components";
 import { useWatchLater } from "contexts";
 import { Link } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 export const Main = () => {
   const { watchLaterState } = useWatchLater();
@@ -16,9 +17,12 @@ export const Main = () => {
               <p>{watchLaterState.watchLater.length} videos</p>
             </div>
           ) : (
-            <span className="empty-liked">
-              There is no watch-later videos yet,{" "}
-              <Link to="/explore">explore more</Link>
+            <span className="empty-container">
+              <h2>Watch later is empty !!!</h2>
+              <p>
+                There is no watch later video yet,{" "}
+                <Link to="/explore">explore more</Link>
+              </p>
             </span>
           )}
 
@@ -26,6 +30,7 @@ export const Main = () => {
             return <VideoContainer video={video} key={index} />;
           })}
         </main>
+        <ToastContainer />
       </section>
     </>
   );

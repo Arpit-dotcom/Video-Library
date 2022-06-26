@@ -15,14 +15,16 @@ const Main = ({ categories }) => {
     <>
       <main className="container">
         <section className="banner">
-          <div className="banner-text">
-            <h1 className="banner-text-heading">
-              View stand-up comedy in just single click.
-            </h1>
-            <Link to="/explore" className="banner-text-button">
-              EXPLORE VIDEOS
-              <AiOutlineRight className="banner-arrow" />
-            </Link>
+          <div className="banner-container">
+            <div className="banner-text">
+              <h1 className="banner-text-heading">
+                View stand-up comedy in just single click.
+              </h1>
+              <Link to="/explore" className="banner-text-button">
+                EXPLORE VIDEOS
+                <AiOutlineRight className="banner-arrow" />
+              </Link>
+            </div>
           </div>
         </section>
         <h1 className="home-heading">Videos By Category</h1>

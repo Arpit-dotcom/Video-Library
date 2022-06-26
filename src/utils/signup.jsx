@@ -3,6 +3,8 @@ import { useReducer } from "react";
 import axios from "axios";
 import { useAuth } from "contexts";
 import { signUpReducer } from "reducer";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const useSignup = () => {
   const { setIsLoggedIn, setToken } = useAuth();
@@ -28,7 +30,7 @@ export const useSignup = () => {
           password: signUpState.password,
           confirmPassword: signUpState.confirmPassword,
         });
-        console.log(response);
+        toast.success("You are signed in");
         setToken(response.data.encodedToken);
         setIsLoggedIn(true);
         navigate(location.state?.from?.pathname || "/explore", {
@@ -38,7 +40,7 @@ export const useSignup = () => {
         console.log(e);
       }
     } else {
-      console.log("Password doesnot match");
+      toast.warning("Password doesnot match");
     }
   };
   return { submitHandler, signUpDispatch, signUpState };

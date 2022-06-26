@@ -5,6 +5,8 @@ import { useState } from "react";
 import { useAuth, usePlaylist } from "contexts";
 import axios from "axios";
 import { isNewPlaylist, isNewPlaylistVideo } from "utils";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const PlaylistModal = ({ video }) => {
   const { token } = useAuth();
@@ -32,25 +34,24 @@ export const PlaylistModal = ({ video }) => {
           type: "ADD_VIDEO_TO_PLAYLIST",
           payload: { video, playlistId },
         });
+        toast.success("Video added to playlist");
       } catch (e) {
         console.log(e);
       }
     } else {
-       try {
-         const videoId = video._id;
-         await axios.delete(
-           `/api/user/playlists/${playlistId}/${video._id}`,
-           {
-             headers: { authorization: token },
-           }
-         );
-          playlistDispatch({
-            type: "DELETE_VIDEO_TO_PLAYLIST",
-            payload: { videoId, playlistId },
-          });
-       } catch (e) {
-         console.log(e);
-       }
+      try {
+        const videoId = video._id;
+        await axios.delete(`/api/user/playlists/${playlistId}/${video._id}`, {
+          headers: { authorization: token },
+        });
+        playlistDispatch({
+          type: "DELETE_VIDEO_TO_PLAYLIST",
+          payload: { videoId, playlistId },
+        });
+        toast.error("Video removed from playlist");
+      } catch (e) {
+        console.log(e);
+      }
     }
   };
 
@@ -70,11 +71,12 @@ export const PlaylistModal = ({ video }) => {
           type: "ADD_NEW_PLAYLIST",
           payload: response.data.playlists,
         });
+        toast.success("Playlist added");
       } catch (e) {
         console.log(e);
       }
     } else {
-      console.log("playlist already exists");
+      toast.warning("playlist already exists");
     }
     setNewInput("");
     setInput(false);
@@ -120,6 +122,7 @@ export const PlaylistModal = ({ video }) => {
           Create playlist
         </button>
       </div>
+      <ToastContainer />
     </section>
   );
 };

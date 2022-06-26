@@ -4,6 +4,8 @@ import { getPlaylist } from "utils";
 import { Sidebar } from "./sidebar";
 import "styles/header.css";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const PlaylistContainer = () => {
   const navigate = useNavigate();
@@ -23,6 +25,7 @@ export const PlaylistContainer = () => {
         payload: response.data.playlists,
       });
       navigate("/playlist");
+      toast.error("Playlist is deleted");
     } catch (e) {
       console.log(e);
     }
@@ -37,6 +40,7 @@ export const PlaylistContainer = () => {
         type: "DELETE_VIDEO_TO_PLAYLIST",
         payload: { videoId, playlistId },
       });
+      toast.error("Video removed from playlist");
     } catch (e) {
       console.log(e);
     }
@@ -100,6 +104,7 @@ export const PlaylistContainer = () => {
             );
           })}
         </main>
+        <ToastContainer />
       </section>
     </>
   );

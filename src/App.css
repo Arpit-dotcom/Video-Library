@@ -59,7 +59,7 @@
   .videoPlayerContainer .main-content {
     padding: 0.5rem !important;
   }
-  .playlist-modal-container{
+  .playlist-modal-container {
     left: calc(100vw - 60vw);
   }
 }
@@ -87,13 +87,34 @@
     justify-content: flex-start !important;
     align-items: start !important;
   }
-  .playlist-modal-container{
+  .playlist-modal-container {
     left: calc(100vw - 70vw);
+  }
+  .horizontal .img {
+    width: 10rem !important;
+  }
+  .footer .view {
+    margin: 0 !important;
+  }
+  .playlistContainer .normal-list-item{
+    width: 25rem !important;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .playlist-modal-container{
+  .playlist-modal-container {
     left: calc(100vw - 85vw);
+  }
+  .videoContainer .main-content {
+    padding: 0 !important;
+  }
+  .videoContainer .card {
+    width: 18rem !important;
+  }
+  .videoContainer .title {
+    width: 12rem !important;
+  }
+  .playlistContainer .normal-list-item{
+    width: 15rem !important;
   }
 }

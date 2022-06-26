@@ -1,12 +1,10 @@
 import axios from "axios";
-import {
-  useAuth,
-  useHistory,
-  useLikedVideo,
-  useWatchLater,
-} from "contexts";
+import { useAuth, useHistory, useLikedVideo, useWatchLater } from "contexts";
 import { Link, useLocation } from "react-router-dom";
 import "styles/playlist-container.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 export const VideoContainer = ({ video }) => {
   const { pathname } = useLocation();
@@ -24,6 +22,7 @@ export const VideoContainer = ({ video }) => {
         type: "DELETE_FROM_WATCH_LATER",
         payload: response.data.watchlater,
       });
+      toast.error("Video removed from watch later");
       setAddWatchLater(false);
     } catch (e) {
       console.log(e);
@@ -39,6 +38,7 @@ export const VideoContainer = ({ video }) => {
         type: "DELETE_FROM_LIKED_VIDEO",
         payload: response.data.likes,
       });
+      toast.error("Video removed from liked videos");
       setLiked(false);
     } catch (e) {
       console.log(e);
@@ -54,6 +54,7 @@ export const VideoContainer = ({ video }) => {
         type: "DELETE_FROM_HISTORY",
         payload: response.data.history,
       });
+      toast.error("Video removed from history");
     } catch (e) {
       console.log(e);
     }

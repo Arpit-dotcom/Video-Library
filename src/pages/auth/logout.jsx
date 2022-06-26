@@ -1,9 +1,10 @@
 import "styles/auth/logout.css";
 import { useEffect } from "react";
 import { useLogout } from "utils";
+import { ToastContainer } from "react-toastify";
 
 export const Logout = () => {
-  const {notLogOutHandler, logOutHandler} = useLogout();
+  const { notLogOutHandler, logOutHandler } = useLogout();
 
   useEffect(() => {
     document.title = "Logout | Laugh Factory";
@@ -33,6 +34,7 @@ export const Logout = () => {
           Log Me Out
         </button>
       </form>
+      <ToastContainer />
     </section>
   );
 };

@@ -3,6 +3,7 @@ import "styles/auth/signup.css";
 import { useEffect, useState } from "react";
 import { useSignup } from "utils";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
+import { ToastContainer } from "react-toastify";
 
 export const Signup = () => {
   const { submitHandler, signUpDispatch, signUpState } = useSignup();
@@ -104,6 +105,7 @@ export const Signup = () => {
           Log In
         </Link>
       </p>
+      <ToastContainer />
     </section>
   );
 };

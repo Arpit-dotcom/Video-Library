@@ -15,9 +15,12 @@ export const Main = () => {
           {playlistState.playlists.length ? (
             <h1 className="heading">All Playlist</h1>
           ) : (
-            <span className="empty-liked">
-              There is no playlist yet,{" "}
-              <Link to="/explore">explore more</Link>
+            <span className="empty-container">
+              <h2>Playlist is empty !!!</h2>
+              <p>
+                There is no playlist yet,{" "}
+                <Link to="/explore">explore more</Link>
+              </p>
             </span>
           )}
           <ul className="normal-list">

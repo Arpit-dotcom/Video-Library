@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useAuth, useWatchLater } from "contexts";
 import axios from "axios";
 import { isVideoInWatchLater } from "utils";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const VideoCard = ({
   filtervideo,
@@ -39,6 +41,7 @@ export const VideoCard = ({
             type: "ADD_TO_WATCH_LATER",
             payload: response.data.watchlater,
           });
+          toast.success("Video added to watch later");
         } catch (e) {
           console.log(e);
         }
@@ -54,6 +57,7 @@ export const VideoCard = ({
             type: "DELETE_FROM_WATCH_LATER",
             payload: response.data.watchlater,
           });
+          toast.error("Video removed from watch later");
         } catch (e) {
           console.log(e);
         }

@@ -11,11 +11,11 @@ import {
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { isVideoInHistory, isVideoInWatchLater, isVideoLiked } from "utils";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const Main = () => {
-  const [video, setVideo] = useState(
-    JSON.parse(localStorage.getItem("videoPlayer")) ?? null
-  );
+  const [video, setVideo] = useState(null);
   const navigate = useNavigate();
   const { isLoggedIn, token } = useAuth();
   const { videoId } = useParams();
@@ -33,10 +33,10 @@ export const Main = () => {
   useEffect(() => {
     (async () => {
       try {
+        console.log(videoId);
         const response = await axios.get(`/api/video/${videoId}`);
         const video = response.data.video;
         setVideo(video);
-        localStorage.setItem("videoPlayer", JSON.stringify(video));
       } catch (e) {
         console.log(e);
       }
@@ -46,24 +46,21 @@ export const Main = () => {
   useEffect(() => {
     if (video && videoInHistory) {
       (async () => {
-        if (!isLoggedIn) {
-          navigate("/login");
-        } else {
-          try {
-            const response = await axios.post(
-              "/api/user/history",
-              { video },
-              {
-                headers: { authorization: token },
-              }
-            );
-            historyDispatch({
-              type: "ADD_TO_HISTORY",
-              payload: response.data.history,
-            });
-          } catch (e) {
-            console.log(e);
-          }
+        try {
+          const response = await axios.post(
+            "/api/user/history",
+            { video },
+            {
+              headers: { authorization: token },
+            }
+          );
+          historyDispatch({
+            type: "ADD_TO_HISTORY",
+            payload: response.data.history,
+          });
+          toast.success("Video added to history");
+        } catch (e) {
+          console.log(e);
         }
       })();
     }
@@ -86,6 +83,7 @@ export const Main = () => {
             type: "ADD_TO_WATCH_LATER",
             payload: response.data.watchlater,
           });
+          toast.success("Video added to watch later");
         } catch (e) {
           console.log(e);
         }
@@ -101,6 +99,7 @@ export const Main = () => {
             type: "DELETE_FROM_WATCH_LATER",
             payload: response.data.watchlater,
           });
+          toast.error("Video removed from watch later");
         } catch (e) {
           console.log(e);
         }
@@ -125,6 +124,7 @@ export const Main = () => {
             type: "ADD_TO_LIKED_VIDEO",
             payload: response.data.likes,
           });
+          toast.success("Video added to liked video");
         } catch (e) {
           console.log(e);
         }
@@ -137,6 +137,7 @@ export const Main = () => {
             type: "DELETE_FROM_LIKED_VIDEO",
             payload: response.data.likes,
           });
+          toast.error("Video removed from liked video");
         } catch (e) {
           console.log(e);
         }
@@ -152,14 +153,12 @@ export const Main = () => {
     }
   };
 
-  console.log(video);
-
   return (
     <>
-      {video && (
-        <section className="videoPlayerContainer">
-          <Sidebar />
+      <section className="videoPlayerContainer">
+        <Sidebar />
 
+        {video && (
           <main className="main-content">
             {showPlaylistModal && <PlaylistModal video={video} />}
             <div className="video">
@@ -226,8 +225,9 @@ export const Main = () => {
 
             <div className="margin-top-2 description">{video.description}</div>
           </main>
-        </section>
-      )}
+        )}
+        <ToastContainer />
+      </section>
     </>
   );
 };

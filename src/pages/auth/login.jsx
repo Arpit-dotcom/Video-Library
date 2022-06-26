@@ -3,6 +3,7 @@ import "styles/auth/login.css";
 import { useEffect, useState } from "react";
 import { useLogin } from "utils";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
+import { ToastContainer } from "react-toastify";
 
 export const Login = () => {
   const {
@@ -76,6 +77,7 @@ export const Login = () => {
           Sign Up
         </Link>
       </p>
+      <ToastContainer />
     </section>
   );
 };

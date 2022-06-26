@@ -1,7 +1,9 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useAuth } from "contexts";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const useLogin = () => {
   const [_email, setEmail] = useState("");
@@ -17,6 +19,7 @@ export const useLogin = () => {
         email: _email,
         password: _password,
       });
+      toast.success("You are logged in");
       setToken(response.data.encodedToken);
       setIsLoggedIn(true);
       navigate(location.state?.from?.pathname || "/explore", {
@@ -32,24 +35,6 @@ export const useLogin = () => {
     setEmail("arpitkumar@gmail.com");
     setPassword("arpit1234");
   };
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const response = await axios.post("/api/auth/login", {
-          email: _email,
-          password: _password,
-        });
-        setToken(response.data.encodedToken);
-        setIsLoggedIn(true);
-        navigate(location.state?.from?.pathname || "/explore", {
-          replace: true,
-        });
-      } catch (e) {
-        console.log(e);
-      }
-    })();
-  }, [_password, _email]);
 
   return {
     loginHandler,

@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "contexts";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const useLogout = () => {
   const { setIsLoggedIn, setToken } = useAuth();
@@ -10,6 +12,7 @@ export const useLogout = () => {
   };
 
   const logOutHandler = () => {
+    toast.error("You are logged out");
     setToken("");
     setIsLoggedIn(false);
     navigate("/explore");
