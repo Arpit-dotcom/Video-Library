@@ -12,7 +12,7 @@ export const useLogin = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const loginHandler = async (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault();
     try {
       const response = await axios.post("/api/auth/login", {
@@ -37,7 +37,7 @@ export const useLogin = () => {
   };
 
   return {
-    loginHandler,
+    submitHandler,
     dummyHandler,
     _email,
     _password,

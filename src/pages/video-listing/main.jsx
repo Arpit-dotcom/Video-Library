@@ -17,52 +17,53 @@ export const Main = ({ categories }) => {
       <section className="videoContainer">
         <Sidebar />
 
-        <main className="main-content">
-          {showPlaylistModal && <PlaylistModal video={playlistVideo} />}
-          <ul className="filter-list">
-            <li
-              className={`cursor-pointer filter-list-item ${active}`}
-              onClick={() =>
-                videoDispatch({ type: "FILTER_CATEGORY", payload: "All" })
-              }
-            >
-              All
-            </li>
-            {categories.map(({ categoryName }, index) => (
+        {filteredVideos.length ? (
+          <main className="main-content">
+            {showPlaylistModal && <PlaylistModal video={playlistVideo} />}
+            <ul className="filter-list">
               <li
-                className={`cursor-pointer filter-list-item ${
-                  videoState.category === categoryName ? "active" : ""
-                }`}
-                key={index}
+                className={`cursor-pointer filter-list-item ${active}`}
                 onClick={() =>
-                  videoDispatch({
-                    type: "FILTER_CATEGORY",
-                    payload: categoryName,
-                  })
+                  videoDispatch({ type: "FILTER_CATEGORY", payload: "All" })
                 }
               >
-                {categoryName}
+                All
               </li>
-            ))}
-          </ul>
-          <div className="video-content">
-            {filteredVideos && (
-              <>
-                {filteredVideos.map((filtervideo, index) => (
-                  <VideoCard
-                    filtervideo={filtervideo}
-                    key={index}
-                    setShowPlaylistModal={setShowPlaylistModal}
-                    setPlaylistVideo={setPlaylistVideo}
-                  />
-                ))}
-              </>
-            )}
-            {!filteredVideos.length && (
-              <h1 className="product-empty">Loading...</h1>
-            )}
-          </div>
-        </main>
+              {categories.map(({ categoryName }, index) => (
+                <li
+                  className={`cursor-pointer filter-list-item ${
+                    videoState.category === categoryName ? "active" : ""
+                  }`}
+                  key={index}
+                  onClick={() =>
+                    videoDispatch({
+                      type: "FILTER_CATEGORY",
+                      payload: categoryName,
+                    })
+                  }
+                >
+                  {categoryName}
+                </li>
+              ))}
+            </ul>
+            <div className="video-content">
+              {filteredVideos && (
+                <>
+                  {filteredVideos.map((filtervideo, index) => (
+                    <VideoCard
+                      filtervideo={filtervideo}
+                      key={index}
+                      setShowPlaylistModal={setShowPlaylistModal}
+                      setPlaylistVideo={setPlaylistVideo}
+                    />
+                  ))}
+                </>
+              )}
+            </div>
+          </main>
+        ) : (
+          <h1 className="video-empty">Loading...</h1>
+        )}
         <ToastContainer />
       </section>
     </>

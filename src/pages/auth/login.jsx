@@ -7,7 +7,7 @@ import { ToastContainer } from "react-toastify";
 
 export const Login = () => {
   const {
-    loginHandler,
+    submitHandler,
     dummyHandler,
     _email,
     _password,
@@ -29,7 +29,11 @@ export const Login = () => {
         </h1>
       </div>
 
-      <form className="margin-2" action="login">
+      <form
+        className="margin-2"
+        action="login"
+        onSubmit={(event) => submitHandler(event)}
+      >
         <label htmlFor="Email">
           Email
           <input
@@ -58,12 +62,7 @@ export const Login = () => {
             {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
           </span>
         </label>
-        <input
-          className="submit"
-          type="submit"
-          value="Login"
-          onClick={(event) => loginHandler(event)}
-        />
+        <input className="submit" type="submit" value="Login" />
         <input
           className="submit"
           type="submit"

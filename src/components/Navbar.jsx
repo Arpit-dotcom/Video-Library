@@ -1,6 +1,6 @@
-import { useAuth } from "contexts";
+import { useAuth, useVideoListing } from "contexts";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "styles/Navbar.css";
 import { FaBars } from "react-icons/fa";
 import { MobileSidebar } from "components";
@@ -8,6 +8,12 @@ import { MobileSidebar } from "components";
 const Navbar = () => {
   const [mobileSidebar, setMobileSidebar] = useState(false);
   const { isLoggedIn } = useAuth();
+  const { videoDispatch, videoState } = useVideoListing();
+  const { pathname } = useLocation();
+
+  const searchHandler = (event) => {
+    videoDispatch({ type: "SET_SEARCH_CATEGORY", payload: event.target.value });
+  };
 
   return (
     <>
@@ -21,21 +27,17 @@ const Navbar = () => {
           <Link to="/" className="text">
             Laugh Factory
           </Link>
-          <div className="nav-list-link">
-            <Link to="/" className="nav-link">
-              Home
-            </Link>
-            <Link to="/explore" className="nav-link">
-              Explore
-            </Link>
-          </div>
         </span>
 
-        {/* <input
-          className="nav-search"
-          type="text"
-          placeholder="Search for product, brands and more"
-        /> */}
+        {pathname === "/explore" && (
+          <input
+            className="nav-search"
+            type="text"
+            placeholder="Search..."
+            value={videoState.search}
+            onChange={(e) => searchHandler(e)}
+          />
+        )}
 
         <div className="nav-list">
           <div className="list-item icons">

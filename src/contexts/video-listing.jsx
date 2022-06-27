@@ -6,7 +6,7 @@ import {
   useEffect,
   useState,
 } from "react";
-import { getFilteredVideos } from "utils";
+import { getCategoryVideos, getFilteredVideos } from "utils";
 import { videoReducer } from "reducer";
 
 const VideoListingContext = createContext();
@@ -15,6 +15,7 @@ const VideoListingProvider = ({ children }) => {
   const [videos, setVideos] = useState([]);
   const [videoState, videoDispatch] = useReducer(videoReducer, {
     category: "",
+    search: "",
   });
 
   useEffect(() => {
@@ -28,7 +29,8 @@ const VideoListingProvider = ({ children }) => {
     })();
   }, []);
 
-  const filteredVideos = getFilteredVideos(videos, videoState.category);
+  const categoryVideos = getCategoryVideos(videos, videoState.category);
+  const filteredVideos = getFilteredVideos(categoryVideos, videoState.search);
   return (
     <VideoListingContext.Provider
       value={{ videoState, videoDispatch, filteredVideos }}

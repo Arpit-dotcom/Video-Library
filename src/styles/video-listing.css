@@ -6,6 +6,7 @@
 
 .videoContainer .main-content {
   padding: 0 3rem;
+  padding-bottom: 3rem;
 }
 
 .videoContainer .video-content {
@@ -95,11 +96,10 @@
   color: var(--default);
 }
 
-.videoContainer .product-empty {
-  font-size: 5rem;
-  display: flex;
-  justify-content: center;
-  margin-top: 8rem;
+.video-empty {
+  font-size: 3rem;
+  justify-self: center;
+  align-self: center;
 }
 
 .videoContainer .fa-ellipsis-v {

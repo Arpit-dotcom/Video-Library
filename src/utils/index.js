@@ -1,4 +1,4 @@
-import { getFilteredVideos } from "./video-listing";
+import { getFilteredVideos, getCategoryVideos } from "./video-listing";
 import { isVideoInWatchLater } from "./watch-later";
 import { isVideoLiked } from "./liked-videos";
 import { isVideoInHistory } from "./history";
@@ -9,6 +9,7 @@ import { useSignup } from "./signup";
 
 export {
   getFilteredVideos,
+  getCategoryVideos,
   isVideoInWatchLater,
   isVideoLiked,
   isVideoInHistory,

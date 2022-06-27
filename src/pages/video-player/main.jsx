@@ -58,7 +58,6 @@ export const Main = () => {
             type: "ADD_TO_HISTORY",
             payload: response.data.history,
           });
-          toast.success("Video added to history");
         } catch (e) {
           console.log(e);
         }
