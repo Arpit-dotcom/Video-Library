@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import "styles/Navbar.css";
 import { FaBars } from "react-icons/fa";
 import { MobileSidebar } from "components";
+import { debounce } from "lodash";
 
 const Navbar = () => {
   const [mobileSidebar, setMobileSidebar] = useState(false);
@@ -11,9 +12,9 @@ const Navbar = () => {
   const { videoDispatch, videoState } = useVideoListing();
   const { pathname } = useLocation();
 
-  const searchHandler = (event) => {
+  const searchHandler = debounce((event) => {
     videoDispatch({ type: "SET_SEARCH_CATEGORY", payload: event.target.value });
-  };
+  }, 1000);
 
   return (
     <>
@@ -34,7 +35,6 @@ const Navbar = () => {
             className="nav-search"
             type="text"
             placeholder="Search..."
-            value={videoState.search}
             onChange={(e) => searchHandler(e)}
           />
         )}
