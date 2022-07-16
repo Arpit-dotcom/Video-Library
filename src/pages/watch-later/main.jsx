@@ -1,20 +1,20 @@
 import { Sidebar, VideoContainer } from "components";
-import { useWatchLater } from "contexts";
 import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import { useSelector } from "react-redux";
 
 export const Main = () => {
-  const { watchLaterState } = useWatchLater();
+  const { watchLater } = useSelector((state) => state.watchLater);
   return (
     <>
       <section className="main">
         <Sidebar />
 
         <main className="main-content">
-          {watchLaterState.watchLater.length ? (
+          {watchLater?.length ? (
             <div className="margin-1 heading">
               <h1>Watch Later.</h1>
-              <p>{watchLaterState.watchLater.length} videos</p>
+              <p>{watchLater?.length} videos</p>
             </div>
           ) : (
             <span className="empty-container">
@@ -26,11 +26,11 @@ export const Main = () => {
             </span>
           )}
 
-          {watchLaterState.watchLater.map((video, index) => {
+          {watchLater?.map((video, index) => {
             return <VideoContainer video={video} key={index} />;
           })}
         </main>
-        <ToastContainer />
+        <ToastContainer autoClose={2000} />
       </section>
     </>
   );

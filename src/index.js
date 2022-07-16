@@ -9,7 +9,6 @@ import {
   HistoryProvider,
   PlaylistProvider,
   VideoListingProvider,
-  WatchLaterProvider,
 } from "contexts";
 import { Provider } from "react-redux";
 import { store } from "./store";
@@ -24,11 +23,9 @@ ReactDOM.render(
         <VideoListingProvider>
           <PlaylistProvider>
             <HistoryProvider>
-              <WatchLaterProvider>
-                <Provider store={store}>
-                  <App />
-                </Provider>
-              </WatchLaterProvider>
+              <Provider store={store}>
+                <App />
+              </Provider>
             </HistoryProvider>
           </PlaylistProvider>
         </VideoListingProvider>

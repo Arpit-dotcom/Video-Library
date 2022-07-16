@@ -64,7 +64,7 @@ export const Main = ({ categories }) => {
         ) : (
           <h1 className="video-empty">Loading...</h1>
         )}
-        <ToastContainer />
+        <ToastContainer autoClose={2000} />
       </section>
     </>
   );

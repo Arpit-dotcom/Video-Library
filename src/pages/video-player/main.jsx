@@ -1,12 +1,7 @@
 import ReactPlayer from "react-player";
 import { PlaylistModal, Sidebar } from "components";
 import { useParams, useNavigate } from "react-router-dom";
-import {
-  useWatchLater,
-  useHistory,
-  usePlaylist,
-  useAuth,
-} from "contexts";
+import { useHistory, usePlaylist, useAuth } from "contexts";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { isVideoInHistory, isVideoInWatchLater, isVideoLiked } from "utils";
@@ -14,21 +9,19 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addToLikes, removeFromLiked } from "slice/likeSlice";
+import { addToWatchLater, removeFromWatchLater } from "slice/watchLaterSlice";
 
 export const Main = () => {
   const [video, setVideo] = useState(null);
   const navigate = useNavigate();
   const { isLoggedIn, token } = useAuth();
   const { videoId } = useParams();
-  const { watchLaterState, watchLaterDispatch } = useWatchLater();
   const { historyState, historyDispatch } = useHistory();
   const dispatch = useDispatch();
   const { likes } = useSelector((state) => state.likes);
+  const { watchLater } = useSelector((state) => state.watchLater);
   const videoLiked = isVideoLiked(videoId, likes);
-  const videoInWatchLater = isVideoInWatchLater(
-    videoId,
-    watchLaterState.watchLater
-  );
+  const videoInWatchLater = isVideoInWatchLater(videoId, watchLater);
   const videoInHistory = isVideoInHistory(videoId, historyState.history);
   const { showPlaylistModal, setShowPlaylistModal } = usePlaylist();
 
@@ -71,38 +64,11 @@ export const Main = () => {
       navigate("/login");
     } else {
       if (!videoInWatchLater) {
-        try {
-          const response = await axios.post(
-            "/api/user/watchlater",
-            { video },
-            {
-              headers: { authorization: token },
-            }
-          );
-          watchLaterDispatch({
-            type: "ADD_TO_WATCH_LATER",
-            payload: response.data.watchlater,
-          });
-          toast.success("Video added to watch later");
-        } catch (e) {
-          console.log(e);
-        }
+        dispatch(addToWatchLater({ video, token }));
+        toast.success("Video added to watch later");
       } else {
-        try {
-          const response = await axios.delete(
-            `/api/user/watchlater/${videoId}`,
-            {
-              headers: { authorization: token },
-            }
-          );
-          watchLaterDispatch({
-            type: "DELETE_FROM_WATCH_LATER",
-            payload: response.data.watchlater,
-          });
-          toast.error("Video removed from watch later");
-        } catch (e) {
-          console.log(e);
-        }
+        dispatch(removeFromWatchLater({ videoId, token }));
+        toast.error("Video removed from watch later");
       }
     }
   };

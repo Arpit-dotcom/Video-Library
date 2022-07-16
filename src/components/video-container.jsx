@@ -1,33 +1,23 @@
 import axios from "axios";
-import { useAuth, useHistory, useWatchLater } from "contexts";
+import { useAuth, useHistory } from "contexts";
 import { Link, useLocation } from "react-router-dom";
 import "styles/playlist-container.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { removeFromLiked } from "slice/likeSlice";
+import { removeFromWatchLater } from "slice/watchLaterSlice";
 
 export const VideoContainer = ({ video }) => {
   const { pathname } = useLocation();
   const { historyDispatch } = useHistory();
-  const { watchLaterDispatch, setAddWatchLater } = useWatchLater();
   const dispatch = useDispatch();
   const { token } = useAuth();
 
   const deleteWatchLater = async () => {
-    try {
-      const response = await axios.delete(`/api/user/watchlater/${video._id}`, {
-        headers: { authorization: token },
-      });
-      watchLaterDispatch({
-        type: "DELETE_FROM_WATCH_LATER",
-        payload: response.data.watchlater,
-      });
-      toast.error("Video removed from watch later");
-      setAddWatchLater(false);
-    } catch (e) {
-      console.log(e);
-    }
+    const videoId = video._id;
+    dispatch(removeFromWatchLater({ videoId, token }));
+    toast.error("Video removed from watch later");
   };
 
   const deleteLikedVideo = async () => {
