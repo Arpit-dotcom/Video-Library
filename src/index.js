@@ -7,11 +7,12 @@ import { BrowserRouter } from "react-router-dom";
 import {
   AuthProvider,
   HistoryProvider,
-  LikedVideoProvider,
   PlaylistProvider,
   VideoListingProvider,
   WatchLaterProvider,
 } from "contexts";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
 // Call make Server
 makeServer();
@@ -24,9 +25,9 @@ ReactDOM.render(
           <PlaylistProvider>
             <HistoryProvider>
               <WatchLaterProvider>
-                <LikedVideoProvider>
+                <Provider store={store}>
                   <App />
-                </LikedVideoProvider>
+                </Provider>
               </WatchLaterProvider>
             </HistoryProvider>
           </PlaylistProvider>

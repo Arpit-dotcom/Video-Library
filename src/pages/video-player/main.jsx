@@ -3,7 +3,6 @@ import { PlaylistModal, Sidebar } from "components";
 import { useParams, useNavigate } from "react-router-dom";
 import {
   useWatchLater,
-  useLikedVideo,
   useHistory,
   usePlaylist,
   useAuth,
@@ -13,6 +12,8 @@ import axios from "axios";
 import { isVideoInHistory, isVideoInWatchLater, isVideoLiked } from "utils";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useDispatch, useSelector } from "react-redux";
+import { addToLikes, removeFromLiked } from "slice/likeSlice";
 
 export const Main = () => {
   const [video, setVideo] = useState(null);
@@ -20,9 +21,10 @@ export const Main = () => {
   const { isLoggedIn, token } = useAuth();
   const { videoId } = useParams();
   const { watchLaterState, watchLaterDispatch } = useWatchLater();
-  const { likedVideoState, likedVideoDispatch } = useLikedVideo();
   const { historyState, historyDispatch } = useHistory();
-  const videoLiked = isVideoLiked(videoId, likedVideoState.likedVideo);
+  const dispatch = useDispatch();
+  const { likes } = useSelector((state) => state.likes);
+  const videoLiked = isVideoLiked(videoId, likes);
   const videoInWatchLater = isVideoInWatchLater(
     videoId,
     watchLaterState.watchLater
@@ -33,7 +35,6 @@ export const Main = () => {
   useEffect(() => {
     (async () => {
       try {
-        console.log(videoId);
         const response = await axios.get(`/api/video/${videoId}`);
         const video = response.data.video;
         setVideo(video);
@@ -111,35 +112,11 @@ export const Main = () => {
       navigate("/login");
     } else {
       if (!videoLiked) {
-        try {
-          const response = await axios.post(
-            "/api/user/likes",
-            { video },
-            {
-              headers: { authorization: token },
-            }
-          );
-          likedVideoDispatch({
-            type: "ADD_TO_LIKED_VIDEO",
-            payload: response.data.likes,
-          });
-          toast.success("Video added to liked video");
-        } catch (e) {
-          console.log(e);
-        }
+        dispatch(addToLikes({ video, token }));
+        toast.success("Video added to liked video");
       } else {
-        try {
-          const response = await axios.delete(`/api/user/likes/${videoId}`, {
-            headers: { authorization: token },
-          });
-          likedVideoDispatch({
-            type: "DELETE_FROM_LIKED_VIDEO",
-            payload: response.data.likes,
-          });
-          toast.error("Video removed from liked video");
-        } catch (e) {
-          console.log(e);
-        }
+        dispatch(removeFromLiked({ videoId, token }));
+        toast.error("Video removed from liked video");
       }
     }
   };
@@ -225,7 +202,7 @@ export const Main = () => {
             <div className="margin-top-2 description">{video.description}</div>
           </main>
         )}
-        <ToastContainer />
+        <ToastContainer autoClose={2000} />
       </section>
     </>
   );

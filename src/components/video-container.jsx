@@ -1,16 +1,17 @@
 import axios from "axios";
-import { useAuth, useHistory, useLikedVideo, useWatchLater } from "contexts";
+import { useAuth, useHistory, useWatchLater } from "contexts";
 import { Link, useLocation } from "react-router-dom";
 import "styles/playlist-container.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { useDispatch } from "react-redux";
+import { removeFromLiked } from "slice/likeSlice";
 
 export const VideoContainer = ({ video }) => {
   const { pathname } = useLocation();
   const { historyDispatch } = useHistory();
   const { watchLaterDispatch, setAddWatchLater } = useWatchLater();
-  const { likedVideoDispatch, setLiked } = useLikedVideo();
+  const dispatch = useDispatch();
   const { token } = useAuth();
 
   const deleteWatchLater = async () => {
@@ -30,19 +31,9 @@ export const VideoContainer = ({ video }) => {
   };
 
   const deleteLikedVideo = async () => {
-    try {
-      const response = await axios.delete(`/api/user/likes/${video._id}`, {
-        headers: { authorization: token },
-      });
-      likedVideoDispatch({
-        type: "DELETE_FROM_LIKED_VIDEO",
-        payload: response.data.likes,
-      });
-      toast.error("Video removed from liked videos");
-      setLiked(false);
-    } catch (e) {
-      console.log(e);
-    }
+    const videoId = video._id;
+    dispatch(removeFromLiked({ videoId, token }));
+    toast.error("Video removed from liked videos");
   };
 
   const deleteHistory = async () => {
@@ -69,7 +60,7 @@ export const VideoContainer = ({ video }) => {
           <small className="margin-top-0_5 description">
             {video.description}
           </small>
-          <div className="margin-top-2 footer">
+          <div className="margin-top-1_5 footer">
             <span className="view">
               <i className="fas fa-eye"></i>
               <span>{video.views} views</span>
