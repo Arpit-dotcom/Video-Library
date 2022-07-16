@@ -1,5 +1,4 @@
-import axios from "axios";
-import { useAuth, useHistory } from "contexts";
+import { useAuth } from "contexts";
 import { Link, useLocation } from "react-router-dom";
 import "styles/playlist-container.css";
 import { toast } from "react-toastify";
@@ -7,10 +6,10 @@ import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { removeFromLiked } from "slice/likeSlice";
 import { removeFromWatchLater } from "slice/watchLaterSlice";
+import { removeFromHistory } from "slice/history";
 
 export const VideoContainer = ({ video }) => {
   const { pathname } = useLocation();
-  const { historyDispatch } = useHistory();
   const dispatch = useDispatch();
   const { token } = useAuth();
 
@@ -27,18 +26,9 @@ export const VideoContainer = ({ video }) => {
   };
 
   const deleteHistory = async () => {
-    try {
-      const response = await axios.delete(`/api/user/history/${video._id}`, {
-        headers: { authorization: token },
-      });
-      historyDispatch({
-        type: "DELETE_FROM_HISTORY",
-        payload: response.data.history,
-      });
-      toast.error("Video removed from history");
-    } catch (e) {
-      console.log(e);
-    }
+    const videoId = video._id;
+    dispatch(removeFromHistory({videoId,token}));
+    toast.error("Video removed from history");
   };
 
   return (

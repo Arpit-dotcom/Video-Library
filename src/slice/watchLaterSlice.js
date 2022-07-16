@@ -1,8 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-let encodedToken = "";
-
 const initialState = {
   watchLater: [],
   watchLaterStatus: null,
@@ -49,25 +47,25 @@ const watchLaterSlice = createSlice({
   initialState,
   extraReducers: {
     [addToWatchLater.pending]: (state) => {
-      state.status = "loading";
+      state.watchLaterStatus = "loading";
     },
     [addToWatchLater.fulfilled]: (state, action) => {
       state.watchLater = action.payload;
-      state.status = "success";
+      state.watchLaterStatus = "success";
     },
     [addToWatchLater.rejected]: (state) => {
-      state.status = "failed";
+      state.watchLaterStatus = "failed";
     },
 
     [removeFromWatchLater.pending]: (state) => {
-      state.status = "loading";
+      state.watchLaterStatus = "loading";
     },
     [removeFromWatchLater.fulfilled]: (state, action) => {
       state.watchLater = action.payload;
-      state.status = "success";
+      state.watchLaterStatus = "success";
     },
     [removeFromWatchLater.rejected]: (state) => {
-      state.status = "failed";
+      state.watchLaterStatus = "failed";
     },
   },
 });

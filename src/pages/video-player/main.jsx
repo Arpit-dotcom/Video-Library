@@ -1,7 +1,7 @@
 import ReactPlayer from "react-player";
 import { PlaylistModal, Sidebar } from "components";
 import { useParams, useNavigate } from "react-router-dom";
-import { useHistory, usePlaylist, useAuth } from "contexts";
+import { usePlaylist, useAuth } from "contexts";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { isVideoInHistory, isVideoInWatchLater, isVideoLiked } from "utils";
@@ -10,19 +10,20 @@ import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addToLikes, removeFromLiked } from "slice/likeSlice";
 import { addToWatchLater, removeFromWatchLater } from "slice/watchLaterSlice";
+import { addToHistory } from "slice/history";
 
 export const Main = () => {
   const [video, setVideo] = useState(null);
   const navigate = useNavigate();
   const { isLoggedIn, token } = useAuth();
   const { videoId } = useParams();
-  const { historyState, historyDispatch } = useHistory();
   const dispatch = useDispatch();
   const { likes } = useSelector((state) => state.likes);
   const { watchLater } = useSelector((state) => state.watchLater);
+  const { history } = useSelector((state) => state.history);
   const videoLiked = isVideoLiked(videoId, likes);
   const videoInWatchLater = isVideoInWatchLater(videoId, watchLater);
-  const videoInHistory = isVideoInHistory(videoId, historyState.history);
+  const videoInHistory = isVideoInHistory(videoId, history);
   const { showPlaylistModal, setShowPlaylistModal } = usePlaylist();
 
   useEffect(() => {
@@ -40,21 +41,7 @@ export const Main = () => {
   useEffect(() => {
     if (video && videoInHistory) {
       (async () => {
-        try {
-          const response = await axios.post(
-            "/api/user/history",
-            { video },
-            {
-              headers: { authorization: token },
-            }
-          );
-          historyDispatch({
-            type: "ADD_TO_HISTORY",
-            payload: response.data.history,
-          });
-        } catch (e) {
-          console.log(e);
-        }
+        dispatch(addToHistory({ video, token }));
       })();
     }
   }, [video]);
