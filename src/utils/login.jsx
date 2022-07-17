@@ -30,10 +30,22 @@ export const useLogin = () => {
     }
   };
 
-  const dummyHandler = (event) => {
+  const dummyHandler = async (event) => {
     event.preventDefault();
-    setEmail("arpitkumar@gmail.com");
-    setPassword("arpit1234");
+    try {
+      const response = await axios.post("/api/auth/login", {
+        email: "arpitkumar@gmail.com",
+        password: "arpit1234",
+      });
+      toast.success("You are logged in");
+      setToken(response.data.encodedToken);
+      setIsLoggedIn(true);
+      navigate(location.state?.from?.pathname || "/explore", {
+        replace: true,
+      });
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return {

@@ -62,13 +62,13 @@ export const Login = () => {
             {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
           </span>
         </label>
-        <input className="submit" type="submit" value="Login" />
         <input
           className="submit"
           type="submit"
           onClick={(event) => dummyHandler(event)}
           value="Login as a Guest"
         />
+        <input className="submit" type="submit" value="Login" />
       </form>
       <p>
         Don't have an account?
