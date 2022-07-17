@@ -9,7 +9,7 @@ import { debounce } from "lodash";
 const Navbar = () => {
   const [mobileSidebar, setMobileSidebar] = useState(false);
   const { isLoggedIn } = useAuth();
-  const { videoDispatch, videoState } = useVideoListing();
+  const { videoDispatch } = useVideoListing();
   const { pathname } = useLocation();
 
   const searchHandler = debounce((event) => {

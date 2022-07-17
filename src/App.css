@@ -15,6 +15,10 @@
   margin-top: 0.2rem;
 }
 
+.margin-top-1_5 {
+  margin-top: 1.5rem;
+}
+
 .margin-right-0_5 {
   margin-right: 0.5rem;
 }
@@ -96,7 +100,7 @@
   .footer .view {
     margin: 0 !important;
   }
-  .playlistContainer .normal-list-item{
+  .playlistContainer .normal-list-item {
     width: 25rem !important;
   }
 }
@@ -114,7 +118,7 @@
   .videoContainer .title {
     width: 12rem !important;
   }
-  .playlistContainer .normal-list-item{
+  .playlistContainer .normal-list-item {
     width: 15rem !important;
   }
 }

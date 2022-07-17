@@ -1,10 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { useAuth, useWatchLater } from "contexts";
-import axios from "axios";
+import { useAuth } from "contexts";
 import { isVideoInWatchLater } from "utils";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useDispatch, useSelector } from "react-redux";
+import { addToWatchLater, removeFromWatchLater } from "slice/watchLaterSlice";
 
 export const VideoCard = ({
   filtervideo,
@@ -14,11 +15,9 @@ export const VideoCard = ({
   const navigate = useNavigate();
   const { isLoggedIn, token } = useAuth();
   const [card, setCard] = useState(false);
-  const { watchLaterState, watchLaterDispatch } = useWatchLater();
-  const videoInWatchLater = isVideoInWatchLater(
-    filtervideo._id,
-    watchLaterState.watchLater
-  );
+  const dispatch = useDispatch();
+  const { watchLater } = useSelector((state) => state.watchLater);
+  const videoInWatchLater = isVideoInWatchLater(filtervideo._id, watchLater);
 
   const cardPopUp = () => {
     setCard((prev) => !prev);
@@ -29,38 +28,13 @@ export const VideoCard = ({
       navigate("/login");
     } else {
       if (!videoInWatchLater) {
-        try {
-          const response = await axios.post(
-            "/api/user/watchlater",
-            { video: filtervideo },
-            {
-              headers: { authorization: token },
-            }
-          );
-          watchLaterDispatch({
-            type: "ADD_TO_WATCH_LATER",
-            payload: response.data.watchlater,
-          });
-          toast.success("Video added to watch later");
-        } catch (e) {
-          console.log(e);
-        }
+        const video = filtervideo;
+        dispatch(addToWatchLater({ video, token }));
+        toast.success("Video added to watch later");
       } else {
-        try {
-          const response = await axios.delete(
-            `/api/user/watchlater/${filtervideo._id}`,
-            {
-              headers: { authorization: token },
-            }
-          );
-          watchLaterDispatch({
-            type: "DELETE_FROM_WATCH_LATER",
-            payload: response.data.watchlater,
-          });
-          toast.error("Video removed from watch later");
-        } catch (e) {
-          console.log(e);
-        }
+        const videoId = filtervideo._id;
+        dispatch(removeFromWatchLater({ videoId, token }));
+        toast.error("Video removed from watch later");
       }
     }
   };

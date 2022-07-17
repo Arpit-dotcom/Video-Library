@@ -76,7 +76,7 @@ export const Login = () => {
           Sign Up
         </Link>
       </p>
-      <ToastContainer />
+      <ToastContainer autoClose={2000} />
     </section>
   );
 };

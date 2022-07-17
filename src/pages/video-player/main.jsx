@@ -1,39 +1,34 @@
 import ReactPlayer from "react-player";
 import { PlaylistModal, Sidebar } from "components";
 import { useParams, useNavigate } from "react-router-dom";
-import {
-  useWatchLater,
-  useLikedVideo,
-  useHistory,
-  usePlaylist,
-  useAuth,
-} from "contexts";
+import { usePlaylist, useAuth } from "contexts";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { isVideoInHistory, isVideoInWatchLater, isVideoLiked } from "utils";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useDispatch, useSelector } from "react-redux";
+import { addToLikes, removeFromLiked } from "slice/likeSlice";
+import { addToWatchLater, removeFromWatchLater } from "slice/watchLaterSlice";
+import { addToHistory } from "slice/history";
 
 export const Main = () => {
   const [video, setVideo] = useState(null);
   const navigate = useNavigate();
   const { isLoggedIn, token } = useAuth();
   const { videoId } = useParams();
-  const { watchLaterState, watchLaterDispatch } = useWatchLater();
-  const { likedVideoState, likedVideoDispatch } = useLikedVideo();
-  const { historyState, historyDispatch } = useHistory();
-  const videoLiked = isVideoLiked(videoId, likedVideoState.likedVideo);
-  const videoInWatchLater = isVideoInWatchLater(
-    videoId,
-    watchLaterState.watchLater
-  );
-  const videoInHistory = isVideoInHistory(videoId, historyState.history);
+  const dispatch = useDispatch();
+  const { likes } = useSelector((state) => state.likes);
+  const { watchLater } = useSelector((state) => state.watchLater);
+  const { history } = useSelector((state) => state.history);
+  const videoLiked = isVideoLiked(videoId, likes);
+  const videoInWatchLater = isVideoInWatchLater(videoId, watchLater);
+  const videoInHistory = isVideoInHistory(videoId, history);
   const { showPlaylistModal, setShowPlaylistModal } = usePlaylist();
 
   useEffect(() => {
     (async () => {
       try {
-        console.log(videoId);
         const response = await axios.get(`/api/video/${videoId}`);
         const video = response.data.video;
         setVideo(video);
@@ -46,21 +41,7 @@ export const Main = () => {
   useEffect(() => {
     if (video && videoInHistory) {
       (async () => {
-        try {
-          const response = await axios.post(
-            "/api/user/history",
-            { video },
-            {
-              headers: { authorization: token },
-            }
-          );
-          historyDispatch({
-            type: "ADD_TO_HISTORY",
-            payload: response.data.history,
-          });
-        } catch (e) {
-          console.log(e);
-        }
+        dispatch(addToHistory({ video, token }));
       })();
     }
   }, [video]);
@@ -70,38 +51,11 @@ export const Main = () => {
       navigate("/login");
     } else {
       if (!videoInWatchLater) {
-        try {
-          const response = await axios.post(
-            "/api/user/watchlater",
-            { video },
-            {
-              headers: { authorization: token },
-            }
-          );
-          watchLaterDispatch({
-            type: "ADD_TO_WATCH_LATER",
-            payload: response.data.watchlater,
-          });
-          toast.success("Video added to watch later");
-        } catch (e) {
-          console.log(e);
-        }
+        dispatch(addToWatchLater({ video, token }));
+        toast.success("Video added to watch later");
       } else {
-        try {
-          const response = await axios.delete(
-            `/api/user/watchlater/${videoId}`,
-            {
-              headers: { authorization: token },
-            }
-          );
-          watchLaterDispatch({
-            type: "DELETE_FROM_WATCH_LATER",
-            payload: response.data.watchlater,
-          });
-          toast.error("Video removed from watch later");
-        } catch (e) {
-          console.log(e);
-        }
+        dispatch(removeFromWatchLater({ videoId, token }));
+        toast.error("Video removed from watch later");
       }
     }
   };
@@ -111,35 +65,11 @@ export const Main = () => {
       navigate("/login");
     } else {
       if (!videoLiked) {
-        try {
-          const response = await axios.post(
-            "/api/user/likes",
-            { video },
-            {
-              headers: { authorization: token },
-            }
-          );
-          likedVideoDispatch({
-            type: "ADD_TO_LIKED_VIDEO",
-            payload: response.data.likes,
-          });
-          toast.success("Video added to liked video");
-        } catch (e) {
-          console.log(e);
-        }
+        dispatch(addToLikes({ video, token }));
+        toast.success("Video added to liked video");
       } else {
-        try {
-          const response = await axios.delete(`/api/user/likes/${videoId}`, {
-            headers: { authorization: token },
-          });
-          likedVideoDispatch({
-            type: "DELETE_FROM_LIKED_VIDEO",
-            payload: response.data.likes,
-          });
-          toast.error("Video removed from liked video");
-        } catch (e) {
-          console.log(e);
-        }
+        dispatch(removeFromLiked({ videoId, token }));
+        toast.error("Video removed from liked video");
       }
     }
   };
@@ -225,7 +155,7 @@ export const Main = () => {
             <div className="margin-top-2 description">{video.description}</div>
           </main>
         )}
-        <ToastContainer />
+        <ToastContainer autoClose={2000} />
       </section>
     </>
   );

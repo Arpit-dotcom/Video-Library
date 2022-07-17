@@ -105,7 +105,7 @@ export const Signup = () => {
           Log In
         </Link>
       </p>
-      <ToastContainer />
+      <ToastContainer autoClose={2000} />
     </section>
   );
 };
