@@ -34,7 +34,7 @@ export const Logout = () => {
           Log Me Out
         </button>
       </form>
-      <ToastContainer />
+      <ToastContainer autoClose={2000} />
     </section>
   );
 };

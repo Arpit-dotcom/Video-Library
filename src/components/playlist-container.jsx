@@ -104,7 +104,7 @@ export const PlaylistContainer = () => {
             );
           })}
         </main>
-        <ToastContainer />
+        <ToastContainer autoClose={2000} />
       </section>
     </>
   );

@@ -122,7 +122,7 @@ export const PlaylistModal = ({ video }) => {
           Create playlist
         </button>
       </div>
-      <ToastContainer />
+      <ToastContainer autoClose={2000} />
     </section>
   );
 };
