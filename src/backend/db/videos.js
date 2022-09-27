@@ -62,9 +62,9 @@ export const videos = [
   {
     _id: uuid(),
     link: "g1T8-WSYcdI&t=602s",
-    thumbnail: "g1T8-WSYcdI/hq720",
+    thumbnail: "g1T8-WSYcdI/hqdefault",
     avatar:
-      "54SDvpLEfFdPeOnCCE_-P6rkiDP0VkVGAsK6pF4ockOPJw5sewC0AOexSTWjQxq8uFcYbXCMPw",
+      "tQRnHeVFIYQ7DTAcGpQHXwEZeq7u7b3geX_MQ3ON0QcXq8nCL6_WJiwnkPYWRzBwrljscCIMFA",
     title: "Middle Class bhi Nahi Hoon | Standup Comedy ft. Haseeb Khan",
     description:
       "Shot and recorded by The Habitat Team at a live standup comedy event at The Habitat, Mumbai.",
@@ -142,7 +142,7 @@ export const videos = [
     link: "pzPCJj1U8bE&t=230s",
     thumbnail: "pzPCJj1U8bE/hqdefault",
     avatar:
-      "54SDvpLEfFdPeOnCCE_-P6rkiDP0VkVGAsK6pF4ockOPJw5sewC0AOexSTWjQxq8uFcYbXCMPw",
+      "tQRnHeVFIYQ7DTAcGpQHXwEZeq7u7b3geX_MQ3ON0QcXq8nCL6_WJiwnkPYWRzBwrljscCIMFA",
     title: "Main Karachi se Hoon - Stand Up Comedy ft. Haseeb Khan",
     description: "MY FIRST STAND UP VIDEO IS HERE! ",
     views: "6.6M",
@@ -254,5 +254,5 @@ export const videos = [
     days: "10 Dec 2019",
     time: "12:37",
     creator: "Zakir Khan",
-  }
+  },
 ];

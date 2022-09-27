@@ -23,7 +23,7 @@ export const categories = [
   },
   {
     _id: uuid(),
-    src: "54SDvpLEfFdPeOnCCE_-P6rkiDP0VkVGAsK6pF4ockOPJw5sewC0AOexSTWjQxq8uFcYbXCMPw",
+    src: "tQRnHeVFIYQ7DTAcGpQHXwEZeq7u7b3geX_MQ3ON0QcXq8nCL6_WJiwnkPYWRzBwrljscCIMFA",
     categoryName: "Haseeb Khan",
   },
   {
