@@ -108,7 +108,9 @@ export const Main = () => {
                   alt="avatar-image"
                 />
                 <span className="margin-top-0_5 left-sub-container">
-                  <p style={{ textAlign: "left" }}>{video.creator}</p>
+                  <p style={{ textAlign: "left", fontWeight: "bolder" }}>
+                    {video.creator}
+                  </p>
                   <div className="margin-top-0_5 left-mini-container">
                     <i className="margin-right-0_5 fas fa-eye"></i>
                     <span className="margin-right-2">{video.views} views</span>

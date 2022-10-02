@@ -51,7 +51,7 @@ export const VideoCard = ({
 
   return (
     <section className="card badge-card" key={filtervideo._id}>
-      <button className="timing">{filtervideo.time}</button>
+      <div className="timing">{filtervideo.time}</div>
       <Link to={`/videoPlayer/${filtervideo._id}`} className="video-link">
         <img
           className="img"
@@ -59,10 +59,6 @@ export const VideoCard = ({
           alt="card-thumbnail"
         />
       </Link>
-      <i
-        className="cursor-pointer fas fa-ellipsis-v"
-        onClick={() => cardPopUp()}
-      ></i>
       {card && (
         <div className="card-pop-up">
           <p className="cursor-pointer playlist" onClick={() => addPlaylist()}>
@@ -94,10 +90,24 @@ export const VideoCard = ({
               alt="avatar-image"
             />
           </span>
-          <span>
-            <h4 className="title">{filtervideo.title}</h4>
-            <small>{filtervideo.creator}</small>
-            <div>
+          <span style={{ width: "100%" }}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+              }}
+            >
+              <div>
+                <h4 className="title">{filtervideo.title}</h4>
+                <small>{filtervideo.creator}</small>
+              </div>
+              <i
+                className="cursor-pointer fas fa-ellipsis-v"
+                onClick={() => cardPopUp()}
+              ></i>
+            </div>
+            <div className="margin-top-0_5">
               <small className="card-view">
                 <i className="fas fa-eye"></i>
                 {filtervideo.views} views

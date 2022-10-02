@@ -43,3 +43,9 @@
   justify-content: center;
   margin-top: 4rem;
 }
+
+@media screen and (max-width: 480px) {
+  .playlistContainer .normal-list-item {
+    width: 100%;
+  }
+}

@@ -100,9 +100,6 @@
   .footer .view {
     margin: 0 !important;
   }
-  .playlistContainer .normal-list-item {
-    width: 25rem !important;
-  }
 }
 
 @media screen and (max-width: 480px) {
@@ -112,13 +109,7 @@
   .videoContainer .main-content {
     padding: 0 !important;
   }
-  .videoContainer .card {
-    width: 18rem !important;
-  }
   .videoContainer .title {
     width: 12rem !important;
-  }
-  .playlistContainer .normal-list-item {
-    width: 15rem !important;
   }
 }

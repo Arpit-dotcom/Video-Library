@@ -32,7 +32,7 @@ const Main = ({ categories }) => {
           {categories.map(({ categoryName, src, _id }) => (
             <span
               key={_id}
-              className="cursor-pointer"
+              className="cursor-pointer image-section"
               onClick={() => categoryHandler(categoryName)}
             >
               <div className="retina">

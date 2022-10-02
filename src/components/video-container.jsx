@@ -27,7 +27,7 @@ export const VideoContainer = ({ video }) => {
 
   const deleteHistory = async () => {
     const videoId = video._id;
-    dispatch(removeFromHistory({videoId,token}));
+    dispatch(removeFromHistory({ videoId, token }));
     toast.error("Video removed from history");
   };
 

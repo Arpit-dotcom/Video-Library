@@ -1,10 +1,10 @@
 .drawer {
-  width: 15rem;
   background-color: var(--bg-color);
   border: 1px solid var(--white-section);
   position: sticky;
-  top: 4.7rem;
-  height: 40.3rem;
+  top: 4.8rem;
+  height: calc(100vh - 79px);
+  min-width: max-content;
 }
 
 .stacked-list {
